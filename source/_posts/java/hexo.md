@@ -1,6 +1,7 @@
 ---
 title: hexo使用
 date: 2021-05-31 19:24:06
+updated: 2021-06-01 19:24:06
 tags:
   - hexo
 category:
@@ -642,9 +643,9 @@ after_script:
 
 ### 6.4. 提交到github，并测试
 
-#### 6.4.1. 删除 themes\ayer 下多余的文件
+#### 6.4.1. 删除 themes\ayer 下多余的文件,不然主题配置会被覆盖
 
-![image-20210601170848853](hexo/image-20210601170848853.png)
+![image-20210601182218682](hexo/image-20210601182218682.png)
 
 #### 6.4.2.  提交并测试
 
@@ -658,4 +659,61 @@ git push -u origin master:main
 ```
 
 ![image-20210601171658374](hexo/image-20210601171658374.png)
+
+## 7. 常用命令
+
+## 7.1. 新建相关
+
+> [hexo new](https://hexo.io/zh-cn/docs/writing)
+
+```bash
+hexo new page -p 生活/买车 "买车"
+```
+
+![image-20210601184756867](hexo/image-20210601184756867.png)
+
+
+
+```bash
+ hexo new page manage
+```
+
+![image-20210601184846170](hexo/image-20210601184846170.png)
+
+```bash
+hexo new page -p test
+```
+
+![image-20210601184937111](hexo/image-20210601184937111.png)
+
+```bash
+ # 默认使用 _config.yml 中的 default_layout 参数代替
+ hexo new -p python/python "python"
+```
+
+![image-20210601185341576](hexo/image-20210601185341576.png)
+
+```bash
+hexo new "python"
+```
+
+![image-20210601185821903](hexo/image-20210601185821903.png)
+
+
+
+> [Front-matter](https://hexo.io/zh-cn/docs/front-matter)
+
+| 参数              | 描述                                                         | 默认值                                                       |
+| :---------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| `layout`          | 布局                                                         | [`config.default_layout`](https://hexo.io/zh-cn/docs/configuration#文章) |
+| `title`           | 标题                                                         | 文章的文件名                                                 |
+| `date`            | 建立日期                                                     | 文件建立日期                                                 |
+| `updated`         | 更新日期                                                     | 文件更新日期                                                 |
+| `comments`        | 开启文章的评论功能                                           | true                                                         |
+| `tags`            | 标签（不适用于分页）                                         |                                                              |
+| `categories`      | 分类（不适用于分页）                                         |                                                              |
+| `permalink`       | 覆盖文章网址                                                 |                                                              |
+| `excerpt`         | Page excerpt in plain text. Use [this plugin](https://hexo.io/docs/tag-plugins#Post-Excerpt) to format the text |                                                              |
+| `disableNunjucks` | Disable rendering of Nunjucks tag `{{ }}`/`{% %}` and [tag plugins](https://hexo.io/docs/tag-plugins) when enabled |                                                              |
+| `lang`            | Set the language to override [auto-detection](https://hexo.io/docs/internationalization#Path) | Inherited from `_config.yml`                                 |
 

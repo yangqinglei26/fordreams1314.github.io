@@ -1,7 +1,8 @@
 ---
 title: Java
 date: 2021-05-28 19:24:06
-tags:	
+updated: 2021-06-01 19:24:06
+tags:
   - java	
   - jvm
   - juc
@@ -11,7 +12,7 @@ category:
   - juc
 ---
 
-## 1. io
+## 1. IO和NIO
 
 ## 2. 多线程
 
@@ -19,7 +20,8 @@ category:
 
 #### 2.1.1. 实现Runnable接口
 
-<u>**推进使用：方便同一个对象被多个线程使用**</u>
+> 推进使用：方便同一个对象被多个线程使用
+>
 
 ```java
 new Thread(Runnable 实现).start()
@@ -34,7 +36,7 @@ new Thread(Runnable 实现).start()
 重写call方法，需要抛出异常
 创建目标对象
 创建执行服务：ExecutorService ser = Executors.newFixedThreadPool(1);
-提交执行：Future<Boolean> result1 = ser.submint(t1);
+提交执行：Future<Boolean> result1 = ser.submit(t1);
 获取结果：boolean r1 = result1.get()
 关闭服务：ser.shutdownNow()
 ```
