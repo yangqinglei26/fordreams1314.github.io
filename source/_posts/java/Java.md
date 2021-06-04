@@ -623,6 +623,8 @@ thread1:退出读取
 
 ### 4.9. BlockingQueue
 
+![image-20210604192750304](Java/image-20210604192750304.png)
+
 
 
 ## 5. JVM
