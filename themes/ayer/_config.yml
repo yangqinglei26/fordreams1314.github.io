@@ -4,8 +4,9 @@ menu:
   归档: /archives
   分类: /categories
   标签: /tags
-  生活: /categories/life/
-  管理: /manage
+  JAVA: /categories/java
+  生活: /categories/生活
+  管理: /categories/管理
   关于我: /about
 
 # 站点次标题和打字动效
