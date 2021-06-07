@@ -625,6 +625,62 @@ thread1:退出读取
 
 ![image-20210604192750304](Java/image-20210604192750304.png)
 
+#### 4.9.1. ArrayBlockingQueue
+
+|      | 抛出异常   | 特殊值   | 阻塞     | 超时                 |
+| ---- | ---------- | -------- | -------- | -------------------- |
+| 插入 | add(e)   | offer(e) | put(e) | offer(e, time, unit) |
+| 移除 | remove() | poll() | take()   | poll(time, unit)     |
+| 检查 | element()  | peek() | 不可用   | 不可用               |
+
+#### 4.9.2. SynchronousQueue
+
+
+
+### 4.10. Executors
+
+#### 4.10.1. 三种创建方式（不采用）
+
+#### 4.10.2. ThreadPoolExecutor 七大参数
+
+- cpu密集型
+- IO密集型
+
+### 4.11. 四大函数式接口
+
+### 4.12. Stream 流式计算
+
+### 4.13. ForkJoin
+
+### 4.14. 异步回调
+
+### 4.15. JMM
+
+
+
+### 4.16. volatile
+
+volatile 是java虚拟机提供的轻量级的同步机制
+
+1. 保证可见性
+2. 不保证原子性
+
+- 原子类
+
+3. 禁止指令重排
+
+### 4.17. 单例模式
+
+- DCL懒汉式
+
+```java
+
+```
+
+- 枚举
+
+### 4.18. CAS
+
 
 
 ## 5. JVM
