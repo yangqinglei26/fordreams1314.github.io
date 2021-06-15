@@ -99,6 +99,10 @@ publ
 
 ## 4. JUC
 
+> [参考资料1](https://www.processon.com/view/5ff905961e0853437c6d010c?fromnew=1#map) 
+>
+> [参考资料2](https://www.processon.com/view/60595e325653bb2225dee274?fromnew=1#map)
+
 ### 4.1. wait和sleep的区别
 
 - 来自不同的类
@@ -118,6 +122,7 @@ wait 在 synchronized 中使用
 #### 4.2.1. ReentrantLock
 
 - 默认非公平锁
+- 必须成对出现
 - 示例：
 
 ```java
@@ -681,16 +686,143 @@ volatile 是java虚拟机提供的轻量级的同步机制
 
 ### 4.18. CAS
 
+- ABA 问题
+- Atomic
 
+### 4.19. 各种锁
+
+> [不可不说的Java“锁”事](https://tech.meituan.com/2018/11/15/java-lock.html)
+
+#### 4.19.1. 公平锁、非公平锁
+
+#### 4.19.2. 可重入锁
+
+#### 4.19.3. 自旋锁
+
+#### 4.19.4. 死锁
+
+- 死锁排查
+
+程序员面试宝典4.27版
 
 ## 5. JVM
 
-## 6. java8
+> [知识架构图](https://www.processon.com/view/5ed19b151e085306e3638b04#map) 
+>
+> [JVM内存图](https://www.processon.com/view/5f93d20763768906e68676d4)
+>
+> [字符串常量池](https://blog.csdn.net/TomAndersen/article/details/107147344)
+>
+> [动态链接](https://www.freesion.com/article/8181984190/)
+>
+> [订单秒杀jvm调优案例](https://blog.csdn.net/qq_45076180/article/details/108441940)
+>
+> [美团JVM相关文档](https://tech.meituan.com/tags/jvm.html)
 
-### 6.1. lamada表达式
+```java
+/**
+ * @Description: 字面量测试
+ * @Author: yql
+ * @Date: 2021/6/8 18:43
+ * @Version: 1.0
+ */
+public class LiteralTest {
+    public static String s = "Hello";
+    public static int anInt = 25;
+    public int bnInt = 30;
+    public Integer cnInt = 50;
+    public static final int dnInt = 70;
+    int m = 100;
+    static {
+        anInt = 90;
+    }
+}
 
-#### 6.1.1. 函数式接口
+```
+
+```bash
+# 查看编译后类信息
+javap -verbose LiteralTest.class
+```
+
+
+
+## 6. Java8
+
+> [java8特性](https://www.cnblogs.com/liuxiaozhi23/p/10880147.html)
+
+### 6.1. 函数式接口
+
+> [函数式接口](https://www.runoob.com/java/java8-functional-interfaces.html)
 
 - 定义：任何接口，如果只包含唯一一个抽象方法，那么它就是函数式接口 
 - 可以用lamada表达式代替匿名内部类来实现
+
+#### 6.1.1 Predicates
+
+```java
+@FunctionalInterface
+public interface Predicate<T> {
+	boolean test(T t);
+}
+```
+
+
+
+#### 6.1.2 Functions
+
+```java
+@FunctionalInterface
+public interface Function<T, R> {	
+	R apply(T t);
+}
+```
+
+
+
+#### 6.1.3 Suppliers
+
+```java
+@FunctionalInterface
+public interface Supplier<T> {
+    T get();
+}
+```
+
+
+
+#### 6.1.4 Consumers
+
+```java
+@FunctionalInterface
+public interface Consumer<T> {
+    void accept(T t);
+}
+```
+
+
+
+### 6.2. Lamada表达式
+
+> [Lambda 表达式](https://www.runoob.com/java/java8-lambda-expressions.html)
+
+### 6.3. 方法引用
+
+> [方法引用](https://www.runoob.com/java/java8-method-references.html)
+
+### 6.4. Stream
+
+> [Stream](https://www.runoob.com/java/java8-streams.html)
+
+### 6.5. 默认方法
+
+> [默认方法](https://www.runoob.com/java/java8-default-methods.html)
+
+### 6.6. Optional 类
+
+> [Optional 类](https://www.runoob.com/java/java8-optional-class.html)
+
+### 6.7. 日期时间
+
+> [新的日期时间 API](https://www.runoob.com/java/java8-datetime-api.html)
 
