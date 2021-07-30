@@ -19,6 +19,10 @@ category:
 > [Innodb进阶](https://www.processon.com/view/5eba560d1e08530a9bf30e7e?fromnew=1#map)
 >
 > [mysql实战](https://www.processon.com/view/6048549af346fb1bdfb25365?fromnew=1#map)
+>
+> [Double Write](https://blog.csdn.net/jc_benben/article/details/78967380)
+>
+> [缓冲池(buffer pool)](https://blog.csdn.net/shenjian58/article/details/93268633)
 
 ## 1. 安装
 

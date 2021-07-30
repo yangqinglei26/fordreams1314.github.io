@@ -16,6 +16,16 @@ category:
 
 ## 2. 多线程
 
+> [Java Thread 的使用](https://www.cnblogs.com/renhui/p/6066852.html)
+>
+> [Thread的join()方法](https://blog.csdn.net/a158123/article/details/78633772)
+>
+> [Java终止线程的三种方式](https://www.cnblogs.com/haolb123/p/14323815.html)
+
+
+
+![线程状态图](Java/624959-66b49045b1bd7cd6.webp)
+
 ### 2.1. 创建线程
 
 #### 2.1.1. 实现Runnable接口
@@ -102,6 +112,12 @@ publ
 > [参考资料1](https://www.processon.com/view/5ff905961e0853437c6d010c?fromnew=1#map) 
 >
 > [参考资料2](https://www.processon.com/view/60595e325653bb2225dee274?fromnew=1#map)
+>
+> [ThreadLocal](https://www.jianshu.com/p/3c5d7f09dfbd) [Java中的ThreadLocal详解](https://www.cnblogs.com/fsmly/p/11020641.html) [多个 THREADLOCAL 在 THREAD 中的 THREADLOCALS 里是怎么存储的](https://www.freesion.com/article/85951314530/)
+>
+> [Java并发编程之happens-before和as-if-serial语义](https://blog.csdn.net/byhook/article/details/87971081)
+>
+> [java并发](https://www.topjava.cn/article/1391297837127569408)
 
 ### 4.1. wait和sleep的区别
 
@@ -219,6 +235,10 @@ thread2:退出写入
 
 #### 4.2.2. synchronized 和 lock 的区别
 
+> [深入分析synchronized的实现原理](https://www.topjava.cn/article/1391297775492272128)
+>
+> [JAVA锁的膨胀过程](https://my.oschina.net/hosee/blog/2878328)
+
 | 序号 | synchronized                   | lock                 |
 | ---- | ------------------------------ | -------------------- |
 | 1    | 内置的java关键字               | java接口             |
@@ -236,10 +256,16 @@ thread2:退出写入
 
 synchronized 锁的对象
 
+![image-20210718002843921](Java/image-20210718002843921.png)
+
+![2bcc8161c52eb100d2c7c4c96c70d3c5823.jpg](Java/2bcc8161c52eb100d2c7c4c96c70d3c5823.jpg)
+
 - 方法的调用者
 - class类模板（static）
 
 ### 4.3. 集合相关
+
+![image-20210720010303960](Java/image-20210720010303960.png)
 
 #### 4.3.1. ArrayList
 
@@ -648,6 +674,8 @@ thread1:退出读取
 
 #### 4.10.2. ThreadPoolExecutor 七大参数
 
+![image-20210717170314604](Java/image-20210717170314604.png)
+
 ```java
     /**
      * Creates a new {@code ThreadPoolExecutor} with the given initial
@@ -698,13 +726,26 @@ thread1:退出读取
 
 ### 4.13. ForkJoin
 
+> [ForkJoin](https://www.liaoxuefeng.com/wiki/1252599548343744/1306581226487842)
+
 ### 4.14. 异步回调
+
+![image-20210717171601990](Java/image-20210717171601990.png)
 
 ### 4.15. JMM
 
+![img](Java/d866f75118d947c2b3c4bc4a340c3d38~tplv-k3u1fbpfcp-watermark.image)
 
+**内存屏障（Memory Barrier）又称内存栅栏，是一个CPU指令，它的作用有两个：**
+
+- 保证特定操作的顺序
+- 保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）
 
 ### 4.16. volatile
+
+> [JMM角度详解Volatile](https://blog.csdn.net/qq_38862628/article/details/112169326)
+>
+> [Java volatile关键字](https://blog.csdn.net/u012723673/article/details/80682208)
 
 volatile 是java虚拟机提供的轻量级的同步机制
 
@@ -728,7 +769,8 @@ volatile 是java虚拟机提供的轻量级的同步机制
 ### 4.18. CAS
 
 - ABA 问题
-- Atomic
+- AtomicInteger  
+- AtomicStampedReference
 
 ### 4.19. 各种锁
 

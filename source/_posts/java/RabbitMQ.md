@@ -21,3 +21,10 @@ category:
 
 - 销峰限流
 - 应用解耦
+
+# 分布式事务
+
+> [基于RocketMQ的分布式事务解决方案](https://www.jianshu.com/p/286cac4625b6)
+>
+> [RocketMQ实现分布式事务原理](https://www.cnblogs.com/qdhxhz/p/11191399.html)
+

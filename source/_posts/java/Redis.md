@@ -14,9 +14,9 @@ category:
 >
 > [基本数据类型底层实现](https://www.cnblogs.com/MouseDong/p/11134039.html)
 >
-> [基础框架](https://www.processon.com/view/6059480e07912927bd732d1c#map)
+> [基础框架](https://www.processon.com/view/6059480e07912927bd732d1c#map) [知识点](https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map)
 >
-> [进阶1](https://www.processon.com/view/6007f102e0b34d45d1658090?fromnew=1#map) [进阶2](https://www.processon.com/view/6083e8b97d9c0811840540ec?fromnew=1#map) [进阶3](https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map)
+> [进阶1](https://www.processon.com/view/6007f102e0b34d45d1658090?fromnew=1#map) [进阶2](https://www.processon.com/view/6083e8b97d9c0811840540ec?fromnew=1#map) [进阶3](https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map) [进阶4](https://www.processon.com/view/5edc94b6f346fb1712e5b34a?fromnew=1#map)
 >
 > [一致性hash算法](https://blog.csdn.net/wuxiaolongah/article/details/107327803)
 >
@@ -37,6 +37,27 @@ category:
 ## 2. 基本命令
 
 ## 3. 数据类型（5+3）
+
+> [Redis的底层数据结构](https://www.cnblogs.com/MouseDong/p/11133941.html)
+>
+> [Redis的五大数据类型的底层实现](https://www.cnblogs.com/MouseDong/p/11134039.html)
+
+- string
+  - sds
+- list
+  - ziplist
+  - linkedlist
+- set
+  - intset
+  - hashtable
+- zset
+  - ziplist
+  - skiplist
+- hash
+  - ziplist
+  - hashtable
+- 
+- 
 
 ## 4. 高级特性
 
