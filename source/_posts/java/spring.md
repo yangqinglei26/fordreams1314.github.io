@@ -26,7 +26,9 @@ category:
 
 - bean的生命周期
 
-  [SpringBean生命周期详解](https://blog.csdn.net/weixin_43244698/article/details/109338537)
+  > [SpringBean生命周期详解](https://blog.csdn.net/weixin_43244698/article/details/109338537)
+  >
+  > [Spring Bean的生命周期](https://www.cnblogs.com/zrtqsk/p/3735273.html)
 
   - beandefinition --->  BeanFactoryPostProcessor.postProcessBeanFactory() 修改beandefinition ---> InstantiationAwareBeanPostProcessorAdapter .postProcessBeforeInstantiation() ---> 实例化 --->InstantiationAwareBeanPostProcessorAdapter .postProcessAfterInstantiation() ---> InstantiationAwareBeanPostProcessorAdapter .postProcessProperties() 修改property ---> 配置property --->
 
@@ -48,6 +50,8 @@ category:
 ## spring 事务
 
 > [事务相关](https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93?id=_5-transactional-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e6%80%bb%e7%bb%93)
+>
+> [一口气说出 6种 @Transactional 注解失效场景](https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486483&idx=2&sn=77be488e206186803531ea5d7164ec53&chksm=cea243d8f9d5cacecaa5c5daae4cde4c697b9b5b21f96dfc6cce428cfcb62b88b3970c26b9c2&token=816772476&lang=zh_CN#rd)
 
 **`@Transactional` 的常用配置参数总结（只列巨额 5 个我平时比较常用的）：**
 
@@ -88,3 +92,4 @@ category:
 1. 使用`@Lazy`注解，延迟加载
 2. 使用`@DependsOn`注解，指定加载先后关系
 3. 修改文件名称，改变循环依赖类的加载顺序
+

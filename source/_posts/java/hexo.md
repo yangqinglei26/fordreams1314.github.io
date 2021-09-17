@@ -555,6 +555,10 @@ hexo.extend.filter.register('after_post_render', function(data){
 post_asset_folder: true
 ```
 
+### 5.4. 修改typora偏好配置
+
+![image-20210917091646220](hexo/image-20210917091646220.png)
+
 > 参考资料：[Ericam](https://blog.csdn.net/xjm850552586/article/details/84101345)
 
 ## 6. 集成Travis CI

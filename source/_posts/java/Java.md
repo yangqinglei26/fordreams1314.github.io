@@ -119,6 +119,8 @@ publ
 >
 > [java并发](https://www.topjava.cn/article/1391297837127569408)
 
+![sike-juc](Java/sike-juc.png)
+
 ### 4.1. wait和sleep的区别
 
 - 来自不同的类
