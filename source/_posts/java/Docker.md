@@ -10,3 +10,15 @@ category:
   - 运维 
 ---
 
+## 常用命令
+
+```shell
+
+```
+
+
+
+## 安装nginx
+
+[Docker 安装 Nginx 容器 (完整详细版)](https://blog.csdn.net/BThinker/article/details/123507820)
+
