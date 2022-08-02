@@ -29,6 +29,7 @@ category:
 
 ```shell
 #    rewrite /yang/(.*) /$1;
+-----------------------------------
 location /yang {
     proxy_pass  http://node/;
     #proxy_set_header    Host    $http_host;
@@ -37,6 +38,8 @@ location /yang {
     #root   /usr/share/nginx/html;
     #index  index.html index.htm;ß
 }
+
+------------------------------------
 server {
     listen 8081;
     server_name localhost;
