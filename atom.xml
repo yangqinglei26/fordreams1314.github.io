@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>fordreams1314个人博客</title>
+  
+  <subtitle>赢在格局，输在计较</subtitle>
+  <link href="https://yangqinglei26.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://yangqinglei26.github.io/"/>
+  <updated>2022-07-07T11:24:06.000Z</updated>
+  <id>https://yangqinglei26.github.io/</id>
+  
+  <author>
+    <name>fordreams1314</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx</title>
+    <link href="https://yangqinglei26.github.io/2022/07/07/java/nginx/"/>
+    <id>https://yangqinglei26.github.io/2022/07/07/java/nginx/</id>
+    <published>2022-07-07T02:24:06.000Z</published>
+    <updated>2022-07-07T11:24:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p><a href="https://zhuanlan.zhihu.com/p/369926646">2万字 让你全面认识 Nginx，收藏 ！</a></p><p><a href="https://blog.csdn.net/IT_10/article/details/89365436">超详细的Nginx负载均衡+高可用配置</a></p><p><a href="https://zhuanlan.zhihu.com/p/389438482">史上讲解最好的Nginx 教程，从入门到精通</a></p><h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><p><strong>路径映射：</strong></p><ul><li>精确匹配</li><li>前缀匹配</li><li>正则匹配</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">    rewrite /yang/(.*) /<span class="variable">$1</span>;</span></span><br><span class="line">-----------------------------------</span><br><span class="line">location /yang &#123;</span><br><span class="line">    proxy_pass  http://node/;</span><br><span class="line">    #proxy_set_header    Host    $http_host;</span><br><span class="line">    #proxy_set_header    X-Real-IP   $remote_addr;</span><br><span class="line">    #proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    #root   /usr/share/nginx/html;</span><br><span class="line">    #index  index.html index.htm;ß</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8081;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang/ &#123;</span><br><span class="line">        alias /home/yang/e1/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径是/home/yang/e1/index3.html</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8082;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang &#123;</span><br><span class="line">        alias /home/yang/e2/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径是/home/yang/e1//index3.html</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8083;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang &#123;</span><br><span class="line">        alias /home/yang/e3/;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">upstream node &#123;</span><br><span class="line">    server localhost:8081;</span><br><span class="line">    server localhost:8082;</span><br><span class="line">    server localhost:8083;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;http&quot;&gt;&lt;a href=&quot;#http&quot; class=&quot;headerlink&quot; title=&quot;http&quot;&gt;&lt;/a&gt;http&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/369926646&quot;&gt;2万字 让你全面认识 Ng</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="服务器" scheme="https://yangqinglei26.github.io/categories/java/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="服务器" scheme="https://yangqinglei26.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="nginx" scheme="https://yangqinglei26.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>知识架构图</title>
+    <link href="https://yangqinglei26.github.io/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
+    <id>https://yangqinglei26.github.io/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/</id>
+    <published>2021-09-17T07:30:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>后台知识架构图</li></ul><p><img src="/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210702151710.png" alt="微信图片_20210702151710"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;后台知识架构图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea相关使用</title>
+    <link href="https://yangqinglei26.github.io/2021/09/13/java/idea/"/>
+    <id>https://yangqinglei26.github.io/2021/09/13/java/idea/</id>
+    <published>2021-09-13T08:30:06.000Z</published>
+    <updated>2022-08-02T09:14:32.368Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置注释"><a href="#配置注释" class="headerlink" title="配置注释"></a>配置注释</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $&#123;DATE&#125;</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">- 类注释</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $DATE$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">- 方法注释</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $DATE$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  $params$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> $return$</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groovyScript(<span class="string">&quot;def result=&#x27;&#x27;; def params=\&quot;$&#123;_1&#125;\&quot;.replaceAll(&#x27;[\\\\[|\\\\]|\\\\s]&#x27;, &#x27;&#x27;).split(&#x27;,&#x27;).toList(); for(i = 0; i &lt; params.size(); i++) &#123;result+=&#x27;* @param &#x27; + params[i] + ((i &lt; params.size() - 1) ? &#x27;\\r\\n&#x27; : &#x27;&#x27;)&#125;; return result&quot;</span>, methodParameters())</span><br></pre></td></tr></table></figure><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groovyScript(<span class="string">&quot;def result=&#x27;&#x27;; def params=\&quot;$&#123;_1&#125;\&quot;.replaceAll(&#x27;[\\\\[|\\\\]|\\\\s]&#x27;, &#x27;&#x27;).split(&#x27;&lt;&#x27;).toList(); for(i = 0; i &lt; params.size(); i++) &#123;if(i!=0)&#123;result+=&#x27;&lt;&#x27;;&#125;;  def p1=params[i].split(&#x27;,&#x27;).toList();  for(i2 = 0; i2 &lt; p1.size(); i2++) &#123; def p2=p1[i2].split(&#x27;\\\\.&#x27;).toList();  result+=p2[p2.size()-1]; if(i2!=p1.size()-1)&#123;result+=&#x27;,&#x27;&#125;  &#125; ;  &#125;;  return result&quot;</span>, methodReturnType())</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;配置注释&quot;&gt;&lt;a href=&quot;#配置注释&quot; class=&quot;headerlink&quot; title=&quot;配置注释&quot;&gt;&lt;/a&gt;配置注释&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis</title>
+    <link href="https://yangqinglei26.github.io/2021/07/05/java/Mybatis/"/>
+    <id>https://yangqinglei26.github.io/2021/07/05/java/Mybatis/</id>
+    <published>2021-07-05T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.348Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://mybatis.org/mybatis-3/zh/getting-started.html">入门</a></p><p><a href="https://blog.csdn.net/Progran_ape/article/details/104181926">mybatis中的一级缓存和二级缓存</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=MzkwMDE1MzkwNQ==&mid=2247496101&idx=1&sn=8d32c975eb41744903bb6331a500c28d&source=41#wechat_redirect">MyBatis一级缓存详解</a></p><p><a href="https://www.cnblogs.com/cxuanBlog/p/11333021.html">MyBatis 二级缓存全详解</a></p><p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/mybatis/mybatis-interview">面试相关</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://mybatis.org/mybatis-3/zh/getting-started.html&quot;&gt;入门&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/Progran_ape/art</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="Mybatis" scheme="https://yangqinglei26.github.io/categories/java/Mybatis/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/categories/java/Mybatis/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="Mybatis" scheme="https://yangqinglei26.github.io/tags/Mybatis/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>网络相关</title>
+    <link href="https://yangqinglei26.github.io/2021/06/30/java/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/"/>
+    <id>https://yangqinglei26.github.io/2021/06/30/java/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</id>
+    <published>2021-06-30T07:30:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p><a href="https://blog.csdn.net/pashanhu6402/article/details/96428887">socket原理</a></p></li><li><p><a href="https://www.cnblogs.com/duanxz/p/4464178.html">单服务器最大tcp连接数及调优汇总</a> <a href="https://blog.csdn.net/xielinrui123/article/details/88417225">分析单机最大长连接数</a></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/pashanhu6402/article/details/96428887&quot;&gt;socket原理&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.cnblogs</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="网络相关" scheme="https://yangqinglei26.github.io/categories/java/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="网络相关" scheme="https://yangqinglei26.github.io/tags/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zookeeper</title>
+    <link href="https://yangqinglei26.github.io/2021/06/30/java/zookeeper/"/>
+    <id>https://yangqinglei26.github.io/2021/06/30/java/zookeeper/</id>
+    <published>2021-06-30T00:30:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-intro">基础</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-plus">进阶</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-in-action">使用</a></p><p><a href="https://blog.csdn.net/u011320740/article/details/78742625">基于zookeeper实现统一配置管理</a></p><p><a href="https://blog.csdn.net/jerome_s/article/details/52335042">ZooKeeper 实现命名服务</a></p><p><a href="https://blog.csdn.net/u010028869/article/details/84034261">基于ZooKeeper Curator实现分布式锁</a></p><p><a href="https://mp.weixin.qq.com/s/gphDLJMO3QcRoN3zkco4EA">基础</a> <a href="https://mp.weixin.qq.com/s/ZqQHWLfVD1Rz1agmH3LWrg">分布式锁之Zookeeper</a> <a href="https://mp.weixin.qq.com/s/k0zAExTvMsrugCaNJxs7hQ">ZAB协议</a></p><p><a href="https://mp.weixin.qq.com/s/YawG0GqznDHaiHXZuTsCjA">面试相关</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-intro&quot;&gt;基础&lt;/a&gt; &lt;a </summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="zookeeper" scheme="https://yangqinglei26.github.io/categories/java/zookeeper/"/>
+    
+    <category term="分布式" scheme="https://yangqinglei26.github.io/categories/java/zookeeper/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="zookeeper" scheme="https://yangqinglei26.github.io/tags/zookeeper/"/>
+    
+    <category term="分布式" scheme="https://yangqinglei26.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux相关</title>
+    <link href="https://yangqinglei26.github.io/2021/06/29/java/Linux/"/>
+    <id>https://yangqinglei26.github.io/2021/06/29/java/Linux/</id>
+    <published>2021-06-29T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.348Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -h # 查看硬盘使用</span><br><span class="line">less -iN #查看文件内容</span><br><span class="line">ls |grep -v &quot;tmp*&quot; #查找不包含tmp*的内容</span><br><span class="line">cp –r # 复制目录下的所有文件</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="2-基础组件安装"><a href="#2-基础组件安装" class="headerlink" title="2. 基础组件安装"></a>2. 基础组件安装</h2><ul><li><p><a href="https://blog.51cto.com/u_13043516/2173268">telnet 安装</a></p></li><li><p><a href="https://blog.csdn.net/gexiaoyizhimei/article/details/95374890">jdk8 安装</a></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-常用命令&quot;&gt;&lt;a href=&quot;#1-常用命令&quot; class=&quot;headerlink&quot; title=&quot;1. 常用命令&quot;&gt;&lt;/a&gt;1. 常用命令&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;g</summary>
+      
+    
+    
+    
+    <category term="linux" scheme="https://yangqinglei26.github.io/categories/linux/"/>
+    
+    
+    <category term="linux" scheme="https://yangqinglei26.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分布式相关</title>
+    <link href="https://yangqinglei26.github.io/2021/06/29/java/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    <id>https://yangqinglei26.github.io/2021/06/29/java/%E5%88%86%E5%B8%83%E5%BC%8F/</id>
+    <published>2021-06-29T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://www.processon.com/view/6049e3501e08532c0f7ab94a#map">分布式相关</a></p><p><a href="https://www.cnblogs.com/liuqingzheng/p/11080501.html">分布式锁1</a> <a href="https://blog.csdn.net/wuzhiwei549/article/details/80692278">分布式锁2</a> <a href="https://www.cnblogs.com/seesun2012/p/9214653.html">分布式锁3</a> <a href="https://www.processon.com/view/5f7fc48b1e085307a07da543#map">分布式锁 导航</a></p><p><a href="https://www.cnblogs.com/liuqingzheng/p/11074623.html">分布式id</a> <a href="https://www.processon.com/view/6049e3501e08532c0f7ab94a#map">分布式id导航</a></p><p><a href="https://tech.meituan.com/2019/03/07/open-source-project-leaf.html">Leaf：美团分布式ID生成服务开源</a></p><p><a href="http://www.tianshouzhi.com/api/tutorials/distributed_transaction/388">柔性事务 ：TCC两阶段补偿型</a></p><p><a href="https://www.processon.com/view/6037c30de401fd0290ffeaa9#map">分布式事务</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.processon.com/view/6049e3501e08532c0f7ab94a#map&quot;&gt;分布式相关&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cnblogs.com/liuq</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="分布式" scheme="https://yangqinglei26.github.io/categories/java/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="分布式" scheme="https://yangqinglei26.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ELK</title>
+    <link href="https://yangqinglei26.github.io/2021/06/20/java/ELK/"/>
+    <id>https://yangqinglei26.github.io/2021/06/20/java/ELK/</id>
+    <published>2021-06-20T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.312Z</updated>
+    
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="nosql" scheme="https://yangqinglei26.github.io/categories/java/nosql/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="elk" scheme="https://yangqinglei26.github.io/tags/elk/"/>
+    
+    <category term="nosql" scheme="https://yangqinglei26.github.io/tags/nosql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker</title>
+    <link href="https://yangqinglei26.github.io/2021/06/17/java/Docker/"/>
+    <id>https://yangqinglei26.github.io/2021/06/17/java/Docker/</id>
+    <published>2021-06-17T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.312Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><p><a href="https://blog.csdn.net/BThinker/article/details/123507820">Docker 安装 Nginx 容器 (完整详细版)</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;常用命令&quot;&gt;&lt;a href=&quot;#常用命令&quot; class=&quot;headerlink&quot; title=&quot;常用命令&quot;&gt;&lt;/a&gt;常用命令&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="运维" scheme="https://yangqinglei26.github.io/categories/java/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="docker" scheme="https://yangqinglei26.github.io/tags/docker/"/>
+    
+    <category term="运维" scheme="https://yangqinglei26.github.io/tags/%E8%BF%90%E7%BB%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringCloud</title>
+    <link href="https://yangqinglei26.github.io/2021/06/15/java/SpringCloud/"/>
+    <id>https://yangqinglei26.github.io/2021/06/15/java/SpringCloud/</id>
+    <published>2021-06-15T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.352Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484335&idx=1&sn=a871bf871fcaffda0be40e1388a69d7d&scene=21#wechat_redirect">cloud1</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/micro-service/spring-cloud">cloud2</a></p><p><a href="https://blog.didispace.com/hzf-ms-apigateway-1/">api网关</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&amp;mid=2247484335&amp;idx=1&amp;sn=a871bf871fcaffda0be40e1388a69d7d&amp;scene=21</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/categories/java/spring/"/>
+    
+    <category term="springcloud" scheme="https://yangqinglei26.github.io/categories/java/spring/springcloud/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/tags/spring/"/>
+    
+    <category term="springcloud" scheme="https://yangqinglei26.github.io/tags/springcloud/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Activiti</title>
+    <link href="https://yangqinglei26.github.io/2021/06/13/java/Activiti/"/>
+    <id>https://yangqinglei26.github.io/2021/06/13/java/Activiti/</id>
+    <published>2021-06-13T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.312Z</updated>
+    
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="工作流" scheme="https://yangqinglei26.github.io/categories/java/%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="activiti" scheme="https://yangqinglei26.github.io/tags/activiti/"/>
+    
+    <category term="工作流" scheme="https://yangqinglei26.github.io/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMQ</title>
+    <link href="https://yangqinglei26.github.io/2021/06/11/java/RabbitMQ/"/>
+    <id>https://yangqinglei26.github.io/2021/06/11/java/RabbitMQ/</id>
+    <published>2021-06-11T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.352Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-消息中间件"><a href="#1-消息中间件" class="headerlink" title="1. 消息中间件"></a>1. 消息中间件</h2><h3 id="1-1-使用场景"><a href="#1-1-使用场景" class="headerlink" title="1.1. 使用场景"></a>1.1. 使用场景</h3><ul><li>购票</li><li>秒杀</li></ul><h3 id="1-2-作用"><a href="#1-2-作用" class="headerlink" title="1.2. 作用"></a>1.2. 作用</h3><ul><li>销峰限流</li><li>应用解耦</li></ul><h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><blockquote><p><a href="https://www.jianshu.com/p/286cac4625b6">基于RocketMQ的分布式事务解决方案</a></p><p><a href="https://www.cnblogs.com/qdhxhz/p/11191399.html">RocketMQ实现分布式事务原理</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-消息中间件&quot;&gt;&lt;a href=&quot;#1-消息中间件&quot; class=&quot;headerlink&quot; title=&quot;1. 消息中间件&quot;&gt;&lt;/a&gt;1. 消息中间件&lt;/h2&gt;&lt;h3 id=&quot;1-1-使用场景&quot;&gt;&lt;a href=&quot;#1-1-使用场景&quot; class=&quot;header</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="消息队列" scheme="https://yangqinglei26.github.io/categories/java/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="消息队列" scheme="https://yangqinglei26.github.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+    <category term="rabbitmq" scheme="https://yangqinglei26.github.io/tags/rabbitmq/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis</title>
+    <link href="https://yangqinglei26.github.io/2021/06/10/java/Redis/"/>
+    <id>https://yangqinglei26.github.io/2021/06/10/java/Redis/</id>
+    <published>2021-06-10T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.352Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://www.runoob.com/redis/redis-stream.html">基础教程</a> <a href="https://www.processon.com/view/60d18761e0b34d05006ca1b5?fromnew=1#map">操作</a></p><p><a href="https://www.cnblogs.com/MouseDong/p/11134039.html">基本数据类型底层实现</a></p><p><a href="https://www.processon.com/view/6059480e07912927bd732d1c#map">基础框架</a> <a href="https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map">知识点</a></p><p><a href="https://www.processon.com/view/6007f102e0b34d45d1658090?fromnew=1#map">进阶1</a> <a href="https://www.processon.com/view/6083e8b97d9c0811840540ec?fromnew=1#map">进阶2</a> <a href="https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map">进阶3</a> <a href="https://www.processon.com/view/5edc94b6f346fb1712e5b34a?fromnew=1#map">进阶4</a></p><p><a href="https://blog.csdn.net/wuxiaolongah/article/details/107327803">一致性hash算法</a></p><p><a href="https://www.jianshu.com/p/ab9aaae8b7e8">redis cluster1</a> <a href="https://www.cnblogs.com/xuwc/p/8900717.html">redis cluster2</a></p><p><a href="https://blog.csdn.net/wuxiaolongah/article/details/106968601">缓存穿透</a></p><p><a href="https://blog.csdn.net/wuxiaolongah/article/details/107006954">分布式锁</a></p><p><a href="https://www.cnblogs.com/MouseDong/p/11276198.html">跳跃表</a></p><p><a href="https://www.cnblogs.com/MouseDong/p/11276211.html">红黑树</a></p><p><a href="https://www.cnblogs.com/liuqingzheng/p/11080680.html">Redis与Mysql双写一致性方案解析</a></p></blockquote><h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h2 id="2-基本命令"><a href="#2-基本命令" class="headerlink" title="2. 基本命令"></a>2. 基本命令</h2><h2 id="3-数据类型（5-3）"><a href="#3-数据类型（5-3）" class="headerlink" title="3. 数据类型（5+3）"></a>3. 数据类型（5+3）</h2><blockquote><p><a href="https://www.cnblogs.com/MouseDong/p/11133941.html">Redis的底层数据结构</a></p><p><a href="https://www.cnblogs.com/MouseDong/p/11134039.html">Redis的五大数据类型的底层实现</a></p></blockquote><ul><li>string<ul><li>sds</li></ul></li><li>list<ul><li>ziplist</li><li>linkedlist</li></ul></li><li>set<ul><li>intset</li><li>hashtable</li></ul></li><li>zset<ul><li>ziplist</li><li>skiplist</li></ul></li><li>hash<ul><li>ziplist</li><li>hashtable</li></ul></li><li></li><li></li></ul><h2 id="4-高级特性"><a href="#4-高级特性" class="headerlink" title="4. 高级特性"></a>4. 高级特性</h2><h3 id="4-1-发布和订阅"><a href="#4-1-发布和订阅" class="headerlink" title="4.1. 发布和订阅"></a>4.1. 发布和订阅</h3><h3 id="4-2-管道技术"><a href="#4-2-管道技术" class="headerlink" title="4.2. 管道技术"></a>4.2. 管道技术</h3><h3 id="4-3-Stream"><a href="#4-3-Stream" class="headerlink" title="4.3. Stream"></a>4.3. Stream</h3><h2 id="5-事务"><a href="#5-事务" class="headerlink" title="5. 事务"></a>5. 事务</h2><h2 id="6-内存回收"><a href="#6-内存回收" class="headerlink" title="6. 内存回收"></a>6. 内存回收</h2><h3 id="6-1-过期策略"><a href="#6-1-过期策略" class="headerlink" title="6.1. 过期策略"></a>6.1. 过期策略</h3><ul><li>定时过期</li><li>惰性过期</li><li>定期过期</li></ul><h3 id="6-2-淘汰策略"><a href="#6-2-淘汰策略" class="headerlink" title="6.2. 淘汰策略"></a>6.2. 淘汰策略</h3><ol><li><p>lru</p><ul><li>volatile-lru -&gt; Evict using approximated LRU, only keys with an expire set.</li><li>allkeys-lru -&gt; Evict any key using approximated LRU.</li></ul></li><li><p>lfu</p><ul><li>volatile-lfu -&gt; Evict using approximated LFU, only keys with an expire set.</li><li>allkeys-lfu -&gt; Evict any key using approximated LFU.</li></ul></li><li><p>random</p><ul><li>volatile-random -&gt; Remove a random key having an expire set.</li><li>allkeys-random -&gt; Remove a random key, any key.</li></ul></li><li><p>noeviction -&gt; Don’t evict anything, just return an error on write operations.</p></li><li><p>volatile-ttl -&gt; Remove the key with the nearest expire time (minor TTL)</p></li></ol><h2 id="7-持久化"><a href="#7-持久化" class="headerlink" title="7. 持久化"></a>7. 持久化</h2><h2 id="8-集群"><a href="#8-集群" class="headerlink" title="8. 集群"></a>8. 集群</h2><h3 id="8-1-主从复制"><a href="#8-1-主从复制" class="headerlink" title="8.1. 主从复制"></a>8.1. 主从复制</h3><ul><li>主节点 redis.conf</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bind * -::*</span><br><span class="line">port 6379</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/redis-6379/redis.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/redis-6379/redis.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/redis-6379</span><br></pre></td></tr></table></figure><ul><li>从节点  redis.conf</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 6381</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/redis-6381/redis.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/redis-6381/redis.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/redis-6381</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看主从信息</span><br><span class="line">redis-cli -p 6381 info replication</span><br></pre></td></tr></table></figure><h3 id="8-2-主从-哨兵"><a href="#8-2-主从-哨兵" class="headerlink" title="8.2. 主从+哨兵"></a>8.2. 主从+哨兵</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">port 26379</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/sentinel-26379/redis-sentinel.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/sentinel-26379/redis-sentinel.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/sentinel-26379</span><br><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看哨兵信息</span><br><span class="line">redis-cli -p 26379 info</span><br></pre></td></tr></table></figure><h3 id="8-3-redis-cluster"><a href="#8-3-redis-cluster" class="headerlink" title="8.3. redis cluster"></a>8.3. redis cluster</h3><h2 id="面试相关"><a href="#面试相关" class="headerlink" title="面试相关"></a>面试相关</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.runoob.com/redis/redis-stream.html&quot;&gt;基础教程&lt;/a&gt; &lt;a href=&quot;https://www.processon.com/view/60d18761e0b34d0500</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="缓存" scheme="https://yangqinglei26.github.io/categories/java/%E7%BC%93%E5%AD%98/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="redis" scheme="https://yangqinglei26.github.io/tags/redis/"/>
+    
+    <category term="缓存" scheme="https://yangqinglei26.github.io/tags/%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot</title>
+    <link href="https://yangqinglei26.github.io/2021/06/09/java/springboot/"/>
+    <id>https://yangqinglei26.github.io/2021/06/09/java/springboot/</id>
+    <published>2021-06-09T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://github.com/CodingDocs/springboot-guide">基础</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/CodingDocs/springboot-guide&quot;&gt;基础&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/categories/java/spring/"/>
+    
+    <category term="springboot" scheme="https://yangqinglei26.github.io/categories/java/spring/springboot/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/tags/spring/"/>
+    
+    <category term="springboot" scheme="https://yangqinglei26.github.io/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring</title>
+    <link href="https://yangqinglei26.github.io/2021/06/08/java/spring/"/>
+    <id>https://yangqinglei26.github.io/2021/06/08/java/spring/</id>
+    <published>2021-06-08T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93?id=_7-spring-%e6%a1%86%e6%9e%b6%e4%b8%ad%e7%94%a8%e5%88%b0%e4%ba%86%e5%93%aa%e4%ba%9b%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%ef%bc%9f">spring</a></p></blockquote><h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><blockquote><p><a href="https://javadoop.com/post/spring-ioc">Spring IOC 容器源码分析</a></p></blockquote><ul><li><p>bean的注解</p><ul><li>@Component @Controller @Service @Repository</li><li>@Bean 作用于方法</li></ul></li><li><p>bean的作用域</p><ul><li>singleton prototype request session</li></ul></li><li><p>bean的生命周期</p><blockquote><p><a href="https://blog.csdn.net/weixin_43244698/article/details/109338537">SpringBean生命周期详解</a></p><p><a href="https://www.cnblogs.com/zrtqsk/p/3735273.html">Spring Bean的生命周期</a></p></blockquote><ul><li><p>beandefinition —&gt;  BeanFactoryPostProcessor.postProcessBeanFactory() 修改beandefinition —&gt; InstantiationAwareBeanPostProcessorAdapter .postProcessBeforeInstantiation() —&gt; 实例化 —&gt;InstantiationAwareBeanPostProcessorAdapter .postProcessAfterInstantiation() —&gt; InstantiationAwareBeanPostProcessorAdapter .postProcessProperties() 修改property —&gt; 配置property —&gt;</p><p>检查aware接口并设置相关依赖 —&gt; init()  —&gt; destroy()</p></li></ul></li><li><p>单例bean的线程安全</p><ul><li>ThreadLocale</li><li>prototype</li></ul></li></ul><h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><blockquote><p><a href="https://www.cnblogs.com/zuidongfeng/p/8735241.html">JDK动态代理</a> <a href="https://blog.csdn.net/ikownyou/article/details/53081426">动态代理与静态代理区别</a></p><p><a href="https://blog.csdn.net/babylovewei/article/details/106528284">AspectJ的使用方法</a>    <a href="https://www.cnblogs.com/chaoesha/p/13037368.html">Spring AOP和AspectJ的区别是什么？</a></p></blockquote><h2 id="spring-mvc"><a href="#spring-mvc" class="headerlink" title="spring mvc"></a>spring mvc</h2><h2 id="spring-事务"><a href="#spring-事务" class="headerlink" title="spring 事务"></a>spring 事务</h2><blockquote><p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93?id=_5-transactional-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e6%80%bb%e7%bb%93">事务相关</a></p><p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486483&idx=2&sn=77be488e206186803531ea5d7164ec53&chksm=cea243d8f9d5cacecaa5c5daae4cde4c697b9b5b21f96dfc6cce428cfcb62b88b3970c26b9c2&token=816772476&lang=zh_CN#rd">一口气说出 6种 @Transactional 注解失效场景</a></p></blockquote><p><strong><code>@Transactional</code> 的常用配置参数总结（只列巨额 5 个我平时比较常用的）：</strong></p><table><thead><tr><th>属性名</th><th>说明</th></tr></thead><tbody><tr><td>propagation</td><td>事务的传播行为，默认值为 REQUIRED，可选的值在上面介绍过</td></tr><tr><td>isolation</td><td>事务的隔离级别，默认值采用 DEFAULT，可选的值在上面介绍过</td></tr><tr><td>timeout</td><td>事务的超时时间，默认值为-1（不会超时）。如果超过该时间限制但事务还没有完成，则自动回滚事务。</td></tr><tr><td>readOnly</td><td>指定事务是否为只读事务，默认值为 false。</td></tr><tr><td>rollbackFor</td><td>用于指定能够触发事务回滚的异常类型，并且可以指定多个异常类型。</td></tr></tbody></table><p><strong>@Transactional的使用注意事项总结</strong></p><ol><li><code>@Transactional</code> 注解只有作用到 public 方法上事务才生效，不推荐在接口上使用；</li><li>避免同一个类中调用 <code>@Transactional</code> 注解的方法，这样会导致事务失效；</li><li>正确的设置 <code>@Transactional</code> 的 rollbackFor 和 propagation 属性，否则事务可能会回滚失败</li></ol><h2 id="spring-设计模式"><a href="#spring-设计模式" class="headerlink" title="spring 设计模式"></a>spring 设计模式</h2><blockquote><p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring-Design-Patterns?id=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f">设计模式</a></p></blockquote><ul><li><strong>工厂设计模式</strong> : Spring使用工厂模式通过 <code>BeanFactory</code>、<code>ApplicationContext</code> 创建 bean 对象。</li><li><strong>代理设计模式</strong> : Spring AOP 功能的实现。</li><li><strong>单例设计模式</strong> : Spring 中的 Bean 默认都是单例的。</li><li><strong>模板方法模式</strong> : Spring 中 <code>jdbcTemplate</code>、<code>hibernateTemplate</code> 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。</li><li><strong>包装器设计模式</strong> : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</li><li><strong>观察者模式:</strong> Spring 事件驱动模型就是观察者模式很经典的一个应用。</li><li><strong>适配器模式</strong> :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配<code>Controller</code>。</li></ul><h2 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h2><blockquote><p><a href="https://www.jianshu.com/p/6c359768b1dc">循环依赖的解决</a> <a href="https://www.zhihu.com/question/438247718/answer/1730527725">Spring 是如何解决循环依赖的</a></p><p><a href="https://mp.weixin.qq.com/s/kS0K5P4FdF3v-fiIjGIvvQ">核心</a></p></blockquote><p><strong>循环依赖问题解决方法很多，主要有：</strong></p><ol><li>使用<code>@Lazy</code>注解，延迟加载</li><li>使用<code>@DependsOn</code>注解，指定加载先后关系</li><li>修改文件名称，改变循环依赖类的加载顺序</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/categories/java/spring/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="spring" scheme="https://yangqinglei26.github.io/tags/spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ShardingSphere</title>
+    <link href="https://yangqinglei26.github.io/2021/06/07/java/ShardingSphere/"/>
+    <id>https://yangqinglei26.github.io/2021/06/07/java/ShardingSphere/</id>
+    <published>2021-06-07T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.352Z</updated>
+    
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="分布式数据处理" scheme="https://yangqinglei26.github.io/categories/java/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="分布式数据处理" scheme="https://yangqinglei26.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    <category term="ShardingSphere" scheme="https://yangqinglei26.github.io/tags/ShardingSphere/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mycat</title>
+    <link href="https://yangqinglei26.github.io/2021/06/05/java/Mycat/"/>
+    <id>https://yangqinglei26.github.io/2021/06/05/java/Mycat/</id>
+    <published>2021-06-05T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.348Z</updated>
+    
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="Mycat" scheme="https://yangqinglei26.github.io/categories/java/Mycat/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/categories/java/Mycat/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="分布式数据处理" scheme="https://yangqinglei26.github.io/categories/java/Mycat/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Mycat" scheme="https://yangqinglei26.github.io/tags/Mycat/"/>
+    
+    <category term="分布式数据处理" scheme="https://yangqinglei26.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql</title>
+    <link href="https://yangqinglei26.github.io/2021/06/04/java/Mysql/"/>
+    <id>https://yangqinglei26.github.io/2021/06/04/java/Mysql/</id>
+    <published>2021-06-04T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.348Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p><a href="https://www.processon.com/view/60596321637689700771c679?fromnew=1#map">基础</a></p><p><a href="https://juejin.cn/post/6850037271233331208#heading-70">MySQL 三万字精华总结</a></p><p><a href="https://www.processon.com/view/5e7c1a75e4b06b852ff97db4?fromnew=1#map">两阶段提交</a> <a href="https://www.processon.com/view/link/6045cdc46376897969e3e86c">执行过程</a></p><p><a href="https://www.processon.com/view/5eba560d1e08530a9bf30e7e?fromnew=1#map">Innodb进阶</a></p><p><a href="https://www.processon.com/view/6048549af346fb1bdfb25365?fromnew=1#map">mysql实战</a></p></blockquote><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><h3 id="编码设置"><a href="#编码设置" class="headerlink" title="编码设置"></a>编码设置</h3><h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><h3 id="建表规约"><a href="#建表规约" class="headerlink" title="建表规约"></a>建表规约</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h3 id="查询监控"><a href="#查询监控" class="headerlink" title="查询监控"></a>查询监控</h3><h3 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h3><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h3><ul><li><p><a href="https://www.cnblogs.com/wang-meng/p/ae6d1c4a7b553e9a5c8f46b67fb3e3aa.html">覆盖索引</a></p></li><li><p><a href="https://cloud.tencent.com/developer/article/1774781">最左匹配</a></p></li><li><p><a href="https://juejin.cn/post/7005794550862053412">索引下推</a>：</p></li></ul><p>​        索引查询级别为range时，才会触发索引下推</p><h3 id="索引规约"><a href="#索引规约" class="headerlink" title="索引规约"></a>索引规约</h3><h3 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h3><h3 id><a href="#" class="headerlink" title></a></h3><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><a href="https://www.processon.com/view/5e7c1a75e4b06b852ff97db4?fromnew=1#map">两阶段提交</a> </p><p><a href="https://www.processon.com/view/link/6045cdc46376897969e3e86c">执行过程</a></p><p><a href="https://blog.csdn.net/jc_benben/article/details/78967380">Double Write</a></p><h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p><a href="https://www.cnblogs.com/f-ck-need-u/archive/2018/05/08/9010872.html">详细分析MySQL事务日志(redo log和undo log)</a></p><p><a href="https://blog.csdn.net/jc_benben/article/details/65431530">Mysql 重做日志</a></p><p><a href="https://blog.csdn.net/weixin_29174385/article/details/113225411">MySQL中的redolog的作用</a></p><p><a href="https://www.cnblogs.com/xxmysql/p/5754211.html">mysql redo日志与刷脏</a></p><p><img src="/2021/06/04/java/Mysql/image-20220720173126552.png" alt="image-20220720173126552"></p><h2 id="缓冲池"><a href="#缓冲池" class="headerlink" title="缓冲池"></a>缓冲池</h2><p><a href="https://blog.csdn.net/shenjian58/article/details/93268633">缓冲池(buffer pool)</a></p><p><a href="https://www.ywnds.com/?p=9886">MySQL InnoDB Buffer Pool</a></p><h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p><a href="https://blog.csdn.net/Waves___/article/details/105295060#1.2%E3%80%81Read%20View%20%E7%BB%93%E6%9E%84">MySQL中MVCC的正确打开方式</a></p><p><a href="https://blog.csdn.net/SnailMann/article/details/94724197">正确的理解MySQL的MVCC及实现原理</a></p><p><a href="https://blog.csdn.net/thesprit/article/details/112970122">MySQL的ReadView</a></p><h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p><a href="https://blog.csdn.net/sin_dapeng/article/details/121673632">WITH recursive使用</a></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 递归查询所有二级部门下的子部门</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">recursive</span> temp <span class="keyword">AS</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> dept_logic_id,dept_name,dept_logic_id <span class="keyword">as</span> parentId <span class="keyword">FROM</span> bams_dept <span class="keyword">WHERE</span> parent_logic_id<span class="operator">=</span><span class="string">&#x27;0001&#x27;</span></span><br><span class="line">    <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">    <span class="keyword">SELECT</span> u.dept_logic_id,u.dept_name,t.parentId <span class="keyword">FROM</span> bams_dept u,temp t <span class="keyword">WHERE</span> u.parent_logic_id<span class="operator">=</span>t.dept_logic_id</span><br><span class="line">),temp2 <span class="keyword">as</span> (<span class="keyword">select</span> parentId,group_concat(dept_logic_id) <span class="keyword">from</span> temp <span class="keyword">GROUP</span> <span class="keyword">BY</span> parentId)</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> temp2;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="数据批量删除后优化"><a href="#数据批量删除后优化" class="headerlink" title="数据批量删除后优化"></a>数据批量删除后优化</h2><ul><li>innodb </li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 查询表空间</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">table</span> status <span class="keyword">like</span> <span class="string">&#x27;scene_qrcode_scan_log&#x27;</span>;</span><br><span class="line"><span class="comment">-- 优化</span></span><br><span class="line">ANALYZE <span class="keyword">TABLE</span> scene_qrcode_scan_log;</span><br></pre></td></tr></table></figure><ul><li>myisam</li></ul><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OPTIMIZE <span class="keyword">TABLE</span> scene_qrcode_scan_log_20220602;</span><br></pre></td></tr></table></figure><h2 id="rowid"><a href="#rowid" class="headerlink" title="rowid"></a>rowid</h2><p><a href="https://www.php.cn/mysql-tutorials-468451.html">掌握mysql隐藏字段(rowid)什么时候是可见的</a></p><p><img src="/2021/06/04/java/Mysql/0bad486034837822b070943909645c83-0.png" alt="0bad486034837822b070943909645c83-0"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.processon.com/view/60596321637689700771c679?fromnew=1#map&quot;&gt;基础&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.cn/pos</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="Mysql" scheme="https://yangqinglei26.github.io/categories/java/Mysql/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/categories/java/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Mysql" scheme="https://yangqinglei26.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql</title>
+    <link href="https://yangqinglei26.github.io/2021/06/04/java/postgre/"/>
+    <id>https://yangqinglei26.github.io/2021/06/04/java/postgre/</id>
+    <published>2021-06-04T11:24:06.000Z</published>
+    <updated>2022-08-02T09:14:32.372Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.postgres.cn/docs/13/index.html">操作手册</a></p><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p><a href="http://www.postgres.cn/docs/13/queries-with.html">WITH查询</a></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;http://www.postgres.cn/docs/13/index.html&quot;&gt;操作手册&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;分区&quot;&gt;&lt;a href=&quot;#分区&quot; class=&quot;headerlink&quot; title=&quot;分区&quot;&gt;&lt;/a&gt;分区&lt;/h2&gt;&lt;h2 i</summary>
+      
+    
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/categories/java/"/>
+    
+    <category term="Mysql" scheme="https://yangqinglei26.github.io/categories/java/Mysql/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/categories/java/Mysql/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+    <category term="java" scheme="https://yangqinglei26.github.io/tags/java/"/>
+    
+    <category term="数据库" scheme="https://yangqinglei26.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="Mysql" scheme="https://yangqinglei26.github.io/tags/Mysql/"/>
+    
+  </entry>
+  
+</feed>

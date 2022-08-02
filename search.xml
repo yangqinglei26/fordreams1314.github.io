@@ -1,0 +1,1603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>23种设计模式</title>
+    <url>/2021/06/02/java/23%E7%A7%8D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="http://c.biancheng.net/design_pattern/">参考资料1</a></p>
+<p><a href="https://www.runoob.com/design-pattern/template-pattern.html">模板模式</a> <a href="https://www.jianshu.com/p/a3474f4fee57">模板模式</a></p>
+<p><a href="https://www.runoob.com/design-pattern/facade-pattern.html">外观模式</a> <a href="https://www.jianshu.com/p/1b027d9fc005">外观模式</a></p>
+<p><a href="https://www.jianshu.com/p/b8c578b07fbc">单例模式</a></p>
+<p><a href="https://www.runoob.com/w3cnote/bridge-pattern2.html">桥接模式</a></p>
+<p><a href="https://www.jianshu.com/p/9d0575311214">适配器模式</a></p>
+<p><a href="https://www.jianshu.com/p/0c62bf587b9c">策略模式</a> <a href="https://www.cnblogs.com/of-fanruice/p/11374200.html">设计模式之策略模式</a></p>
+<p><a href="https://www.jianshu.com/p/be290ccea05a">建造者模式</a></p>
+<p><a href="https://www.cnblogs.com/of-fanruice/p/11565679.html">设计模式之装饰者模式</a></p>
+<p><a href="https://www.jianshu.com/p/e55fbddc071c">简单工厂</a> <a href="https://www.jianshu.com/p/d0c444275827">工厂方法</a> <a href="https://www.jianshu.com/p/7deb64f902db">抽象工厂</a></p>
+<p><a href="https://www.runoob.com/design-pattern/observer-pattern.html">观察者</a></p>
+</blockquote>
+<h2 id="1-设计模式概述"><a href="#1-设计模式概述" class="headerlink" title="1. 设计模式概述"></a>1. 设计模式概述</h2><h3 id="1-1-设计模式的本质"><a href="#1-1-设计模式的本质" class="headerlink" title="1.1. 设计模式的本质"></a>1.1. 设计模式的本质</h3><ol>
+<li><p>这 23 种设计模式的本质是面向对象设计原则的实际运用，是对类的封装性、继承性和多态性，以及类的关联关系和组合关系的充分理解。</p>
+</li>
+<li><p>软件设计模式只是一个引导，在实际的软件开发中，必须根据具体的需求来选择：</p>
+<ul>
+<li>对于简单的程序，可能写一个简单的算法要比引入某种设计模式更加容易；</li>
+<li>但是对于大型项目开发或者框架设计，用设计模式来组织代码显然更好。</li>
+</ul>
+</li>
+<li><p>设计模式并不是 Java 的专利，它同样适用于 C++、C#、JavaScript 等其它面向对象的编程语言。</p>
+</li>
+</ol>
+<h3 id="1-2-学习设计模式的意义"><a href="#1-2-学习设计模式的意义" class="headerlink" title="1.2. 学习设计模式的意义"></a>1.2. 学习设计模式的意义</h3><ul>
+<li>可以提高程序员的思维能力、编程能力和设计能力。</li>
+<li>使程序设计更加标准化、代码编制更加工程化，使软件开发效率大大提高，从而缩短软件的开发周期。</li>
+<li>使设计的代码可重用性高、可读性强、可靠性高、灵活性好、可维护性强。</li>
+</ul>
+<h3 id="1-3-设计模式分类"><a href="#1-3-设计模式分类" class="headerlink" title="1.3. 设计模式分类"></a>1.3. 设计模式分类</h3><p>设计模式有两种分类方法，即根据模式的目的来分和根据模式的作用的范围来分。</p>
+<h4 id="1-3-1-根据目的来分"><a href="#1-3-1-根据目的来分" class="headerlink" title="1.3.1. 根据目的来分"></a>1.3.1. 根据目的来分</h4><p>根据模式是用来完成什么工作来划分，这种方式可分为创建型模式、结构型模式和行为型模式 3 种。</p>
+<ol>
+<li>创建型模式：用于描述“怎样创建对象”，它的主要特点是“将对象的创建与使用分离”。GoF 中提供了单例、原型、工厂方法、抽象工厂、建造者等 5 种创建型模式。</li>
+<li>结构型模式：用于描述如何将类或对象按某种布局组成更大的结构，GoF 中提供了代理、适配器、桥接、装饰、外观、享元、组合等 7 种结构型模式。</li>
+<li>行为型模式：用于描述类或对象之间怎样相互协作共同完成单个对象都无法单独完成的任务，以及怎样分配职责。GoF 中提供了模板方法、策略、命令、职责链、状态、观察者、中介者、迭代器、访问者、备忘录、解释器等 11 种行为型模式。</li>
+</ol>
+<h4 id="1-3-2-根据作用范围来分"><a href="#1-3-2-根据作用范围来分" class="headerlink" title="1.3.2. 根据作用范围来分"></a>1.3.2. 根据作用范围来分</h4><p>根据模式是主要用于类上还是主要用于对象上来分，这种方式可分为类模式和对象模式两种。</p>
+<ol>
+<li>类模式：用于处理类与子类之间的关系，这些关系通过继承来建立，是静态的，在编译时刻便确定下来了。GoF中的工厂方法、（类）适配器、模板方法、解释器属于该模式。</li>
+<li>对象模式：用于处理对象之间的关系，这些关系可以通过组合或聚合来实现，在运行时刻是可以变化的，更具动态性。GoF 中除了以上 4 种，其他的都是对象模式。</li>
+</ol>
+<p>表 1 介绍了这 23 种设计模式的分类。</p>
+<table>
+<thead>
+<tr>
+<th>范围\目的</th>
+<th>创建型模式</th>
+<th>结构型模式</th>
+<th>行为型模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类模式</td>
+<td>工厂方法</td>
+<td>(类）适配器</td>
+<td>模板方法、解释器</td>
+</tr>
+<tr>
+<td>对象模式</td>
+<td>单例 原型 抽象工厂 建造者</td>
+<td>代理 (对象）适配器 桥接 装饰 外观 享元 组合</td>
+<td>策略 命令 职责链 状态 观察者 中介者 迭代器 访问者 备忘录</td>
+</tr>
+</tbody></table>
+<h4 id="1-3-3-GoF的23种设计模式的功能"><a href="#1-3-3-GoF的23种设计模式的功能" class="headerlink" title="1.3.3. GoF的23种设计模式的功能"></a>1.3.3. GoF的23种设计模式的功能</h4><p>前面说明了 GoF 的 23 种设计模式的分类，现在对各个模式的功能进行介绍。</p>
+<ol>
+<li>单例（Singleton）模式：某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式。</li>
+<li>原型（Prototype）模式：将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例。</li>
+<li>工厂方法（Factory Method）模式：定义一个用于创建产品的接口，由子类决定生产什么产品。</li>
+<li>抽象工厂（AbstractFactory）模式：提供一个创建产品族的接口，其每个子类可以生产一系列相关的产品。</li>
+<li>建造者（Builder）模式：将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建它们，最后构建成该复杂对象。</li>
+<li>代理（Proxy）模式：为某对象提供一种代理以控制对该对象的访问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性。</li>
+<li>适配器（Adapter）模式：将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。</li>
+<li>桥接（Bridge）模式：将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度。</li>
+<li>装饰（Decorator）模式：动态的给对象增加一些职责，即增加其额外的功能。</li>
+<li>外观（Facade）模式：为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问。</li>
+<li>享元（Flyweight）模式：运用共享技术来有效地支持大量细粒度对象的复用。</li>
+<li>组合（Composite）模式：将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性。</li>
+<li>模板方法（TemplateMethod）模式：定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使得子类可以不改变该算法结构的情况下重定义该算法的某些特定步骤。</li>
+<li>策略（Strategy）模式：定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的改变不会影响使用算法的客户。</li>
+<li>命令（Command）模式：将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分割开。</li>
+<li>职责链（Chain of Responsibility）模式：把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方式去除对象之间的耦合。</li>
+<li>状态（State）模式：允许一个对象在其内部状态发生改变时改变其行为能力。</li>
+<li>观察者（Observer）模式：多个对象间存在一对多关系，当一个对象发生改变时，把这种改变通知给其他多个对象，从而影响其他对象的行为。</li>
+<li>中介者（Mediator）模式：定义一个中介对象来简化原有对象之间的交互关系，降低系统中对象间的耦合度，使原有对象之间不必相互了解。</li>
+<li>迭代器（Iterator）模式：提供一种方法来顺序访问聚合对象中的一系列数据，而不暴露聚合对象的内部表示。</li>
+<li>访问者（Visitor）模式：在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问。</li>
+<li>备忘录（Memento）模式：在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它。</li>
+<li>解释器（Interpreter）模式：提供如何定义语言的文法，以及对语言句子的解释方法，即解释器。</li>
+</ol>
+<h2 id="2-软件设计七大原则"><a href="#2-软件设计七大原则" class="headerlink" title="2. 软件设计七大原则"></a>2. 软件设计七大原则</h2><h3 id="2-1-开闭原则"><a href="#2-1-开闭原则" class="headerlink" title="2.1. 开闭原则"></a>2.1. 开闭原则</h3><h4 id="2-1-1-定义"><a href="#2-1-1-定义" class="headerlink" title="2.1.1. 定义"></a>2.1.1. 定义</h4><p><strong>对扩展开放，对修改关闭</strong>。当应用的需求改变时，在不修改软件实体的源代码或者二进制代码的前提下，可以扩展模块的功能，使其满足新的需求。</p>
+<h4 id="2-1-2-作用"><a href="#2-1-2-作用" class="headerlink" title="2.1.2. 作用"></a>2.1.2. 作用</h4><p>开闭原则是面向对象程序设计的终极目标，它使软件实体拥有一定的适应性和灵活性的同时具备稳定性和延续性。具体来说，其作用如下。</p>
+<ol>
+<li><strong>对软件测试的影响</strong></li>
+</ol>
+<p>软件遵守开闭原则的话，软件测试时只需要对扩展的代码进行测试就可以了，因为原有的测试代码仍然能够正常运行。</p>
+<ol start="2">
+<li><strong>可以提高代码的可复用性</strong></li>
+</ol>
+<p>粒度越小，被复用的可能性就越大；在面向对象的程序设计中，根据原子和抽象编程可以提高代码的可复用性。</p>
+<ol start="3">
+<li><strong>可以提高软件的可维护性</strong></li>
+</ol>
+<p>遵守开闭原则的软件，其稳定性高和延续性强，从而易于扩展和维护。</p>
+<h4 id="2-1-3-实现方法"><a href="#2-1-3-实现方法" class="headerlink" title="2.1.3. 实现方法"></a>2.1.3. 实现方法</h4><p>可以通过“抽象约束、封装变化”来实现开闭原则，即通过接口或者抽象类为软件实体定义一个<strong>相对稳定的抽象层</strong>，而将相同的可变因素封装在相同的具体实现类中。</p>
+<p>因为抽象灵活性好，适应性广，只要抽象的合理，可以基本保持软件架构的稳定。而软件中易变的细节可以从抽象派生来的<strong>实现类来进行扩展</strong>，当软件需要发生变化时，只需要根据需求重新派生一个实现类来扩展就可以了。</p>
+<ul>
+<li>案例</li>
+</ul>
+<p>文件上传分3部分：保存文件、解析文件、数据入库。我们可以抽象这个动作，实现对不同类型文件的上传,同时我们可以扩展来实现对不同类型文件的解析。</p>
+<h3 id="2-2-里氏替换原则"><a href="#2-2-里氏替换原则" class="headerlink" title="2.2. 里氏替换原则"></a>2.2. 里氏替换原则</h3><blockquote>
+<p>解释了继承的职责和能力范围</p>
+</blockquote>
+<h4 id="2-2-1-定义"><a href="#2-2-1-定义" class="headerlink" title="2.2.1. 定义"></a>2.2.1. 定义</h4><p>里氏替换原则主要阐述了有关继承的一些原则，也就是什么时候应该使用继承，什么时候不应该使用继承，以及其中蕴含的原理。里氏替换原是继承复用的基础，它反映了基类与子类之间的关系，是对开闭原则的补充，是对实现抽象化的具体步骤的规范。</p>
+<p>里氏替换原则通俗来讲就是：<strong>子类可以扩展父类的功能，但不能改变父类原有的功能</strong>。也就是说：子类继承父类时，除添加新的方法完成新增功能外，尽量不要重写父类的方法。</p>
+<h4 id="2-2-2-作用"><a href="#2-2-2-作用" class="headerlink" title="2.2.2. 作用"></a>2.2.2. 作用</h4><p>里氏替换原则的主要作用如下：</p>
+<ol>
+<li>里氏替换原则是实现开闭原则的重要方式之一。</li>
+<li>它克服了继承中重写父类造成的可复用性变差的缺点。</li>
+<li>它是动作正确性的保证。即类的扩展不会给已有的系统引入新的错误，降低了代码出错的可能性。</li>
+<li>加强程序的健壮性，同时变更时可以做到非常好的兼容性，提高程序的维护性、可扩展性，降低需求变更时引入的风险。</li>
+</ol>
+<h4 id="2-2-3-实现方法"><a href="#2-2-3-实现方法" class="headerlink" title="2.2.3. 实现方法"></a>2.2.3. 实现方法</h4><p>根据上述理解，对里氏替换原则的定义可以总结如下：</p>
+<ul>
+<li>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法</li>
+<li>子类中可以增加自己特有的方法</li>
+<li>当子类的方法重载父类的方法时，方法的前置条件（即方法的输入参数）要比父类的方法更宽松</li>
+<li>当子类的方法实现父类的方法时（重写/重载或实现抽象方法），方法的后置条件（即方法的的输出/返回值）要比父类的方法更严格或相等</li>
+</ul>
+<blockquote>
+<p>总结：入口松，出口紧</p>
+</blockquote>
+<p>通过<strong>重写父类的方法</strong>来完成新的功能写起来虽然简单，但是整个<strong>继承体系的可复用性会比较差</strong>，特别是运用多态比较频繁时，程序运行出错的概率会非常大。</p>
+<p>如果程序违背了里氏替换原则，则继承类的对象在基类出现的地方会出现运行错误。这时其修正方法是：取消原来的继承关系，重新设计它们之间的关系。</p>
+<ul>
+<li>案例：</li>
+</ul>
+<p>“几维鸟不是鸟”，“正方形不是长方形”都是不遵守里氏替换原则的经典案例</p>
+<h3 id="2-3-依赖倒置原则"><a href="#2-3-依赖倒置原则" class="headerlink" title="2.3. 依赖倒置原则"></a>2.3. 依赖倒置原则</h3><blockquote>
+<p>指出了抽象的重要性</p>
+</blockquote>
+<h4 id="2-3-1-定义"><a href="#2-3-1-定义" class="headerlink" title="2.3.1. 定义"></a>2.3.1. 定义</h4><p>依赖倒置原则的原始定义为：高层模块不应该依赖低层模块，两者都应该依赖其抽象；抽象不应该依赖细节，细节应该依赖抽象。其核心思想是：<strong>要面向接口编程，不要面向实现编程。</strong></p>
+<p>依赖倒置原则是实现开闭原则的重要途径之一，它<strong>降低了客户与实现模块之间的耦合</strong>。</p>
+<p>由于在软件设计中，细节具有多变性，而抽象层则相对稳定，因此以抽象为基础搭建起来的架构要比以细节为基础搭建起来的架构要稳定得多。这里的抽象指的是接口或者抽象类，而细节是指具体的实现类。</p>
+<p>使用接口或者抽象类的目的是制定好规范和契约，而不去涉及任何具体的操作，把展现细节的任务交给它们的实现类去完成。</p>
+<h4 id="2-3-2-作用"><a href="#2-3-2-作用" class="headerlink" title="2.3.2. 作用"></a>2.3.2. 作用</h4><p>依赖倒置原则的主要作用如下。</p>
+<ul>
+<li>依赖倒置原则可以降低类间的耦合性。</li>
+<li>依赖倒置原则可以提高系统的稳定性。</li>
+<li>依赖倒置原则可以减少并行开发引起的风险。</li>
+<li>依赖倒置原则可以提高代码的可读性和可维护性。</li>
+</ul>
+<h4 id="2-3-3-实现方法"><a href="#2-3-3-实现方法" class="headerlink" title="2.3.3. 实现方法"></a>2.3.3. 实现方法</h4><p>依赖倒置原则的目的是通过要面向接口的编程来降低类间的耦合性，所以我们在实际编程中只要遵循以下4点，就能在项目中满足这个规则。</p>
+<ol>
+<li>每个类尽量提供接口或抽象类，或者两者都具备。</li>
+<li>变量的声明类型尽量是接口或者是抽象类。</li>
+<li>任何类都不应该从具体类派生。</li>
+<li>使用继承时尽量遵循里氏替换原则。</li>
+</ol>
+<blockquote>
+<p>总结：面向接口编程</p>
+</blockquote>
+<h3 id="2-4-单一职责原则"><a href="#2-4-单一职责原则" class="headerlink" title="2.4. 单一职责原则"></a>2.4. 单一职责原则</h3><h4 id="2-4-1-定义"><a href="#2-4-1-定义" class="headerlink" title="2.4.1. 定义"></a>2.4.1. 定义</h4><p>单一职责原则又称单一功能原则，这里的职责是指类变化的原因，单一职责原则规定<strong>一个类应该有且仅有一个引起它变化的原因，否则类应该被拆分</strong>。</p>
+<p>该原则提出对象不应该承担太多职责，如果一个对象承担了太多的职责，至少存在以下两个缺点：</p>
+<ol>
+<li>一个职责的变化可能会削弱或者抑制这个类实现其他职责的能力；</li>
+<li>当客户端需要该对象的某一个职责时，不得不将其他不需要的职责全都包含进来，从而造成冗余代码或代码的浪费。</li>
+</ol>
+<h4 id="2-4-2-作用"><a href="#2-4-2-作用" class="headerlink" title="2.4.2. 作用"></a>2.4.2. 作用</h4><p>单一职责原则的核心就是<strong>控制类的粒度大小、将对象解耦、提高其内聚性</strong>。如果遵循单一职责原则将有以下优点。</p>
+<ul>
+<li>降低类的复杂度。一个类只负责一项职责，其逻辑肯定要比负责多项职责简单得多。</li>
+<li>提高类的可读性。复杂性降低，自然其可读性会提高。</li>
+<li>提高系统的可维护性。可读性提高，那自然更容易维护了。</li>
+<li>变更引起的风险降低。变更是必然的，如果单一职责原则遵守得好，当修改一个功能时，可以显著降低对其他功能的影响。</li>
+</ul>
+<h4 id="2-4-3-实现方法"><a href="#2-4-3-实现方法" class="headerlink" title="2.4.3. 实现方法"></a>2.4.3. 实现方法</h4><p>单一职责原则是最简单但又最难运用的原则，需要设计人员发现类的不同职责并将其分离，再封装到不同的类或模块中。而发现类的多重职责需要设计人员具有较强的分析设计能力和相关重构经验。</p>
+<h3 id="2-5-接口隔离原则"><a href="#2-5-接口隔离原则" class="headerlink" title="2.5. 接口隔离原则"></a>2.5. 接口隔离原则</h3><h4 id="2-5-1-定义"><a href="#2-5-1-定义" class="headerlink" title="2.5.1. 定义"></a>2.5.1. 定义</h4><p>接口隔离原则要求程序员尽量将臃肿庞大的接口拆分成更小的和更具体的接口，让接口中只包含客户感兴趣的方法。要为各个类建立它们需要的专用接口，而不要试图去建立一个很庞大的接口供所有依赖它的类去调用。</p>
+<p>接口隔离原则和单一职责都是为了提高类的内聚性、降低它们之间的耦合性，体现了封装的思想，但两者是不同的：</p>
+<ul>
+<li>单一职责原则注重的是职责，而接口隔离原则注重的是对接口依赖的隔离。</li>
+<li>单一职责原则主要是约束类，它针对的是程序中的实现和细节；接口隔离原则主要约束接口，主要针对抽象和程序整体框架的构建。</li>
+</ul>
+<h4 id="2-5-2-作用"><a href="#2-5-2-作用" class="headerlink" title="2.5.2. 作用"></a>2.5.2. 作用</h4><p>接口隔离原则是为了约束接口、降低类对接口的依赖性，遵循接口隔离原则有以下 5 个优点。</p>
+<ol>
+<li>将臃肿庞大的接口分解为多个粒度小的接口，可以预防外来变更的扩散，提高系统的灵活性和可维护性。</li>
+<li>接口隔离提高了系统的内聚性，减少了对外交互，降低了系统的耦合性。</li>
+<li>如果<strong>接口的粒度大小定义合理，能够保证系统的稳定性；但是，如果定义过小，则会造成接口数量过多，使设计复杂化；如果定义太大，灵活性降低，无法提供定制服务，给整体项目带来无法预料的风险</strong>。</li>
+<li>使用多个专门的接口还能够体现对象的层次，因为可以通过接口的继承，实现对总接口的定义。</li>
+<li>能减少项目工程中的代码冗余。过大的大接口里面通常放置许多不用的方法，当实现这个接口的时候，被迫设计冗余的代码。</li>
+</ol>
+<h4 id="2-5-3-实现方法"><a href="#2-5-3-实现方法" class="headerlink" title="2.5.3. 实现方法"></a>2.5.3. 实现方法</h4><p>在具体应用接口隔离原则时，应该根据以下几个规则来衡量。</p>
+<ul>
+<li>接口尽量小，但是要有限度。一个接口只服务于一个子模块或业务逻辑。</li>
+<li>为依赖接口的类定制服务。只提供调用者需要的方法，屏蔽不需要的方法。</li>
+<li>了解环境，拒绝盲从。每个项目或产品都有选定的环境因素，环境不同，接口拆分的标准就不同深入了解业务逻辑。</li>
+<li>提高内聚，减少对外交互。使接口用最少的方法去完成最多的事情。</li>
+</ul>
+<h3 id="2-6-迪米特法则"><a href="#2-6-迪米特法则" class="headerlink" title="2.6. 迪米特法则"></a>2.6. 迪米特法则</h3><h4 id="2-6-1-定义"><a href="#2-6-1-定义" class="headerlink" title="2.6.1. 定义"></a>2.6.1. 定义</h4><p>迪米特法则指如果两个软件实体无须直接通信，那么就不应当发生直接的相互调用，可以通过第三方转发该调用。其目的是降低类之间的耦合度，提高模块的相对独立性。</p>
+<h4 id="2-6-2-作用"><a href="#2-6-2-作用" class="headerlink" title="2.6.2. 作用"></a>2.6.2. 作用</h4><p>迪米特法则要求限制软件实体之间通信的宽度和深度，正确使用迪米特法则将有以下两个优点。</p>
+<ol>
+<li>降低了类之间的耦合度，提高了模块的相对独立性。</li>
+<li>由于亲合度降低，从而提高了类的可复用率和系统的扩展性。</li>
+</ol>
+<p>但是，过度使用迪米特法则会使系统产生大量的中介类，从而增加系统的复杂性，使模块之间的通信效率降低。所以，在釆用迪米特法则时需要反复权衡，确保高内聚和低耦合的同时，保证系统的结构清晰。</p>
+<h4 id="2-6-3-实现方法"><a href="#2-6-3-实现方法" class="headerlink" title="2.6.3. 实现方法"></a>2.6.3. 实现方法</h4><p>从迪米特法则的定义和特点可知，它强调以下两点：</p>
+<ol>
+<li>从依赖者的角度来说，只依赖应该依赖的对象。</li>
+<li>从被依赖者的角度说，只暴露应该暴露的方法。</li>
+</ol>
+<p>所以，在运用迪米特法则时要注意以下 6 点。</p>
+<ol>
+<li>在类的划分上，应该创建弱耦合的类。类与类之间的耦合越弱，就越有利于实现可复用的目标。</li>
+<li>在类的结构设计上，尽量降低类成员的访问权限。</li>
+<li>在类的设计上，优先考虑将一个类设置成不变类。</li>
+<li>在对其他类的引用上，将引用其他对象的次数降到最低。</li>
+<li>不暴露类的属性成员，而应该提供相应的访问器（set 和 get 方法）。</li>
+<li>谨慎使用序列化（Serializable）功能。</li>
+</ol>
+<h3 id="2-7-合成复用原则"><a href="#2-7-合成复用原则" class="headerlink" title="2.7. 合成复用原则"></a>2.7. 合成复用原则</h3><blockquote>
+<p>通过对象引用，来调用已有对象功能</p>
+</blockquote>
+<h4 id="2-7-1-定义"><a href="#2-7-1-定义" class="headerlink" title="2.7.1. 定义"></a>2.7.1. 定义</h4><p>合成复用原则<strong>要求在软件复用时，要尽量先使用组合或者聚合等关联关系来实现，其次才考虑使用继承关系来实现。</strong>如果要使用继承关系，则必须严格遵循里氏替换原则。合成复用原则同里氏替换原则相辅相成的，两者都是开闭原则的具体实现规范。</p>
+<h4 id="2-7-2-作用"><a href="#2-7-2-作用" class="headerlink" title="2.7.2. 作用"></a>2.7.2. 作用</h4><p>通常类的复用分为继承复用和合成复用两种，继承复用虽然有简单和易实现的优点，但它也存在以下缺点。</p>
+<ol>
+<li>继承复用破坏了类的封装性。因为继承会将父类的实现细节暴露给子类，父类对子类是透明的，所以这种复用又称为“白箱”复用。</li>
+<li>子类与父类的耦合度高。父类的实现的任何改变都会导致子类的实现发生变化，这不利于类的扩展与维护。</li>
+<li>它限制了复用的灵活性。从父类继承而来的实现是静态的，在编译时已经定义，所以在运行时不可能发生变化。</li>
+</ol>
+<p>采用组合或聚合复用时，可以将已有对象纳入新对象中，使之成为新对象的一部分，新对象可以调用已有对象的功能，它有以下优点。</p>
+<ol>
+<li>它维持了类的封装性。因为成分对象的内部细节是新对象看不见的，所以这种复用又称为“黑箱”复用。</li>
+<li>新旧类之间的耦合度低。这种复用所需的依赖较少，新对象存取成分对象的唯一方法是通过成分对象的接口。</li>
+<li>复用的灵活性高。这种复用可以在运行时动态进行，新对象可以动态地引用与成分对象类型相同的对象。</li>
+</ol>
+<h4 id="2-7-3-实现方法"><a href="#2-7-3-实现方法" class="headerlink" title="2.7.3. 实现方法"></a>2.7.3. 实现方法</h4><p>合成复用原则是通过将已有的对象纳入新对象中，作为新对象的成员对象来实现的，新对象可以调用已有对象的功能，从而达到复用。</p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Activiti</title>
+    <url>/2021/06/13/java/Activiti/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>工作流</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>activiti</tag>
+        <tag>工作流</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker</title>
+    <url>/2021/06/17/java/Docker/</url>
+    <content><![CDATA[<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><p><a href="https://blog.csdn.net/BThinker/article/details/123507820">Docker 安装 Nginx 容器 (完整详细版)</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>docker</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ELK</title>
+    <url>/2021/06/20/java/ELK/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>nosql</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>elk</tag>
+        <tag>nosql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git</title>
+    <url>/2021/05/31/java/Git/</url>
+    <content><![CDATA[<h2 id="1-Git是什么"><a href="#1-Git是什么" class="headerlink" title="1. Git是什么"></a>1. Git是什么</h2><ol>
+<li> svn是集中化的版本控制系统，git是分布式版本控制系统</li>
+<li> git直接记录快照，而非差异比较</li>
+<li> 近乎所有的操作都是本地执行</li>
+</ol>
+<h2 id="2-基本操作"><a href="#2-基本操作" class="headerlink" title="2. 基本操作"></a>2. 基本操作</h2><blockquote>
+<p>Git基本操作:  <a href="https://www.runoob.com/git/git-basic-operations.html">https://www.runoob.com/git/git-basic-operations.html</a></p>
+</blockquote>
+<h3 id="2-1-使用当前目录作为Git仓库"><a href="#2-1-使用当前目录作为Git仓库" class="headerlink" title="2.1. 使用当前目录作为Git仓库"></a>2.1. 使用当前目录作为Git仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">进入该目录，右键进入git命令行模式</span><br><span class="line"><span class="comment">#添加版本库</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment">#将本地文件添加到暂存区</span></span><br><span class="line">git add .  </span><br><span class="line"><span class="comment"># 将文件提交到版本库</span></span><br><span class="line">git commit -m <span class="string">&quot;注释&quot;</span>  </span><br><span class="line"><span class="comment">#添加一个远程 Git 仓库，同时指定一个可以引用的简写origin</span></span><br><span class="line">git remote add origin https://gitee.com/yangqinglei26/study-notes.git  </span><br><span class="line"><span class="comment">#将本地版本库推送到远程版本库进行合并</span></span><br><span class="line">git push -u origin master  </span><br><span class="line"><span class="comment"># 显示远程仓库</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-记录每次更新到仓库"><a href="#2-2-记录每次更新到仓库" class="headerlink" title="2.2. 记录每次更新到仓库"></a>2.2. 记录每次更新到仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看文件状态</span></span><br><span class="line">git status  </span><br><span class="line"><span class="comment">#文件状态从untracked变为staged，文件被添加到暂存区</span></span><br><span class="line">git add  </span><br><span class="line"><span class="comment">#查看暂存前后的变化</span></span><br><span class="line">git diff  </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-忽略文件"><a href="#2-3-忽略文件" class="headerlink" title="2.3. 忽略文件"></a>2.3. 忽略文件</h3><ul>
+<li><p>文件 .gitignore 的格式规范如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">所有空行或者以 # 开头的行都会被 Git 忽略。</span><br><span class="line">可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。</span><br><span class="line">匹配模式可以以（/）开头防止递归。</span><br><span class="line">匹配模式可以以（/）结尾指定目录。</span><br><span class="line">要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-分支管理"><a href="#3-分支管理" class="headerlink" title="3. 分支管理"></a>3. 分支管理</h2><blockquote>
+<p>Git分支管理策略:  <a href="https://www.ruanyifeng.com/blog/2012/07/git.html">https://www.ruanyifeng.com/blog/2012/07/git.html</a></p>
+</blockquote>
+<h3 id="3-1-创建合并分支"><a href="#3-1-创建合并分支" class="headerlink" title="3.1. 创建合并分支"></a>3.1. 创建合并分支</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看当前分支</span></span><br><span class="line">git branch </span><br><span class="line"><span class="comment">#创建分支</span></span><br><span class="line">git branch dev</span><br><span class="line"><span class="comment">#切换分支</span></span><br><span class="line">git checkout dev</span><br><span class="line"><span class="comment">#创建并切换到一个分支里面</span></span><br><span class="line">git checkout -b dev</span><br><span class="line"><span class="comment">#查看记录</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line"><span class="comment">#合并记录,出现fast-forward就是快速合并</span></span><br><span class="line">git merge dev</span><br><span class="line"><span class="comment">#执行正常合并，在Master分支上生成一个新节点</span></span><br><span class="line">git merge --no-ff dev</span><br><span class="line"><span class="comment">#合并之后，就可以删除dev分支</span></span><br><span class="line">git checkout -d dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-解决冲突"><a href="#3-2-解决冲突" class="headerlink" title="3.2. 解决冲突"></a>3.2. 解决冲突</h3><ul>
+<li><p>在不同分支上，都编辑了同一个文件，这时候合并，会出现冲突。<strong>解决方法：</strong>手动进行合并，在code文件中。然后在进行add和commit操作</p>
+</li>
+<li><p>软件开发中，遇到bug就像是家常便饭。当遇到bug的时候，每一个bug都要用过临时的分支来修复，修复后在合并分支，然后将临时分支删除。<br>当你正在做某项任务的时候，临时有个紧急的任务，修复bug，但是你的代码没有写完，不能提交，可以通过下面的命令进行存储，等你修复完成之后，可以继续做。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#存储工作现场</span></span><br><span class="line">git stash</span><br><span class="line"><span class="comment">#查看存储工作现场</span></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment">#恢复存储工作现场</span></span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-查看提交历史"><a href="#4-查看提交历史" class="headerlink" title="4. 查看提交历史"></a>4. 查看提交历史</h2><h2 id="5-标签管理"><a href="#5-标签管理" class="headerlink" title="5. 标签管理"></a>5. 标签管理</h2><h2 id="6-服务器搭建"><a href="#6-服务器搭建" class="headerlink" title="6. 服务器搭建"></a>6. 服务器搭建</h2><h2 id="7-扩展"><a href="#7-扩展" class="headerlink" title="7. 扩展"></a>7. 扩展</h2><h3 id="7-1-SSH配置"><a href="#7-1-SSH配置" class="headerlink" title="7.1. SSH配置"></a>7.1. SSH配置</h3><h4 id="7-1-1-检测SSH配置情况"><a href="#7-1-1-检测SSH配置情况" class="headerlink" title="7.1.1. 检测SSH配置情况"></a>7.1.1. 检测SSH配置情况</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入ssh目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"><span class="comment"># 查看是否有id_rsa  id_rsa.pub </span></span><br><span class="line">ls</span><br><span class="line"><span class="comment"># 如果没有id_rsa  id_rsa.pub ，进入第2步</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531090521299.png" alt="image-20210531090521299"></p>
+<h4 id="7-1-2-配置SSH"><a href="#7-1-2-配置SSH" class="headerlink" title="7.1.2. 配置SSH"></a>7.1.2. 配置SSH</h4><h5 id="7-1-2-1-查询是否配置了全局参数"><a href="#7-1-2-1-查询是否配置了全局参数" class="headerlink" title="7.1.2.1. 查询是否配置了全局参数"></a>7.1.2.1. 查询是否配置了全局参数</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global  --list </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531085905271.png" alt="image-20210531085905271"></p>
+<ul>
+<li>如果未配置，执行以下命令：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># git config --global  user.name &quot;这里换上你的用户名&quot;</span></span><br><span class="line">git config --global  user.name <span class="string">&quot;yangqinglei26&quot;</span></span><br><span class="line"><span class="comment"># git config --global user.email &quot;这里换上你的邮箱&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;dandetionyang@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="7-1-2-2-生成公钥"><a href="#7-1-2-2-生成公钥" class="headerlink" title="7.1.2.2. 生成公钥"></a>7.1.2.2. 生成公钥</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -o</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>执行命令后需要进行3次或4次确认：</p>
+<p>确认秘钥的保存路径（如果不需要改路径则直接回车）；<br>如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；<br>创建密码（如果不需要密码则直接回车）；<br>确认密码；<br>执行过程如下图：</p>
+</blockquote>
+<p><img src="/2021/05/31/java/Git/image-20210531092848479.png" alt="image-20210531092848479"></p>
+<h5 id="7-1-2-3-查看公钥"><a href="#7-1-2-3-查看公钥" class="headerlink" title="7.1.2.3. 查看公钥"></a>7.1.2.3. 查看公钥</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531092432406.png" alt="image-20210531092432406"></p>
+<h5 id="7-1-2-4-复制公钥到github"><a href="#7-1-2-4-复制公钥到github" class="headerlink" title="7.1.2.4. 复制公钥到github"></a>7.1.2.4. 复制公钥到github</h5><p><img src="/2021/05/31/java/Git/image-20210531091935818.png"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531092244164.png" alt="image-20210531092244164"></p>
+<blockquote>
+<p>参考资料：<a href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">Git官方文档</a></p>
+</blockquote>
+<h2 id="8-GitTalk使用"><a href="#8-GitTalk使用" class="headerlink" title="8. GitTalk使用"></a>8. GitTalk使用</h2><blockquote>
+<p>帮助手册：<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">https://github.com/gitalk/gitalk/blob/master/readme-cn.md</a></p>
+</blockquote>
+<h3 id="8-1-我们选取其中一种方式做说明"><a href="#8-1-我们选取其中一种方式做说明" class="headerlink" title="8.1. 我们选取其中一种方式做说明"></a>8.1. 我们选取其中一种方式做说明</h3><p><img src="/2021/05/31/java/Git/image-20210531093501749.png" alt="image-20210531093501749"></p>
+<h4 id="8-1-1-获取owner、repo"><a href="#8-1-1-获取owner、repo" class="headerlink" title="8.1.1. 获取owner、repo"></a>8.1.1. 获取owner、repo</h4><blockquote>
+<p>参考资料： <a href="https://docs.github.com/en/rest/reference/issues">github 接口文档</a></p>
+</blockquote>
+<p>gittalk会根据输入的参数去调用github接口，查询对应的issue</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://api.github.com/repos/&#123;owner&#125;/&#123;repo&#125;/issues</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531150941976.png" alt="image-20210531150941976"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531152732039.png" alt="image-20210531152732039"></p>
+<h4 id="8-1-2-生成clientID、clientSecret"><a href="#8-1-2-生成clientID、clientSecret" class="headerlink" title="8.1.2. 生成clientID、clientSecret"></a>8.1.2. 生成clientID、clientSecret</h4><p><img src="/2021/05/31/java/Git/image-20210531144238169.png" alt="image-20210531144238169"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531144356321.png" alt="image-20210531144356321"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531144742784.png" alt="image-20210531144742784"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531145405306.png" alt="image-20210531145405306"></p>
+<h4 id="8-1-3-参考"><a href="#8-1-3-参考" class="headerlink" title="8.1.3. 参考"></a>8.1.3. 参考</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">clientID:</span> <span class="string">129f2c758bba8433d4c8</span></span><br><span class="line"><span class="attr">clientSecret:</span> <span class="string">20a29f0beeec62e28c7b829941fac54793a99f3c</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">yangqinglei26</span></span><br><span class="line"><span class="attr">owner:</span> <span class="string">yangtest</span></span><br><span class="line"><span class="attr">admin:</span> [<span class="string">yangqinglei26</span>]</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java</title>
+    <url>/2021/05/28/java/Java/</url>
+    <content><![CDATA[<h2 id="1-IO和NIO"><a href="#1-IO和NIO" class="headerlink" title="1. IO和NIO"></a>1. IO和NIO</h2><h2 id="2-多线程"><a href="#2-多线程" class="headerlink" title="2. 多线程"></a>2. 多线程</h2><blockquote>
+<p><a href="https://www.cnblogs.com/renhui/p/6066852.html">Java Thread 的使用</a></p>
+<p><a href="https://blog.csdn.net/a158123/article/details/78633772">Thread的join()方法</a></p>
+<p><a href="https://www.cnblogs.com/haolb123/p/14323815.html">Java终止线程的三种方式</a></p>
+</blockquote>
+<p><img src="/2021/05/28/java/Java/624959-66b49045b1bd7cd6.webp" alt="线程状态图"></p>
+<h3 id="2-1-创建线程"><a href="#2-1-创建线程" class="headerlink" title="2.1. 创建线程"></a>2.1. 创建线程</h3><h4 id="2-1-1-实现Runnable接口"><a href="#2-1-1-实现Runnable接口" class="headerlink" title="2.1.1. 实现Runnable接口"></a>2.1.1. 实现Runnable接口</h4><blockquote>
+<p>推进使用：方便同一个对象被多个线程使用</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(Runnable 实现).start()</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-继承Thread"><a href="#2-1-2-继承Thread" class="headerlink" title="2.1.2. 继承Thread"></a>2.1.2. 继承Thread</h4><h4 id="2-1-3-实现Callable接口"><a href="#2-1-3-实现Callable接口" class="headerlink" title="2.1.3. 实现Callable接口"></a>2.1.3. 实现Callable接口</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">实现Callable接口，需要返回值类型</span><br><span class="line">重写call方法，需要抛出异常</span><br><span class="line">创建目标对象</span><br><span class="line">创建执行服务：ExecutorService ser = Executors.newFixedThreadPool(1);</span><br><span class="line">提交执行：Future&lt;Boolean&gt; result1 = ser.submit(t1);</span><br><span class="line">获取结果：boolean r1 = result1.get()</span><br><span class="line">关闭服务：ser.shutdownNow()</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-停止线程"><a href="#2-2-停止线程" class="headerlink" title="2.2. 停止线程"></a>2.2. 停止线程</h3><h4 id="2-2-1-设置一个标志位"><a href="#2-2-1-设置一个标志位" class="headerlink" title="2.2.1. 设置一个标志位"></a>2.2.1. 设置一个标志位</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">publ</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-礼让线程"><a href="#2-3-礼让线程" class="headerlink" title="2.3. 礼让线程"></a>2.3. 礼让线程</h3><blockquote>
+<p>yield()</p>
+</blockquote>
+<ul>
+<li>礼让线程，让当前正在执行的线程暂停，但不阻塞</li>
+<li>将线程从运行状态转为就绪状态</li>
+<li>让cpu重新调度，礼让不一定成功！看cpu心情</li>
+</ul>
+<h3 id="2-4-强制执行线程"><a href="#2-4-强制执行线程" class="headerlink" title="2.4. 强制执行线程"></a>2.4. 强制执行线程</h3><blockquote>
+<p>join()</p>
+</blockquote>
+<h3 id="2-5-线程优先级"><a href="#2-5-线程优先级" class="headerlink" title="2.5. 线程优先级"></a>2.5. 线程优先级</h3><blockquote>
+<p>priority(1-10)</p>
+</blockquote>
+<ul>
+<li>先设置优先级，再start()</li>
+</ul>
+<h3 id="2-6-守护线程"><a href="#2-6-守护线程" class="headerlink" title="2.6. 守护线程"></a>2.6. 守护线程</h3><h3 id="2-7-线程同步"><a href="#2-7-线程同步" class="headerlink" title="2.7. 线程同步"></a>2.7. 线程同步</h3><ul>
+<li><p>队列+锁</p>
+</li>
+<li><p>synchronized </p>
+</li>
+<li><p>lock</p>
+</li>
+</ul>
+<h3 id="2-8-线程通信"><a href="#2-8-线程通信" class="headerlink" title="2.8. 线程通信"></a>2.8. 线程通信</h3><ul>
+<li><p>生产者和消费者问题</p>
+</li>
+<li><p>synchronized </p>
+</li>
+<li><p>while 防止虚假唤醒</p>
+</li>
+<li><p>wait()、notifyall()</p>
+</li>
+</ul>
+<h4 id="2-8-1-管程法"><a href="#2-8-1-管程法" class="headerlink" title="2.8.1. 管程法"></a>2.8.1. 管程法</h4><ul>
+<li>缓冲池</li>
+</ul>
+<h4 id="2-8-2-信号灯法"><a href="#2-8-2-信号灯法" class="headerlink" title="2.8.2. 信号灯法"></a>2.8.2. 信号灯法</h4><ul>
+<li>标志位</li>
+</ul>
+<h3 id="2-9-线程池"><a href="#2-9-线程池" class="headerlink" title="2.9. 线程池"></a>2.9. 线程池</h3><h2 id="3-注解和反射"><a href="#3-注解和反射" class="headerlink" title="3. 注解和反射"></a>3. 注解和反射</h2><h2 id="4-JUC"><a href="#4-JUC" class="headerlink" title="4. JUC"></a>4. JUC</h2><blockquote>
+<p><a href="https://www.processon.com/view/5ff905961e0853437c6d010c?fromnew=1#map">参考资料1</a> </p>
+<p><a href="https://www.processon.com/view/60595e325653bb2225dee274?fromnew=1#map">参考资料2</a></p>
+<p><a href="https://www.jianshu.com/p/3c5d7f09dfbd">ThreadLocal</a> <a href="https://www.cnblogs.com/fsmly/p/11020641.html">Java中的ThreadLocal详解</a> <a href="https://www.freesion.com/article/85951314530/">多个 THREADLOCAL 在 THREAD 中的 THREADLOCALS 里是怎么存储的</a></p>
+<p><a href="https://blog.csdn.net/byhook/article/details/87971081">Java并发编程之happens-before和as-if-serial语义</a></p>
+<p><a href="https://www.topjava.cn/article/1391297837127569408">java并发</a></p>
+</blockquote>
+<p><img src="/2021/05/28/java/Java/sike-juc.png" alt="sike-juc"></p>
+<h3 id="4-1-wait和sleep的区别"><a href="#4-1-wait和sleep的区别" class="headerlink" title="4.1. wait和sleep的区别"></a>4.1. wait和sleep的区别</h3><ul>
+<li>来自不同的类</li>
+</ul>
+<p>wait =&gt; object    sleep =&gt; Thread</p>
+<ul>
+<li>锁的释放</li>
+</ul>
+<p>wait 会释放锁，sleep 不会释放</p>
+<ul>
+<li>使用范围</li>
+</ul>
+<p>wait 在 synchronized 中使用</p>
+<h3 id="4-2-Lock锁"><a href="#4-2-Lock锁" class="headerlink" title="4.2. Lock锁"></a>4.2. Lock锁</h3><h4 id="4-2-1-ReentrantLock"><a href="#4-2-1-ReentrantLock" class="headerlink" title="4.2.1. ReentrantLock"></a>4.2.1. ReentrantLock</h4><ul>
+<li>默认非公平锁</li>
+<li>必须成对出现</li>
+<li>示例：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReentrantLockTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Mycache mycache = <span class="keyword">new</span> Mycache();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        mycache.put(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+j,<span class="string">&quot;toy&quot;</span>+j);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,<span class="string">&quot;thread&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)&#123;</span><br><span class="line">                    mycache.get(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+j);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,<span class="string">&quot;thread&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Mycache</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key,String value)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">            lock.lock();</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;开始写入&quot;</span>);</span><br><span class="line">            map.put(key,value);</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;退出写入&quot;</span>);</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span></span>&#123;</span><br><span class="line">            lock.lock();</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;开始读取&quot;</span>);</span><br><span class="line">            String value = map.get(key);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+value);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;退出读取&quot;</span>);</span><br><span class="line">            lock.unlock();</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">thread0:开始写入</span><br><span class="line">thread0:退出写入</span><br><span class="line">thread1:开始写入</span><br><span class="line">thread1:退出写入</span><br><span class="line">thread1:开始写入</span><br><span class="line">thread1:退出写入</span><br><span class="line">thread2:开始写入</span><br><span class="line">thread2:退出写入</span><br><span class="line">thread0:开始读取</span><br><span class="line">thread0:toy0</span><br><span class="line">thread0:退出读取</span><br><span class="line">thread0:开始读取</span><br><span class="line">thread0:null</span><br><span class="line">thread0:退出读取</span><br><span class="line">thread1:开始读取</span><br><span class="line">thread1:toy0</span><br><span class="line">thread1:退出读取</span><br><span class="line">thread1:开始读取</span><br><span class="line">thread1:toy1</span><br><span class="line">thread1:退出读取</span><br><span class="line">thread2:开始读取</span><br><span class="line">thread2:toy0</span><br><span class="line">thread2:退出读取</span><br><span class="line">thread2:开始读取</span><br><span class="line">thread2:null</span><br><span class="line">thread2:退出读取</span><br><span class="line">thread0:开始写入</span><br><span class="line">thread0:退出写入</span><br><span class="line">thread2:开始写入</span><br><span class="line">thread2:退出写入</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-2-2-synchronized-和-lock-的区别"><a href="#4-2-2-synchronized-和-lock-的区别" class="headerlink" title="4.2.2. synchronized 和 lock 的区别"></a>4.2.2. synchronized 和 lock 的区别</h4><blockquote>
+<p><a href="https://www.topjava.cn/article/1391297775492272128">深入分析synchronized的实现原理</a></p>
+<p><a href="https://my.oschina.net/hosee/blog/2878328">JAVA锁的膨胀过程</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>synchronized</th>
+<th>lock</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>内置的java关键字</td>
+<td>java接口</td>
+</tr>
+<tr>
+<td>2</td>
+<td>无法获取锁的状态</td>
+<td>可以获取锁的状态</td>
+</tr>
+<tr>
+<td>3</td>
+<td>会自动释放锁</td>
+<td>手动释放锁</td>
+</tr>
+<tr>
+<td>4</td>
+<td>线程阻塞时，其它线程会一直等待</td>
+<td>可以主动尝试获取锁</td>
+</tr>
+<tr>
+<td>5</td>
+<td>非公平锁，不可以中断</td>
+<td>可以自定义</td>
+</tr>
+<tr>
+<td>6</td>
+<td>适合锁少量的同步代码</td>
+<td>适合锁大量的同步代码</td>
+</tr>
+</tbody></table>
+<h4 id="4-2-3-Condition"><a href="#4-2-3-Condition" class="headerlink" title="4.2.3. Condition"></a>4.2.3. Condition</h4><blockquote>
+<p>await() 、signal()</p>
+</blockquote>
+<h4 id="4-2-4-八锁现象"><a href="#4-2-4-八锁现象" class="headerlink" title="4.2.4. 八锁现象"></a>4.2.4. 八锁现象</h4><p>synchronized 锁的对象</p>
+<p><img src="/2021/05/28/java/Java/image-20210718002843921.png" alt="image-20210718002843921"></p>
+<p><img src="/2021/05/28/java/Java/2bcc8161c52eb100d2c7c4c96c70d3c5823.jpg" alt="2bcc8161c52eb100d2c7c4c96c70d3c5823.jpg"></p>
+<ul>
+<li>方法的调用者</li>
+<li>class类模板（static）</li>
+</ul>
+<h3 id="4-3-集合相关"><a href="#4-3-集合相关" class="headerlink" title="4.3. 集合相关"></a>4.3. 集合相关</h3><p><img src="/2021/05/28/java/Java/image-20210720010303960.png" alt="image-20210720010303960"></p>
+<h4 id="4-3-1-ArrayList"><a href="#4-3-1-ArrayList" class="headerlink" title="4.3.1. ArrayList"></a>4.3.1. ArrayList</h4><p>并发下 ArrayList 会抛出 ConcurrentModificationExecptin ，解决办法：</p>
+<ol>
+<li>new Vector()</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Vector.class</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, E element)</span> </span>&#123;</span><br><span class="line">    insertElementAt(element, index);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">insertElementAt</span><span class="params">(E obj, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    modCount++;</span><br><span class="line">    <span class="keyword">if</span> (index &gt; elementCount) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException(index</span><br><span class="line">                                                 + <span class="string">&quot; &gt; &quot;</span> + elementCount);</span><br><span class="line">    &#125;</span><br><span class="line">    ensureCapacityHelper(elementCount + <span class="number">1</span>);</span><br><span class="line">    System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>, elementCount - index);</span><br><span class="line">    elementData[index] = obj;</span><br><span class="line">    elementCount++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>Collections.synchronizedList(new ArrayList())</p>
+</li>
+<li><p>new CopyOnWriteArrayList&lt;&gt;() 读写分离</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// CopyOnWriteArrayList.class</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Object[] elements = getArray();</span><br><span class="line">        <span class="keyword">int</span> len = elements.length;</span><br><span class="line">        Object[] newElements = Arrays.copyOf(elements, len + <span class="number">1</span>);</span><br><span class="line">        newElements[len] = e;</span><br><span class="line">        setArray(newElements);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-2-HashSet"><a href="#4-3-2-HashSet" class="headerlink" title="4.3.2.  HashSet"></a>4.3.2.  HashSet</h4><ul>
+<li>底层</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// HashSet.class</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object PRESENT = <span class="keyword">new</span> Object();</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">HashSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> map.put(e, PRESENT)==<span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>并发下 HashSet 会抛出 ConcurrentModificationExecptin ，解决办法：</li>
+</ul>
+<ol>
+<li> Collections.synchronizedSet(new HashSet ())</li>
+<li> new CopyOnWriteArraySet()</li>
+</ol>
+<h4 id="4-3-3-HashMap"><a href="#4-3-3-HashMap" class="headerlink" title="4.3.3. HashMap"></a>4.3.3. HashMap</h4><p>并发下 HashMap 会抛出 ConcurrentModificationExecptin ，解决办法：</p>
+<ol>
+<li> Collections.synchronizedMap(new HashMap ())</li>
+<li> new  ConcurrentHashMap()</li>
+</ol>
+<h3 id="4-4-Callable"><a href="#4-4-Callable" class="headerlink" title="4.4. Callable"></a>4.4. Callable</h3><ul>
+<li>调用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> Thread(<span class="keyword">new</span> FutureTask(<span class="keyword">new</span> Callable() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)).start();</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/28/java/Java/image-20210604103451519.png" alt="image-20210604103451519"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallableTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        FutureTask task =  <span class="keyword">new</span> FutureTask(<span class="keyword">new</span> Callable() &#123;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;A1&quot;</span>))&#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> Thread.currentThread().getName() +<span class="string">&quot; do working&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">new</span> Thread(task,<span class="string">&quot;A1&quot;</span>).start();</span><br><span class="line">        <span class="comment">// task.get 会阻塞线程</span></span><br><span class="line">        String status = (String) task.get();</span><br><span class="line">        System.out.println(status);</span><br><span class="line">        <span class="comment">// call 只会被执行一次</span></span><br><span class="line">        <span class="keyword">new</span> Thread(task,<span class="string">&quot;A2&quot;</span>).start();</span><br><span class="line">        status = (String) task.get();</span><br><span class="line">        System.out.println(status);</span><br><span class="line"></span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">A1 do working</span><br><span class="line">A1 do working</span><br><span class="line">main</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-CountDownLatch（倒计时弹簧锁）"><a href="#4-5-CountDownLatch（倒计时弹簧锁）" class="headerlink" title="4.5. CountDownLatch（倒计时弹簧锁）"></a>4.5. CountDownLatch（倒计时弹簧锁）</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CountDownLatchTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         CountDownLatch latch = <span class="keyword">new</span> CountDownLatch(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (CountDownLatchTest.class) &#123;</span><br><span class="line">                    System.out.println(Thread.currentThread().getName() +</span><br><span class="line">                            <span class="string">&quot;:&quot;</span> +<span class="string">&quot;进入等待&quot;</span> +</span><br><span class="line">                            (latch.getCount() == <span class="number">0</span> ?<span class="string">&quot;&quot;</span>: latch.getCount()));</span><br><span class="line">                    latch.countDown();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    latch.await();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> +<span class="string">&quot;结束等待&quot;</span> );</span><br><span class="line">            &#125;,<span class="string">&quot;cousumer&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cousumer0:进入等待5</span><br><span class="line">cousumer4:进入等待4</span><br><span class="line">cousumer5:进入等待3</span><br><span class="line">cousumer3:进入等待2</span><br><span class="line">cousumer2:进入等待1</span><br><span class="line">cousumer2:结束等待</span><br><span class="line">cousumer4:结束等待</span><br><span class="line">cousumer1:进入等待</span><br><span class="line">cousumer3:结束等待</span><br><span class="line">cousumer0:结束等待</span><br><span class="line">cousumer5:结束等待</span><br><span class="line">cousumer1:结束等待</span><br><span class="line">cousumer8:进入等待</span><br><span class="line">cousumer8:结束等待</span><br><span class="line">cousumer6:进入等待</span><br><span class="line">cousumer6:结束等待</span><br><span class="line">cousumer9:进入等待</span><br><span class="line">cousumer9:结束等待</span><br><span class="line">cousumer7:进入等待</span><br><span class="line">cousumer7:结束等待</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-6-CyclicBarrier-循环阻塞"><a href="#4-6-CyclicBarrier-循环阻塞" class="headerlink" title="4.6. CyclicBarrier(循环阻塞)"></a>4.6. CyclicBarrier(循环阻塞)</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CyclicBarrierTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">3</span>;</span><br><span class="line">        CyclicBarrier cyclicBarrier = <span class="keyword">new</span> CyclicBarrier(num);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (CountDownLatchTest.class) &#123;</span><br><span class="line">                    System.out.println(</span><br><span class="line">                            Thread.currentThread().getName() +</span><br><span class="line">                                    <span class="string">&quot;:&quot;</span> + <span class="string">&quot;进入等待&quot;</span> +</span><br><span class="line">                                    cyclicBarrier.getNumberWaiting()</span><br><span class="line">                    );</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="comment">// 计数 + 等待</span></span><br><span class="line">                    cyclicBarrier.await();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (BrokenBarrierException | InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> +<span class="string">&quot;结束等待&quot;</span> );</span><br><span class="line">            &#125;,<span class="string">&quot;cousumer&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cousumer0:进入等待0</span><br><span class="line">cousumer1:进入等待1</span><br><span class="line">cousumer3:进入等待2</span><br><span class="line">cousumer3:结束等待</span><br><span class="line">cousumer2:进入等待0</span><br><span class="line">cousumer1:结束等待</span><br><span class="line">cousumer0:结束等待</span><br><span class="line">cousumer4:进入等待1</span><br><span class="line">cousumer5:进入等待2</span><br><span class="line">cousumer6:进入等待0</span><br><span class="line">cousumer4:结束等待</span><br><span class="line">cousumer2:结束等待</span><br><span class="line">cousumer5:结束等待</span><br><span class="line">cousumer7:进入等待1</span><br><span class="line">cousumer8:进入等待2</span><br><span class="line">cousumer8:结束等待</span><br><span class="line">cousumer6:结束等待</span><br><span class="line">cousumer7:结束等待</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-7-Semaphore-信号量"><a href="#4-7-Semaphore-信号量" class="headerlink" title="4.7. Semaphore(信号量)"></a>4.7. Semaphore(信号量)</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SemaphoreTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Semaphore semaphore = <span class="keyword">new</span> Semaphore(<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    semaphore.acquire();</span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> + <span class="string">&quot;开始任务&quot;</span>);</span><br><span class="line">                    TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">                    System.out.println(Thread.currentThread().getName() + <span class="string">&quot;:&quot;</span> + <span class="string">&quot;执行结束&quot;</span> );</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">                    semaphore.release();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;,<span class="string">&quot;cousumer&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cousumer1:开始任务</span><br><span class="line">cousumer2:开始任务</span><br><span class="line">cousumer0:开始任务</span><br><span class="line">cousumer0:执行结束</span><br><span class="line">cousumer1:执行结束</span><br><span class="line">cousumer2:执行结束</span><br><span class="line">cousumer4:开始任务</span><br><span class="line">cousumer5:开始任务</span><br><span class="line">cousumer3:开始任务</span><br><span class="line">cousumer4:执行结束</span><br><span class="line">cousumer3:执行结束</span><br><span class="line">cousumer6:开始任务</span><br><span class="line">cousumer5:执行结束</span><br><span class="line">cousumer7:开始任务</span><br><span class="line">cousumer8:开始任务</span><br><span class="line">cousumer8:执行结束</span><br><span class="line">cousumer7:执行结束</span><br><span class="line">cousumer6:执行结束</span><br><span class="line">cousumer9:开始任务</span><br><span class="line">cousumer9:执行结束</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只有获取到Semaphore才会开始工作</li>
+</ul>
+<h3 id="4-8-ReadWriteLock"><a href="#4-8-ReadWriteLock" class="headerlink" title="4.8. ReadWriteLock"></a>4.8. ReadWriteLock</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadWriteLockTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Mycache mycache = <span class="keyword">new</span> Mycache();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        mycache.put(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+j,<span class="string">&quot;toy&quot;</span>+j);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,<span class="string">&quot;thread&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">2</span>; j++)&#123;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        mycache.get(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+j);</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,<span class="string">&quot;thread&quot;</span>+i).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Mycache</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        ReentrantReadWriteLock lock = <span class="keyword">new</span> ReentrantReadWriteLock();</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">put</span><span class="params">(String key,String value)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">            lock.writeLock().lock();</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;开始写入&quot;</span>);</span><br><span class="line">            map.put(key,value);</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;退出写入&quot;</span>);</span><br><span class="line">            lock.writeLock().unlock();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String key)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">            lock.readLock().lock();</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;开始读取&quot;</span>);</span><br><span class="line">            String value = map.get(key);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+value);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;:&quot;</span>+<span class="string">&quot;退出读取&quot;</span>);</span><br><span class="line">            lock.readLock().unlock();</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">thread0:开始写入</span><br><span class="line">thread0:退出写入</span><br><span class="line">thread0:开始写入</span><br><span class="line">thread0:退出写入</span><br><span class="line">thread2:开始写入</span><br><span class="line">thread2:退出写入</span><br><span class="line">thread2:开始写入</span><br><span class="line">thread2:退出写入</span><br><span class="line">thread1:开始写入</span><br><span class="line">thread1:退出写入</span><br><span class="line">thread1:开始写入</span><br><span class="line">thread1:退出写入</span><br><span class="line">thread0:开始读取</span><br><span class="line">thread0:toy0</span><br><span class="line">thread0:退出读取</span><br><span class="line">thread0:开始读取</span><br><span class="line">thread2:开始读取</span><br><span class="line">thread2:toy0</span><br><span class="line">thread2:退出读取</span><br><span class="line">thread0:toy1</span><br><span class="line">thread0:退出读取</span><br><span class="line">thread1:开始读取</span><br><span class="line">thread1:toy0</span><br><span class="line">thread1:退出读取</span><br><span class="line">thread2:开始读取</span><br><span class="line">thread2:toy1</span><br><span class="line">thread2:退出读取</span><br><span class="line">thread1:开始读取</span><br><span class="line">thread1:toy1</span><br><span class="line">thread1:退出读取</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>所有写线程结束，才会进入读线程。读线程读取时，并没有锁定代码块。</li>
+</ul>
+<h3 id="4-9-BlockingQueue"><a href="#4-9-BlockingQueue" class="headerlink" title="4.9. BlockingQueue"></a>4.9. BlockingQueue</h3><p><img src="/2021/05/28/java/Java/image-20210604192750304.png" alt="image-20210604192750304"></p>
+<h4 id="4-9-1-ArrayBlockingQueue"><a href="#4-9-1-ArrayBlockingQueue" class="headerlink" title="4.9.1. ArrayBlockingQueue"></a>4.9.1. ArrayBlockingQueue</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>抛出异常</th>
+<th>特殊值</th>
+<th>阻塞</th>
+<th>超时</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>插入</td>
+<td>add(e)</td>
+<td>offer(e)</td>
+<td>put(e)</td>
+<td>offer(e, time, unit)</td>
+</tr>
+<tr>
+<td>移除</td>
+<td>remove()</td>
+<td>poll()</td>
+<td>take()</td>
+<td>poll(time, unit)</td>
+</tr>
+<tr>
+<td>检查</td>
+<td>element()</td>
+<td>peek()</td>
+<td>不可用</td>
+<td>不可用</td>
+</tr>
+</tbody></table>
+<h4 id="4-9-2-SynchronousQueue"><a href="#4-9-2-SynchronousQueue" class="headerlink" title="4.9.2. SynchronousQueue"></a>4.9.2. SynchronousQueue</h4><h3 id="4-10-Executors"><a href="#4-10-Executors" class="headerlink" title="4.10. Executors"></a>4.10. Executors</h3><h4 id="4-10-1-三种创建方式（不采用）"><a href="#4-10-1-三种创建方式（不采用）" class="headerlink" title="4.10.1. 三种创建方式（不采用）"></a>4.10.1. 三种创建方式（不采用）</h4><h4 id="4-10-2-ThreadPoolExecutor-七大参数"><a href="#4-10-2-ThreadPoolExecutor-七大参数" class="headerlink" title="4.10.2. ThreadPoolExecutor 七大参数"></a>4.10.2. ThreadPoolExecutor 七大参数</h4><p><img src="/2021/05/28/java/Java/image-20210717170314604.png" alt="image-20210717170314604"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Creates a new &#123;<span class="doctag">@code</span> ThreadPoolExecutor&#125; with the given initial</span></span><br><span class="line"><span class="comment"> * parameters.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> corePoolSize the number of threads to keep in the pool, even</span></span><br><span class="line"><span class="comment"> *        if they are idle, unless &#123;<span class="doctag">@code</span> allowCoreThreadTimeOut&#125; is set</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> maximumPoolSize the maximum number of threads to allow in the</span></span><br><span class="line"><span class="comment"> *        pool</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> keepAliveTime when the number of threads is greater than</span></span><br><span class="line"><span class="comment"> *        the core, this is the maximum time that excess idle threads</span></span><br><span class="line"><span class="comment"> *        will wait for new tasks before terminating.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> unit the time unit for the &#123;<span class="doctag">@code</span> keepAliveTime&#125; argument</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> workQueue the queue to use for holding tasks before they are</span></span><br><span class="line"><span class="comment"> *        executed.  This queue will hold only the &#123;<span class="doctag">@code</span> Runnable&#125;</span></span><br><span class="line"><span class="comment"> *        tasks submitted by the &#123;<span class="doctag">@code</span> execute&#125; method.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> threadFactory the factory to use when the executor</span></span><br><span class="line"><span class="comment"> *        creates a new thread</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> handler the handler to use when execution is blocked</span></span><br><span class="line"><span class="comment"> *        because the thread bounds and queue capacities are reached</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> IllegalArgumentException if one of the following holds:&lt;br&gt;</span></span><br><span class="line"><span class="comment"> *         &#123;<span class="doctag">@code</span> corePoolSize &lt; 0&#125;&lt;br&gt;</span></span><br><span class="line"><span class="comment"> *         &#123;<span class="doctag">@code</span> keepAliveTime &lt; 0&#125;&lt;br&gt;</span></span><br><span class="line"><span class="comment"> *         &#123;<span class="doctag">@code</span> maximumPoolSize &lt;= 0&#125;&lt;br&gt;</span></span><br><span class="line"><span class="comment"> *         &#123;<span class="doctag">@code</span> maximumPoolSize &lt; corePoolSize&#125;</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> NullPointerException if &#123;<span class="doctag">@code</span> workQueue&#125;</span></span><br><span class="line"><span class="comment"> *         or &#123;<span class="doctag">@code</span> threadFactory&#125; or &#123;<span class="doctag">@code</span> handler&#125; is null</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="params"><span class="function">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="params"><span class="function">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="params"><span class="function">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="params"><span class="function">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="params"><span class="function">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="params"><span class="function">                          RejectedExecutionHandler handler)</span> </span>&#123;</span><br><span class="line">                          </span><br><span class="line">                          &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>cpu密集型</li>
+<li>IO密集型</li>
+</ul>
+<h3 id="4-11-四大函数式接口"><a href="#4-11-四大函数式接口" class="headerlink" title="4.11. 四大函数式接口"></a>4.11. 四大函数式接口</h3><h3 id="4-12-Stream-流式计算"><a href="#4-12-Stream-流式计算" class="headerlink" title="4.12. Stream 流式计算"></a>4.12. Stream 流式计算</h3><h3 id="4-13-ForkJoin"><a href="#4-13-ForkJoin" class="headerlink" title="4.13. ForkJoin"></a>4.13. ForkJoin</h3><blockquote>
+<p><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1306581226487842">ForkJoin</a></p>
+</blockquote>
+<h3 id="4-14-异步回调"><a href="#4-14-异步回调" class="headerlink" title="4.14. 异步回调"></a>4.14. 异步回调</h3><p><img src="/2021/05/28/java/Java/image-20210717171601990.png" alt="image-20210717171601990"></p>
+<h3 id="4-15-JMM"><a href="#4-15-JMM" class="headerlink" title="4.15. JMM"></a>4.15. JMM</h3><p><img src="/2021/05/28/java/Java/d866f75118d947c2b3c4bc4a340c3d38~tplv-k3u1fbpfcp-watermark.image" alt="img"></p>
+<p><strong>内存屏障（Memory Barrier）又称内存栅栏，是一个CPU指令，它的作用有两个：</strong></p>
+<ul>
+<li>保证特定操作的顺序</li>
+<li>保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）</li>
+</ul>
+<h3 id="4-16-volatile"><a href="#4-16-volatile" class="headerlink" title="4.16. volatile"></a>4.16. volatile</h3><blockquote>
+<p><a href="https://blog.csdn.net/qq_38862628/article/details/112169326">JMM角度详解Volatile</a></p>
+<p><a href="https://blog.csdn.net/u012723673/article/details/80682208">Java volatile关键字</a></p>
+</blockquote>
+<p>volatile 是java虚拟机提供的轻量级的同步机制</p>
+<ol>
+<li>保证可见性</li>
+<li>不保证原子性</li>
+</ol>
+<ul>
+<li>原子类</li>
+</ul>
+<ol start="3">
+<li>禁止指令重排</li>
+</ol>
+<h3 id="4-17-单例模式"><a href="#4-17-单例模式" class="headerlink" title="4.17. 单例模式"></a>4.17. 单例模式</h3><ul>
+<li>DCL懒汉式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>枚举</li>
+</ul>
+<h3 id="4-18-CAS"><a href="#4-18-CAS" class="headerlink" title="4.18. CAS"></a>4.18. CAS</h3><ul>
+<li>ABA 问题</li>
+<li>AtomicInteger  </li>
+<li>AtomicStampedReference</li>
+</ul>
+<h3 id="4-19-各种锁"><a href="#4-19-各种锁" class="headerlink" title="4.19. 各种锁"></a>4.19. 各种锁</h3><blockquote>
+<p><a href="https://tech.meituan.com/2018/11/15/java-lock.html">不可不说的Java“锁”事</a></p>
+</blockquote>
+<h4 id="4-19-1-公平锁、非公平锁"><a href="#4-19-1-公平锁、非公平锁" class="headerlink" title="4.19.1. 公平锁、非公平锁"></a>4.19.1. 公平锁、非公平锁</h4><h4 id="4-19-2-可重入锁"><a href="#4-19-2-可重入锁" class="headerlink" title="4.19.2. 可重入锁"></a>4.19.2. 可重入锁</h4><h4 id="4-19-3-自旋锁"><a href="#4-19-3-自旋锁" class="headerlink" title="4.19.3. 自旋锁"></a>4.19.3. 自旋锁</h4><h4 id="4-19-4-死锁"><a href="#4-19-4-死锁" class="headerlink" title="4.19.4. 死锁"></a>4.19.4. 死锁</h4><ul>
+<li>死锁排查</li>
+</ul>
+<p>程序员面试宝典4.27版</p>
+<h2 id="5-JVM"><a href="#5-JVM" class="headerlink" title="5. JVM"></a>5. JVM</h2><blockquote>
+<p><a href="https://www.processon.com/view/5ed19b151e085306e3638b04#map">知识架构图</a> </p>
+<p><a href="https://www.processon.com/view/5f93d20763768906e68676d4">JVM内存图</a></p>
+<p><a href="https://blog.csdn.net/TomAndersen/article/details/107147344">字符串常量池</a></p>
+<p><a href="https://www.freesion.com/article/8181984190/">动态链接</a></p>
+<p><a href="https://blog.csdn.net/qq_45076180/article/details/108441940">订单秒杀jvm调优案例</a></p>
+<p><a href="https://tech.meituan.com/tags/jvm.html">美团JVM相关文档</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 字面量测试</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>: yql</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>: 2021/6/8 18:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Version</span>: 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LiteralTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> anInt = <span class="number">25</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> bnInt = <span class="number">30</span>;</span><br><span class="line">    <span class="keyword">public</span> Integer cnInt = <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> dnInt = <span class="number">70</span>;</span><br><span class="line">    <span class="keyword">int</span> m = <span class="number">100</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        anInt = <span class="number">90</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看编译后类信息</span></span><br><span class="line">javap -verbose LiteralTest.class</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-Java8"><a href="#6-Java8" class="headerlink" title="6. Java8"></a>6. Java8</h2><blockquote>
+<p><a href="https://www.cnblogs.com/liuxiaozhi23/p/10880147.html">java8特性</a></p>
+</blockquote>
+<h3 id="6-1-函数式接口"><a href="#6-1-函数式接口" class="headerlink" title="6.1. 函数式接口"></a>6.1. 函数式接口</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-functional-interfaces.html">函数式接口</a></p>
+</blockquote>
+<ul>
+<li>定义：任何接口，如果只包含唯一一个抽象方法，那么它就是函数式接口 </li>
+<li>可以用lamada表达式代替匿名内部类来实现</li>
+</ul>
+<h4 id="6-1-1-Predicates"><a href="#6-1-1-Predicates" class="headerlink" title="6.1.1 Predicates"></a>6.1.1 Predicates</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-1-2-Functions"><a href="#6-1-2-Functions" class="headerlink" title="6.1.2 Functions"></a>6.1.2 Functions</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Function</span>&lt;<span class="title">T</span>, <span class="title">R</span>&gt; </span>&#123;	</span><br><span class="line">	<span class="function">R <span class="title">apply</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-1-3-Suppliers"><a href="#6-1-3-Suppliers" class="headerlink" title="6.1.3 Suppliers"></a>6.1.3 Suppliers</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Supplier</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-1-4-Consumers"><a href="#6-1-4-Consumers" class="headerlink" title="6.1.4 Consumers"></a>6.1.4 Consumers</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Consumer</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-2-Lamada表达式"><a href="#6-2-Lamada表达式" class="headerlink" title="6.2. Lamada表达式"></a>6.2. Lamada表达式</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-lambda-expressions.html">Lambda 表达式</a></p>
+</blockquote>
+<h3 id="6-3-方法引用"><a href="#6-3-方法引用" class="headerlink" title="6.3. 方法引用"></a>6.3. 方法引用</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-method-references.html">方法引用</a></p>
+</blockquote>
+<h3 id="6-4-Stream"><a href="#6-4-Stream" class="headerlink" title="6.4. Stream"></a>6.4. Stream</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-streams.html">Stream</a></p>
+</blockquote>
+<h3 id="6-5-默认方法"><a href="#6-5-默认方法" class="headerlink" title="6.5. 默认方法"></a>6.5. 默认方法</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-default-methods.html">默认方法</a></p>
+</blockquote>
+<h3 id="6-6-Optional-类"><a href="#6-6-Optional-类" class="headerlink" title="6.6. Optional 类"></a>6.6. Optional 类</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-optional-class.html">Optional 类</a></p>
+</blockquote>
+<h3 id="6-7-日期时间"><a href="#6-7-日期时间" class="headerlink" title="6.7. 日期时间"></a>6.7. 日期时间</h3><blockquote>
+<p><a href="https://www.runoob.com/java/java8-datetime-api.html">新的日期时间 API</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>jvm</category>
+        <category>juc</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>jvm</tag>
+        <tag>juc</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux相关</title>
+    <url>/2021/06/29/java/Linux/</url>
+    <content><![CDATA[<h2 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">df -h # 查看硬盘使用</span><br><span class="line">less -iN #查看文件内容</span><br><span class="line">ls |grep -v &quot;tmp*&quot; #查找不包含tmp*的内容</span><br><span class="line">cp –r # 复制目录下的所有文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-基础组件安装"><a href="#2-基础组件安装" class="headerlink" title="2. 基础组件安装"></a>2. 基础组件安装</h2><ul>
+<li><p><a href="https://blog.51cto.com/u_13043516/2173268">telnet 安装</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/gexiaoyizhimei/article/details/95374890">jdk8 安装</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mybatis</title>
+    <url>/2021/07/05/java/Mybatis/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://mybatis.org/mybatis-3/zh/getting-started.html">入门</a></p>
+<p><a href="https://blog.csdn.net/Progran_ape/article/details/104181926">mybatis中的一级缓存和二级缓存</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkwMDE1MzkwNQ==&mid=2247496101&idx=1&sn=8d32c975eb41744903bb6331a500c28d&source=41#wechat_redirect">MyBatis一级缓存详解</a></p>
+<p><a href="https://www.cnblogs.com/cxuanBlog/p/11333021.html">MyBatis 二级缓存全详解</a></p>
+<p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/mybatis/mybatis-interview">面试相关</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>Mybatis</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Mybatis</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mycat</title>
+    <url>/2021/06/05/java/Mycat/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>Mycat</category>
+        <category>数据库</category>
+        <category>分布式数据处理</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据库</tag>
+        <tag>Mycat</tag>
+        <tag>分布式数据处理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql</title>
+    <url>/2021/06/04/java/Mysql/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.processon.com/view/60596321637689700771c679?fromnew=1#map">基础</a></p>
+<p><a href="https://juejin.cn/post/6850037271233331208#heading-70">MySQL 三万字精华总结</a></p>
+<p><a href="https://www.processon.com/view/5e7c1a75e4b06b852ff97db4?fromnew=1#map">两阶段提交</a> <a href="https://www.processon.com/view/link/6045cdc46376897969e3e86c">执行过程</a></p>
+<p><a href="https://www.processon.com/view/5eba560d1e08530a9bf30e7e?fromnew=1#map">Innodb进阶</a></p>
+<p><a href="https://www.processon.com/view/6048549af346fb1bdfb25365?fromnew=1#map">mysql实战</a></p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><h3 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h3><h3 id="编码设置"><a href="#编码设置" class="headerlink" title="编码设置"></a>编码设置</h3><h2 id="表"><a href="#表" class="headerlink" title="表"></a>表</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><h3 id="建表规约"><a href="#建表规约" class="headerlink" title="建表规约"></a>建表规约</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h3><h3 id="查询监控"><a href="#查询监控" class="headerlink" title="查询监控"></a>查询监控</h3><h3 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h3><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h3><ul>
+<li><p><a href="https://www.cnblogs.com/wang-meng/p/ae6d1c4a7b553e9a5c8f46b67fb3e3aa.html">覆盖索引</a></p>
+</li>
+<li><p><a href="https://cloud.tencent.com/developer/article/1774781">最左匹配</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/7005794550862053412">索引下推</a>：</p>
+</li>
+</ul>
+<p>​        索引查询级别为range时，才会触发索引下推</p>
+<h3 id="索引规约"><a href="#索引规约" class="headerlink" title="索引规约"></a>索引规约</h3><h3 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h3><h3 id><a href="#" class="headerlink" title></a></h3><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p><a href="https://www.processon.com/view/5e7c1a75e4b06b852ff97db4?fromnew=1#map">两阶段提交</a> </p>
+<p><a href="https://www.processon.com/view/link/6045cdc46376897969e3e86c">执行过程</a></p>
+<p><a href="https://blog.csdn.net/jc_benben/article/details/78967380">Double Write</a></p>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p><a href="https://www.cnblogs.com/f-ck-need-u/archive/2018/05/08/9010872.html">详细分析MySQL事务日志(redo log和undo log)</a></p>
+<p><a href="https://blog.csdn.net/jc_benben/article/details/65431530">Mysql 重做日志</a></p>
+<p><a href="https://blog.csdn.net/weixin_29174385/article/details/113225411">MySQL中的redolog的作用</a></p>
+<p><a href="https://www.cnblogs.com/xxmysql/p/5754211.html">mysql redo日志与刷脏</a></p>
+<p><img src="/2021/06/04/java/Mysql/image-20220720173126552.png" alt="image-20220720173126552"></p>
+<h2 id="缓冲池"><a href="#缓冲池" class="headerlink" title="缓冲池"></a>缓冲池</h2><p><a href="https://blog.csdn.net/shenjian58/article/details/93268633">缓冲池(buffer pool)</a></p>
+<p><a href="https://www.ywnds.com/?p=9886">MySQL InnoDB Buffer Pool</a></p>
+<h2 id="MVCC"><a href="#MVCC" class="headerlink" title="MVCC"></a>MVCC</h2><p><a href="https://blog.csdn.net/Waves___/article/details/105295060#1.2%E3%80%81Read%20View%20%E7%BB%93%E6%9E%84">MySQL中MVCC的正确打开方式</a></p>
+<p><a href="https://blog.csdn.net/SnailMann/article/details/94724197">正确的理解MySQL的MVCC及实现原理</a></p>
+<p><a href="https://blog.csdn.net/thesprit/article/details/112970122">MySQL的ReadView</a></p>
+<h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p><a href="https://blog.csdn.net/sin_dapeng/article/details/121673632">WITH recursive使用</a></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 递归查询所有二级部门下的子部门</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">recursive</span> temp <span class="keyword">AS</span>(</span><br><span class="line">    <span class="keyword">SELECT</span> dept_logic_id,dept_name,dept_logic_id <span class="keyword">as</span> parentId <span class="keyword">FROM</span> bams_dept <span class="keyword">WHERE</span> parent_logic_id<span class="operator">=</span><span class="string">&#x27;0001&#x27;</span></span><br><span class="line">    <span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line">    <span class="keyword">SELECT</span> u.dept_logic_id,u.dept_name,t.parentId <span class="keyword">FROM</span> bams_dept u,temp t <span class="keyword">WHERE</span> u.parent_logic_id<span class="operator">=</span>t.dept_logic_id</span><br><span class="line">),temp2 <span class="keyword">as</span> (<span class="keyword">select</span> parentId,group_concat(dept_logic_id) <span class="keyword">from</span> temp <span class="keyword">GROUP</span> <span class="keyword">BY</span> parentId)</span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> temp2;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据批量删除后优化"><a href="#数据批量删除后优化" class="headerlink" title="数据批量删除后优化"></a>数据批量删除后优化</h2><ul>
+<li>innodb </li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 查询表空间</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">table</span> status <span class="keyword">like</span> <span class="string">&#x27;scene_qrcode_scan_log&#x27;</span>;</span><br><span class="line"><span class="comment">-- 优化</span></span><br><span class="line">ANALYZE <span class="keyword">TABLE</span> scene_qrcode_scan_log;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>myisam</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">OPTIMIZE <span class="keyword">TABLE</span> scene_qrcode_scan_log_20220602;</span><br></pre></td></tr></table></figure>
+
+<h2 id="rowid"><a href="#rowid" class="headerlink" title="rowid"></a>rowid</h2><p><a href="https://www.php.cn/mysql-tutorials-468451.html">掌握mysql隐藏字段(rowid)什么时候是可见的</a></p>
+<p><img src="/2021/06/04/java/Mysql/0bad486034837822b070943909645c83-0.png" alt="0bad486034837822b070943909645c83-0"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>Mysql</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据库</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RabbitMQ</title>
+    <url>/2021/06/11/java/RabbitMQ/</url>
+    <content><![CDATA[<h2 id="1-消息中间件"><a href="#1-消息中间件" class="headerlink" title="1. 消息中间件"></a>1. 消息中间件</h2><h3 id="1-1-使用场景"><a href="#1-1-使用场景" class="headerlink" title="1.1. 使用场景"></a>1.1. 使用场景</h3><ul>
+<li>购票</li>
+<li>秒杀</li>
+</ul>
+<h3 id="1-2-作用"><a href="#1-2-作用" class="headerlink" title="1.2. 作用"></a>1.2. 作用</h3><ul>
+<li>销峰限流</li>
+<li>应用解耦</li>
+</ul>
+<h1 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h1><blockquote>
+<p><a href="https://www.jianshu.com/p/286cac4625b6">基于RocketMQ的分布式事务解决方案</a></p>
+<p><a href="https://www.cnblogs.com/qdhxhz/p/11191399.html">RocketMQ实现分布式事务原理</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>消息队列</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>消息队列</tag>
+        <tag>rabbitmq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/06/10/java/Redis/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.runoob.com/redis/redis-stream.html">基础教程</a> <a href="https://www.processon.com/view/60d18761e0b34d05006ca1b5?fromnew=1#map">操作</a></p>
+<p><a href="https://www.cnblogs.com/MouseDong/p/11134039.html">基本数据类型底层实现</a></p>
+<p><a href="https://www.processon.com/view/6059480e07912927bd732d1c#map">基础框架</a> <a href="https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map">知识点</a></p>
+<p><a href="https://www.processon.com/view/6007f102e0b34d45d1658090?fromnew=1#map">进阶1</a> <a href="https://www.processon.com/view/6083e8b97d9c0811840540ec?fromnew=1#map">进阶2</a> <a href="https://www.processon.com/view/5ea7a58807912948b0e1aa2f?fromnew=1#map">进阶3</a> <a href="https://www.processon.com/view/5edc94b6f346fb1712e5b34a?fromnew=1#map">进阶4</a></p>
+<p><a href="https://blog.csdn.net/wuxiaolongah/article/details/107327803">一致性hash算法</a></p>
+<p><a href="https://www.jianshu.com/p/ab9aaae8b7e8">redis cluster1</a> <a href="https://www.cnblogs.com/xuwc/p/8900717.html">redis cluster2</a></p>
+<p><a href="https://blog.csdn.net/wuxiaolongah/article/details/106968601">缓存穿透</a></p>
+<p><a href="https://blog.csdn.net/wuxiaolongah/article/details/107006954">分布式锁</a></p>
+<p><a href="https://www.cnblogs.com/MouseDong/p/11276198.html">跳跃表</a></p>
+<p><a href="https://www.cnblogs.com/MouseDong/p/11276211.html">红黑树</a></p>
+<p><a href="https://www.cnblogs.com/liuqingzheng/p/11080680.html">Redis与Mysql双写一致性方案解析</a></p>
+</blockquote>
+<h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1. 安装"></a>1. 安装</h2><h2 id="2-基本命令"><a href="#2-基本命令" class="headerlink" title="2. 基本命令"></a>2. 基本命令</h2><h2 id="3-数据类型（5-3）"><a href="#3-数据类型（5-3）" class="headerlink" title="3. 数据类型（5+3）"></a>3. 数据类型（5+3）</h2><blockquote>
+<p><a href="https://www.cnblogs.com/MouseDong/p/11133941.html">Redis的底层数据结构</a></p>
+<p><a href="https://www.cnblogs.com/MouseDong/p/11134039.html">Redis的五大数据类型的底层实现</a></p>
+</blockquote>
+<ul>
+<li>string<ul>
+<li>sds</li>
+</ul>
+</li>
+<li>list<ul>
+<li>ziplist</li>
+<li>linkedlist</li>
+</ul>
+</li>
+<li>set<ul>
+<li>intset</li>
+<li>hashtable</li>
+</ul>
+</li>
+<li>zset<ul>
+<li>ziplist</li>
+<li>skiplist</li>
+</ul>
+</li>
+<li>hash<ul>
+<li>ziplist</li>
+<li>hashtable</li>
+</ul>
+</li>
+<li></li>
+<li></li>
+</ul>
+<h2 id="4-高级特性"><a href="#4-高级特性" class="headerlink" title="4. 高级特性"></a>4. 高级特性</h2><h3 id="4-1-发布和订阅"><a href="#4-1-发布和订阅" class="headerlink" title="4.1. 发布和订阅"></a>4.1. 发布和订阅</h3><h3 id="4-2-管道技术"><a href="#4-2-管道技术" class="headerlink" title="4.2. 管道技术"></a>4.2. 管道技术</h3><h3 id="4-3-Stream"><a href="#4-3-Stream" class="headerlink" title="4.3. Stream"></a>4.3. Stream</h3><h2 id="5-事务"><a href="#5-事务" class="headerlink" title="5. 事务"></a>5. 事务</h2><h2 id="6-内存回收"><a href="#6-内存回收" class="headerlink" title="6. 内存回收"></a>6. 内存回收</h2><h3 id="6-1-过期策略"><a href="#6-1-过期策略" class="headerlink" title="6.1. 过期策略"></a>6.1. 过期策略</h3><ul>
+<li>定时过期</li>
+<li>惰性过期</li>
+<li>定期过期</li>
+</ul>
+<h3 id="6-2-淘汰策略"><a href="#6-2-淘汰策略" class="headerlink" title="6.2. 淘汰策略"></a>6.2. 淘汰策略</h3><ol>
+<li><p>lru</p>
+<ul>
+<li>volatile-lru -&gt; Evict using approximated LRU, only keys with an expire set.</li>
+<li>allkeys-lru -&gt; Evict any key using approximated LRU.</li>
+</ul>
+</li>
+<li><p>lfu</p>
+<ul>
+<li>volatile-lfu -&gt; Evict using approximated LFU, only keys with an expire set.</li>
+<li>allkeys-lfu -&gt; Evict any key using approximated LFU.</li>
+</ul>
+</li>
+<li><p>random</p>
+<ul>
+<li>volatile-random -&gt; Remove a random key having an expire set.</li>
+<li>allkeys-random -&gt; Remove a random key, any key.</li>
+</ul>
+</li>
+<li><p>noeviction -&gt; Don’t evict anything, just return an error on write operations.</p>
+</li>
+<li><p>volatile-ttl -&gt; Remove the key with the nearest expire time (minor TTL)</p>
+</li>
+</ol>
+<h2 id="7-持久化"><a href="#7-持久化" class="headerlink" title="7. 持久化"></a>7. 持久化</h2><h2 id="8-集群"><a href="#8-集群" class="headerlink" title="8. 集群"></a>8. 集群</h2><h3 id="8-1-主从复制"><a href="#8-1-主从复制" class="headerlink" title="8.1. 主从复制"></a>8.1. 主从复制</h3><ul>
+<li>主节点 redis.conf</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">bind * -::*</span><br><span class="line">port 6379</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/redis-6379/redis.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/redis-6379/redis.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/redis-6379</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从节点  redis.conf</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">port 6381</span><br><span class="line">daemonize yes</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/redis-6381/redis.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/redis-6381/redis.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/redis-6381</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看主从信息</span><br><span class="line">redis-cli -p 6381 info replication</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-2-主从-哨兵"><a href="#8-2-主从-哨兵" class="headerlink" title="8.2. 主从+哨兵"></a>8.2. 主从+哨兵</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">port 26379</span><br><span class="line">pidfile /usr/local/bin/redisconfigs/sentinel-26379/redis-sentinel.pid</span><br><span class="line">logfile &quot;/usr/local/bin/redisconfigs/sentinel-26379/redis-sentinel.log&quot;</span><br><span class="line">dir /usr/local/bin/redisconfigs/sentinel-26379</span><br><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 查看哨兵信息</span><br><span class="line">redis-cli -p 26379 info</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-3-redis-cluster"><a href="#8-3-redis-cluster" class="headerlink" title="8.3. redis cluster"></a>8.3. redis cluster</h3><h2 id="面试相关"><a href="#面试相关" class="headerlink" title="面试相关"></a>面试相关</h2>]]></content>
+      <categories>
+        <category>java</category>
+        <category>缓存</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>redis</tag>
+        <tag>缓存</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ShardingSphere</title>
+    <url>/2021/06/07/java/ShardingSphere/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>java</category>
+        <category>数据库</category>
+        <category>分布式数据处理</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据库</tag>
+        <tag>分布式数据处理</tag>
+        <tag>ShardingSphere</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringCloud</title>
+    <url>/2021/06/15/java/SpringCloud/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzI4Njg5MDA5NA==&mid=2247484335&idx=1&sn=a871bf871fcaffda0be40e1388a69d7d&scene=21#wechat_redirect">cloud1</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/micro-service/spring-cloud">cloud2</a></p>
+<p><a href="https://blog.didispace.com/hzf-ms-apigateway-1/">api网关</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>spring</category>
+        <category>springcloud</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>springcloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用</title>
+    <url>/2021/05/31/java/hexo/</url>
+    <content><![CDATA[<p><a href="https://hexo.io/docs/">官方文档</a></p>
+<h2 id="1-依赖环境（windows）"><a href="#1-依赖环境（windows）" class="headerlink" title="1. 依赖环境（windows）"></a>1. 依赖环境（windows）</h2><ul>
+<li>安装git</li>
+<li>安装node</li>
+</ul>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h2><h3 id="2-1-安装客户端并初始化工作目录"><a href="#2-1-安装客户端并初始化工作目录" class="headerlink" title="2.1. 安装客户端并初始化工作目录"></a>2.1. 安装客户端并初始化工作目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 全局安装hexo客户端</span></span><br><span class="line">npm install -g hexo-cli</span><br><span class="line"><span class="comment"># 初始化目录结构</span></span><br><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210531175459327.png" alt="初始化目录结构"></p>
+<h3 id="2-2-安装服务并启动"><a href="#2-2-安装服务并启动" class="headerlink" title="2.2. 安装服务并启动"></a>2.2. 安装服务并启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入工作目录，安装 hexo-server 服务依赖</span></span><br><span class="line">npm install hexo-server --save</span><br><span class="line"><span class="comment"># 启动hexo，默认端口 4000 </span></span><br><span class="line"><span class="comment"># hexo server -p &lt;端口号&gt;</span></span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210531180120905.png" alt="启动"></p>
+<ul>
+<li>输入 <a href="http://localhost:3000/">http://localhost:3000</a> ，测试是否部署成功：</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210531180601339.png" alt="image-20210531180601339"></p>
+<h2 id="3-发布到Github"><a href="#3-发布到Github" class="headerlink" title="3. 发布到Github"></a>3. 发布到Github</h2><h3 id="3-1-配置SSH"><a href="#3-1-配置SSH" class="headerlink" title="3.1. 配置SSH"></a>3.1. 配置SSH</h3><blockquote>
+<p>参考资料：<a href="../Git/#7-1-SSH%E9%85%8D%E7%BD%AE">Git</a></p>
+</blockquote>
+<h3 id="3-2-将文件发布到github"><a href="#3-2-将文件发布到github" class="headerlink" title="3.2. 将文件发布到github"></a>3.2. 将文件发布到github</h3><h4 id="3-2-1-安装部署依赖"><a href="#3-2-1-安装部署依赖" class="headerlink" title="3.2.1. 安装部署依赖"></a>3.2.1. 安装部署依赖</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入工作目录</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-2-修改配置"><a href="#3-2-2-修改配置" class="headerlink" title="3.2.2. 修改配置"></a>3.2.2. 修改配置</h4><ul>
+<li>修改工作目录下的 _config.yml：</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&lt;repository</span> <span class="string">url&gt;</span> <span class="comment">#https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io</span></span><br><span class="line">  <span class="attr">branch:</span> [<span class="string">branch</span>]</span><br><span class="line">  <span class="attr">message:</span> [<span class="string">message</span>]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210531185124925.png" alt="image-20210531185124925"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531185303331.png" alt="image-20210531185303331"></p>
+<h4 id="3-2-3-测试是否成功"><a href="#3-2-3-测试是否成功" class="headerlink" title="3.2.3. 测试是否成功"></a>3.2.3. 测试是否成功</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清空缓存和publc目录</span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成静态yem</span></span><br><span class="line">hexo generate</span><br><span class="line"><span class="comment"># 部署到git</span></span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210531185843188.png" alt="image-20210531185843188"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531185922199.png" alt="image-20210531185922199"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531185941275.png" alt="image-20210531185941275"></p>
+<ul>
+<li>登陆github，查看是否提交成功</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210531190037923.png" alt="image-20210531190037923"></p>
+<h3 id="3-3-设置GitHub-Pages"><a href="#3-3-设置GitHub-Pages" class="headerlink" title="3.3. 设置GitHub Pages"></a>3.3. 设置GitHub Pages</h3><p><img src="/2021/05/31/java/hexo/image-20210531190112620.png" alt="image-20210531190112620"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531190206311.png" alt="image-20210531190206311"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531190316952.png" alt="image-20210531190316952"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210531190403897.png" alt="image-20210531190403897"></p>
+<ul>
+<li>修改根url</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210531190927340.png" alt="image-20210531190927340"></p>
+<ul>
+<li>重新部署</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210531191535782.png" alt="image-20210531191535782"></p>
+<h2 id="4-切换主题"><a href="#4-切换主题" class="headerlink" title="4. 切换主题"></a>4. 切换主题</h2><blockquote>
+<p><a href="https://hexo.io/themes/">主题</a></p>
+<p><a href="https://shen-yu.gitee.io/2019/ayer/">ayer主题使用</a>   （说明： 由于我们会对主题进行二次开发，所以建议使用文中第2种方法进行安装）</p>
+</blockquote>
+<h3 id="4-1-安装主题"><a href="#4-1-安装主题" class="headerlink" title="4.1. 安装主题"></a>4.1. 安装主题</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;folder&gt;</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改工作目录下 _config.yml</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210601093750583.png" alt="image-20210601093750583"></p>
+<ul>
+<li>修改语言为中文</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210601093647464.png" alt="image-20210601093647464"></p>
+<h3 id="4-2-安装插件"><a href="#4-2-安装插件" class="headerlink" title="4.2. 安装插件"></a>4.2. 安装插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 搜索插件</span></span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601090622258.png" alt="image-20210601090622258"></p>
+<ul>
+<li>修改工作目录下 _config.yml</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601094943119.png" alt="image-20210601094943119"></p>
+<h3 id="4-3-生成分类和标签页"><a href="#4-3-生成分类和标签页" class="headerlink" title="4.3. 生成分类和标签页"></a>4.3. 生成分类和标签页</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 生成分类页</span></span><br><span class="line">hexo new page categories</span><br><span class="line"><span class="comment"># 生成标签页</span></span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601090651318.png" alt="image-20210601090651318"></p>
+<ul>
+<li>然后将以下内容追加到 /source/categories/index.md 文件</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/2021/05/31/java/hexo/image-20210601092202187.png" alt="image-20210601092202187"></p>
+<ul>
+<li>然后将以下内容追加到 /source/tags/index.md 文件</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601092125011.png"></p>
+<h3 id="4-4-配置gittalk"><a href="#4-4-配置gittalk" class="headerlink" title="4.4. 配置gittalk"></a>4.4. 配置gittalk</h3><blockquote>
+<p><a href="../Git/#8-GitTalk%E4%BD%BF%E7%94%A8">参考</a></p>
+</blockquote>
+<ul>
+<li>此url与Git page提供的url保持一致</li>
+</ul>
+<p><img src="/2021/05/31/java/hexo/image-20210601095505077.png" alt="image-20210601095505077"></p>
+<h3 id="4-4-修改主题配置文件"><a href="#4-4-修改主题配置文件" class="headerlink" title="4.4. 修改主题配置文件"></a>4.4. 修改主题配置文件</h3><p><img src="/2021/05/31/java/hexo/image-20210601091235457.png" alt="image-20210601091235457"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 侧边栏菜单</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">  <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">  <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">  <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">  <span class="string">关于我:</span> <span class="string">/2019/about</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 站点次标题和打字动效</span></span><br><span class="line"><span class="comment"># https://github.com/mattboldt/typed.js</span></span><br><span class="line"><span class="attr">subtitle:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 是否开启动效</span></span><br><span class="line">  <span class="attr">text:</span> <span class="string">赢在格局，输在计较</span> <span class="comment"># 显示的文字</span></span><br><span class="line">  <span class="attr">text2:</span>  <span class="comment"># 滚动播放，如果不需要可以留空</span></span><br><span class="line">  <span class="attr">text3:</span>  <span class="comment"># 最多支持三段文字</span></span><br><span class="line">  <span class="attr">startDelay:</span> <span class="number">0</span> <span class="comment"># 延迟时间</span></span><br><span class="line">  <span class="attr">typeSpeed:</span> <span class="number">200</span> <span class="comment"># 打字速度</span></span><br><span class="line">  <span class="attr">loop:</span> <span class="literal">false</span> <span class="comment"># 是否循环</span></span><br><span class="line">  <span class="attr">backSpeed:</span> <span class="number">100</span> <span class="comment"># 回退速度</span></span><br><span class="line">  <span class="attr">showCursor:</span> <span class="literal">true</span> <span class="comment"># 是否显示光标</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站图标和侧边栏logo</span></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></span><br><span class="line"><span class="attr">logo:</span> <span class="string">/images/face.jpg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 封面配置</span></span><br><span class="line"><span class="comment"># enable-是否启用封面；path-封面背景图；logo-封面logo</span></span><br><span class="line"><span class="attr">cover:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">/images/cover1.jpg</span> <span class="comment"># /source/images目录下附送多张美图，可更换</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="literal">true</span> <span class="comment">#/images/ayer.svg，如果不要直接设置成false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 页面顶部进度条</span></span><br><span class="line"><span class="attr">progressBar:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 告示板模块</span></span><br><span class="line"><span class="attr">broadcast:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># true开启，false关闭</span></span><br><span class="line">  <span class="attr">type:</span> <span class="number">2</span> <span class="comment"># 1：自定义输入，2：一言api(https://hitokoto.cn/)</span></span><br><span class="line">  <span class="attr">text:</span> <span class="string">一个安静优雅的hexo主题，快速且响应式。</span> <span class="comment"># type为1时有效</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章配置</span></span><br><span class="line"><span class="comment"># 文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span></span><br><span class="line"><span class="attr">excerpt_link:</span> <span class="string">阅读更多...</span></span><br><span class="line"><span class="comment"># 如果你嫌每篇文章手动加more标记比较麻烦，又不想在首页全文显示，可以把excerpt_all设置成true，这样首页只会显示文章归档</span></span><br><span class="line"><span class="attr">excerpt_all:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否开启代码复制按钮</span></span><br><span class="line"><span class="attr">copy_btn:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 是否开启文章分享按钮</span></span><br><span class="line"><span class="attr">share_enable:</span> <span class="literal">false</span></span><br><span class="line"><span class="comment"># 国内的社交平台(If you are not in China, maybe you prefer to set:false)</span></span><br><span class="line"><span class="attr">share_china:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># 文章分享文字</span></span><br><span class="line"><span class="attr">share_text:</span> <span class="string">分享</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分页文字</span></span><br><span class="line"><span class="attr">nav_text:</span></span><br><span class="line">  <span class="attr">page_prev:</span> <span class="string">上一页</span></span><br><span class="line">  <span class="attr">page_next:</span> <span class="string">下一页</span></span><br><span class="line">  <span class="attr">post_prev:</span> <span class="string">上一篇</span></span><br><span class="line">  <span class="attr">post_next:</span> <span class="string">下一篇</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章页是否显示目录</span></span><br><span class="line"><span class="attr">toc:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章中的图片是否支持点击放大</span></span><br><span class="line"><span class="attr">image_viewer:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># https://github.com/willin/hexo-wordcount</span></span><br><span class="line"><span class="comment"># 是否开启字数统计(关闭请设置enable为false)</span></span><br><span class="line"><span class="comment"># 也可以单独在md文件里Front-matter设置`no_word_count: true`属性，来自定义关闭字数统计</span></span><br><span class="line"><span class="attr">word_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 只在文章详情显示(不在首页显示)</span></span><br><span class="line">  <span class="attr">only_article_visit:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打赏</span></span><br><span class="line"><span class="comment"># 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-所有文章均有打赏</span></span><br><span class="line"><span class="attr">reward_type:</span> <span class="number">0</span></span><br><span class="line"><span class="comment"># 打赏wording</span></span><br><span class="line"><span class="attr">reward_wording:</span> <span class="string">&quot;请我喝杯咖啡吧~&quot;</span></span><br><span class="line"><span class="comment"># 支付宝二维码图片地址，跟你设置logo的方式一样。比如：/images/alipay.jpg</span></span><br><span class="line"><span class="attr">alipay:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg</span></span><br><span class="line"><span class="comment"># 微信二维码图片地址</span></span><br><span class="line"><span class="attr">weixin:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 版权声明</span></span><br><span class="line"><span class="comment"># 版权声明type设定：0-关闭版权声明； 1-文章对应的md文件里有copyright: true属性，才有版权声明； 2-所有文章均有版权声明</span></span><br><span class="line"><span class="attr">copyright_type:</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否启用搜索</span></span><br><span class="line"><span class="comment"># 需要安装hexo-generator-searchdb(https://github.com/theme-next/hexo-generator-searchdb)</span></span><br><span class="line"><span class="attr">search:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)</span></span><br><span class="line"><span class="comment"># 不想显示可以直接留空</span></span><br><span class="line"><span class="attr">rss:</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否启用黑夜模式开关</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 动态背景效果: 0-关闭，1-动态线条(跟随鼠标)</span></span><br><span class="line"><span class="attr">canvas_bg:</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义鼠标样式，直接替换/images/mouse.cur文件</span></span><br><span class="line"><span class="attr">mouse:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">/images/mouse.cur</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 鼠标点击效果：0-关闭，1-爱心，2-爆炸烟花，3-粒子烟花</span></span><br><span class="line"><span class="attr">click_effect:</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 页面宽度自定义（不建议修改，可能造成布局混乱），article_width文章宽度，sidebar_width侧边栏宽度</span></span><br><span class="line"><span class="attr">layout:</span></span><br><span class="line">  <span class="attr">article_width:</span> <span class="string">80rem</span></span><br><span class="line">  <span class="attr">sidebar_width:</span> <span class="string">8rem</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GitHub Ribbons-封面右上角的forkme，换样式直接在source/images目录下替换forkme图片</span></span><br><span class="line"><span class="attr">github:</span></span><br><span class="line">  <span class="comment"># (关闭请设置为false)</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://github.com/Shen-Yu/hexo-theme-ayer</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网易云音乐插件</span></span><br><span class="line"><span class="attr">music:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 播放器尺寸类型(1：小尺寸、2：大尺寸)</span></span><br><span class="line">  <span class="attr">type:</span> <span class="number">1</span></span><br><span class="line">  <span class="attr">id:</span> <span class="number">22707008</span> <span class="comment"># 网易云分享的音乐ID(更换音乐请更改此配置项)</span></span><br><span class="line">  <span class="attr">autoPlay:</span> <span class="literal">true</span> <span class="comment"># 是否开启自动播放</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问量统计(不蒜子)</span></span><br><span class="line"><span class="attr">busuanzi:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友盟cnzz统计(url填js代码src链接)</span></span><br><span class="line"><span class="attr">cnzz:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Google Analytics</span></span><br><span class="line"><span class="attr">google_analytics:</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment"># 百度统计</span></span><br><span class="line"><span class="attr">baidu_analytics:</span> <span class="string">&quot;awwssw1snsnsnn1ndndnndnd99j&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Mathjax数学公式</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Katex数学公式(allpost设置为false时只有头部设置math:true的文章才开启)</span></span><br><span class="line"><span class="comment"># 需要更换hexo渲染器，npm un hexo-renderer-marked -S &amp;&amp; npm i hexo-renderer-markdown-it-katex -S</span></span><br><span class="line"><span class="attr">katex:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span> <span class="comment"># true</span></span><br><span class="line">  <span class="attr">allpost:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">copy_tex:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mermaid流程图 三个选项缺一不可(https://mermaid-js.github.io/mermaid/)</span></span><br><span class="line"><span class="attr">mermaid:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">cdn:</span> <span class="string">https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">forest</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)</span></span><br><span class="line"><span class="attr">since:</span> <span class="number">2020</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 是否显示页脚信息(建议保留)</span></span><br><span class="line"><span class="attr">pageFooter:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ICP备案信息尾部显示</span></span><br><span class="line"><span class="attr">icp:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">&quot;http://www.beian.miit.gov.cn/&quot;</span> <span class="comment"># 备案链接</span></span><br><span class="line">  <span class="attr">text:</span> <span class="string">&quot;浙ICP备88888888&quot;</span> <span class="comment"># 备案信息</span></span><br><span class="line"><span class="comment"># 公安备案信息尾部显示</span></span><br><span class="line"><span class="attr">gongan:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">img:</span> <span class="string">/images/beian.png</span> <span class="comment">#公安备案图片</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">&quot;http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123&quot;</span> <span class="comment">#公安备案链接</span></span><br><span class="line">  <span class="attr">text:</span> <span class="string">&quot;浙公网安备01234567890123号&quot;</span> <span class="comment">#公安备案信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line"><span class="attr">friends_link:</span></span><br><span class="line">  <span class="string">Ayer主题:</span> <span class="comment">#网站名称</span></span><br><span class="line">    <span class="comment">#网站地址</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://github.com/Shen-Yu/hexo-theme-ayer</span></span><br><span class="line">    <span class="comment">#网站图片(可忽略不写)</span></span><br><span class="line">    <span class="attr">img:</span> <span class="string">/images/ayer.png</span></span><br><span class="line">  <span class="attr">GitHub:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://github.com/Shen-Yu</span></span><br><span class="line">    <span class="attr">img:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/github.png</span></span><br><span class="line">  <span class="string">码云:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://gitee.com/shen-yu</span></span><br><span class="line">    <span class="attr">img:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/gitee.png</span></span><br><span class="line">  <span class="string">Hexo官网:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://hexo.io</span></span><br><span class="line">    <span class="attr">img:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/hexo.png</span></span><br><span class="line">  <span class="string">Hexo图表插件:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">https://github.com/Shen-Yu/hexo-tag-chart</span></span><br><span class="line">    <span class="attr">img:</span> <span class="string">https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/hexo-tag-chart.png</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 评论：1、Valine(推荐)；2、Gitalk；3、Twikoo; 4.MiniValine</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1、Valine[一款快速、简洁且高效的无后端评论系统](https://github.com/xCss/Valine)</span></span><br><span class="line"><span class="comment"># 启用Valine必须先创建leancloud应用， 获取 id|key 填入即可</span></span><br><span class="line"><span class="attr">leancloud:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">app_id:</span> <span class="comment">#</span></span><br><span class="line">  <span class="attr">app_key:</span> <span class="comment">#</span></span><br><span class="line"><span class="comment"># Valine配置</span></span><br><span class="line"><span class="attr">valine:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 是否启用</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">monsterid</span> <span class="comment"># 头像样式(https://valine.js.org/avatar.html)</span></span><br><span class="line">  <span class="attr">placeholder:</span> <span class="string">给我的文章加点评论吧~</span> <span class="comment"># placeholder</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、Gitalk(https://github.com/gitalk/gitalk)</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># true</span></span><br><span class="line">  <span class="attr">clientID:</span> <span class="string">129f2c758bba8433d4c8</span> <span class="comment"># GitHub Application Client ID</span></span><br><span class="line">  <span class="attr">clientSecret:</span> <span class="string">eeb34f70e9dfcf7e04e8d9a9206136315394f8c1</span> <span class="comment"># Client Secret</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">yangtest</span> <span class="comment"># Repository name</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">yangqinglei26</span> <span class="comment"># GitHub ID</span></span><br><span class="line">  <span class="attr">admin:</span> <span class="string">yangqinglei26</span> <span class="comment"># GitHub ID</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3、Twikoo(https://github.com/imaegoo/twikoo)</span></span><br><span class="line"><span class="attr">twikoo:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">envId:</span> <span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4、MiniValine</span></span><br><span class="line"><span class="comment"># See: https://github.com/MiniValine/MiniValine</span></span><br><span class="line"><span class="attr">minivaline:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 更多选项 https://minivaline.js.org/docs/cn/#/Options 按照yml格式继续填写即可 （除了 [el] 选项）</span></span><br><span class="line">  <span class="comment"># emoticonUrl 等列表选项 可参考 https://github.com/MiniValine/hexo-next-minivaline</span></span><br><span class="line">  <span class="comment"># 下面是一个例子：</span></span><br><span class="line">  <span class="attr">serverURL:</span> <span class="string">https://minivaline.your-domain.com</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首页广告配置</span></span><br><span class="line"><span class="comment"># 可以根据需要自行增加ad_3，ad_4...，留空则不显示，建议图片和url不要带ad等关键词，否则可能会被adblock等插件屏蔽</span></span><br><span class="line"><span class="comment"># ads:</span></span><br><span class="line"><span class="comment">#   ad_1:</span></span><br><span class="line"><span class="comment">#     title: 腾讯云限时秒杀</span></span><br><span class="line"><span class="comment">#     img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/ten_1.jpg</span></span><br><span class="line"><span class="comment">#     url: https://curl.qcloud.com/ezctH6FU</span></span><br><span class="line"><span class="comment">#     width: 300</span></span><br><span class="line"><span class="comment">#   ad_2:</span></span><br><span class="line"><span class="comment">#     title: 云服务器全球购低至2折</span></span><br><span class="line"><span class="comment">#     img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/ten_2.jpg</span></span><br><span class="line"><span class="comment">#     url: https://curl.qcloud.com/kvO7hb43</span></span><br><span class="line"><span class="comment">#     width: 300</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-部署并测试"><a href="#4-5-部署并测试" class="headerlink" title="4.5. 部署并测试"></a>4.5. 部署并测试</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清空缓存 </span></span><br><span class="line">hexo clean</span><br><span class="line"><span class="comment"># 生成public文件并部署到github</span></span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>访问 <a href="https://yangqinglei26.github.io/yangtest">https://yangqinglei26.github.io/yangtest</a></li>
+</ul>
+<h2 id="5-解决图片展示问题"><a href="#5-解决图片展示问题" class="headerlink" title="5. 解决图片展示问题"></a>5. 解决图片展示问题</h2><h3 id="5-1-安装图片处理插件"><a href="#5-1-安装图片处理插件" class="headerlink" title="5.1. 安装图片处理插件"></a>5.1. 安装图片处理插件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;工作目录&gt;</span><br><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-修改插件文件-node-modules-hexo-asset-image-index-js"><a href="#5-2-修改插件文件-node-modules-hexo-asset-image-index-js" class="headerlink" title="5.2. 修改插件文件 /node_modules/hexo-asset-image/index.js"></a>5.2. 修改插件文件 <code>/node_modules/hexo-asset-image/index.js</code></h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">&#x27;cheerio&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// http://stackoverflow.com/questions/14480345/how-to-get-the-nth-occurrence-in-a-string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPosition</span>(<span class="params">str, m, i</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> str.split(m, i).join(m).length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="built_in">String</span>(hexo.version).split(<span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">hexo.extend.filter.register(<span class="string">&#x27;after_post_render&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> config = hexo.config;</span><br><span class="line">  <span class="keyword">if</span>(config.post_asset_folder)&#123;</span><br><span class="line">    	<span class="keyword">var</span> link = data.permalink;</span><br><span class="line">	<span class="keyword">if</span>(version.length &gt; <span class="number">0</span> &amp;&amp; <span class="built_in">Number</span>(version[<span class="number">0</span>]) == <span class="number">3</span>)</span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	   <span class="keyword">var</span> beginPos = getPosition(link, <span class="string">&#x27;/&#x27;</span>, <span class="number">3</span>) + <span class="number">1</span>;</span><br><span class="line">	<span class="comment">// In hexo 3.1.1, the permalink of &quot;about&quot; page is like &quot;.../about/index.html&quot;.</span></span><br><span class="line">	<span class="keyword">var</span> endPos = link.lastIndexOf(<span class="string">&#x27;/&#x27;</span>) + <span class="number">1</span>;</span><br><span class="line">    link = link.substring(beginPos, endPos);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> toprocess = [<span class="string">&#x27;excerpt&#x27;</span>, <span class="string">&#x27;more&#x27;</span>, <span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; toprocess.length; i++)&#123;</span><br><span class="line">      <span class="keyword">var</span> key = toprocess[i];</span><br><span class="line"> </span><br><span class="line">      <span class="keyword">var</span> $ = cheerio.load(data[key], &#123;</span><br><span class="line">        <span class="attr">ignoreWhitespace</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">xmlMode</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">lowerCaseTags</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">decodeEntities</span>: <span class="literal">false</span></span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">      $(<span class="string">&#x27;img&#x27;</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> ($(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>))&#123;</span><br><span class="line">			<span class="comment">// For windows style path, we replace &#x27;\&#x27; to &#x27;/&#x27;.</span></span><br><span class="line">			<span class="keyword">var</span> src = $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>).replace(<span class="string">&#x27;\\&#x27;</span>, <span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">			<span class="keyword">if</span>(!<span class="regexp">/http[s]*.*|\/\/.*/</span>.test(src) &amp;&amp;</span><br><span class="line">			   !<span class="regexp">/^\s*\//</span>.test(src)) &#123;</span><br><span class="line">			  <span class="comment">// For &quot;about&quot; page, the first part of &quot;src&quot; can&#x27;t be removed.</span></span><br><span class="line">			  <span class="comment">// In addition, to support multi-level local directory.</span></span><br><span class="line">			  <span class="keyword">var</span> linkArray = link.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">var</span> srcArray = src.split(<span class="string">&#x27;/&#x27;</span>).filter(<span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>&#123;</span><br><span class="line">				<span class="keyword">return</span> elem != <span class="string">&#x27;&#x27;</span> &amp;&amp; elem != <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">			  &#125;);</span><br><span class="line">			  <span class="keyword">if</span>(srcArray.length &gt; <span class="number">1</span>)</span><br><span class="line">				srcArray.shift();</span><br><span class="line">			  src = srcArray.join(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">			  $(<span class="built_in">this</span>).attr(<span class="string">&#x27;src&#x27;</span>, <span class="string">&quot;/&quot;</span> + link + src);</span><br><span class="line">			  <span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;update link as:--&gt;&quot;</span>+<span class="string">&quot;/&quot;</span> + link + src);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info(<span class="string">&quot;no src attr, skipped...&quot;</span>);</span><br><span class="line">			<span class="built_in">console</span>.info&amp;&amp;<span class="built_in">console</span>.info($(<span class="built_in">this</span>));</span><br><span class="line">		&#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      data[key] = $.html();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-3-修改工作目录下-config-yml"><a href="#5-3-修改工作目录下-config-yml" class="headerlink" title="5.3. 修改工作目录下 _config.yml"></a>5.3. 修改工作目录下 _config.yml</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">post_asset_folder: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-4-修改typora偏好配置"><a href="#5-4-修改typora偏好配置" class="headerlink" title="5.4. 修改typora偏好配置"></a>5.4. 修改typora偏好配置</h3><p><img src="/2021/05/31/java/hexo/image-20210917091646220.png" alt="image-20210917091646220"></p>
+<blockquote>
+<p>参考资料：<a href="https://blog.csdn.net/xjm850552586/article/details/84101345">Ericam</a></p>
+</blockquote>
+<h2 id="6-集成Travis-CI"><a href="#6-集成Travis-CI" class="headerlink" title="6. 集成Travis CI"></a>6. 集成Travis CI</h2><h3 id="6-1-配置-personal-access-token"><a href="#6-1-配置-personal-access-token" class="headerlink" title="6.1. 配置 personal access token"></a>6.1. 配置 personal access token</h3><h4 id="6-1-1-生成-access-token"><a href="#6-1-1-生成-access-token" class="headerlink" title="6.1.1. 生成 access token"></a>6.1.1. 生成 access token</h4><p><img src="/2021/05/31/java/hexo/image-20210601151405917.png" alt="image-20210601151405917"></p>
+<h4 id="6-1-2-拷贝access-token到记事本，保存以备用"><a href="#6-1-2-拷贝access-token到记事本，保存以备用" class="headerlink" title="6.1.2. 拷贝access token到记事本，保存以备用"></a>6.1.2. 拷贝access token到记事本，保存以备用</h4><p><img src="/2021/05/31/java/hexo/image-20210601151458900.png" alt="image-20210601151458900"></p>
+<h3 id="6-2-配置-Travis-CI"><a href="#6-2-配置-Travis-CI" class="headerlink" title="6.2. 配置 Travis CI"></a>6.2. 配置 Travis CI</h3><h4 id="6-2-1-将-Travis-CI-添加到你的-GitHub-账户中"><a href="#6-2-1-将-Travis-CI-添加到你的-GitHub-账户中" class="headerlink" title="6.2.1. 将 Travis CI 添加到你的 GitHub 账户中"></a>6.2.1. 将 <a href="https://github.com/marketplace/travis-ci">Travis CI</a> 添加到你的 GitHub 账户中</h4><p><img src="/2021/05/31/java/hexo/image-20210601151802979.png" alt="image-20210601151802979"></p>
+<h4 id="6-2-2-前往-GitHub-的-Applications-settings，配置-Travis-CI-权限，使其能够访问你的-repository"><a href="#6-2-2-前往-GitHub-的-Applications-settings，配置-Travis-CI-权限，使其能够访问你的-repository" class="headerlink" title="6.2.2. 前往 GitHub 的 Applications settings，配置 Travis CI 权限，使其能够访问你的 repository"></a>6.2.2. 前往 GitHub 的 <a href="https://github.com/settings/installations">Applications settings</a>，配置 Travis CI 权限，使其能够访问你的 repository</h4><p><img src="/2021/05/31/java/hexo/image-20210601151947991.png" alt="image-20210601151947991"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210601152038736.png" alt="image-20210601152038736"></p>
+<h4 id="6-2-3-将Github生成的-personal-access-token添加到travis中"><a href="#6-2-3-将Github生成的-personal-access-token添加到travis中" class="headerlink" title="6.2.3. 将Github生成的 personal access token添加到travis中"></a>6.2.3. 将Github生成的 personal access token添加到travis中</h4><p><img src="/2021/05/31/java/hexo/image-20210601163143344.png" alt="image-20210601163143344"></p>
+<p><img src="/2021/05/31/java/hexo/image-20210601163328326.png" alt="image-20210601163328326"></p>
+<h3 id="6-3-配置-travis-yml"><a href="#6-3-配置-travis-yml" class="headerlink" title="6.3. 配置 .travis.yml"></a>6.3. 配置 .travis.yml</h3><h4 id="6-3-1-工作目录下新建-travis-yml"><a href="#6-3-1-工作目录下新建-travis-yml" class="headerlink" title="6.3.1. 工作目录下新建 .travis.yml"></a>6.3.1. 工作目录下新建 .travis.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定构建环境是Node.js，当前版本是稳定版</span></span><br><span class="line"><span class="attr">anguage:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span> <span class="string">stable</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置钩子只检测blog-source分支的push变动</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">main</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置缓存文件</span></span><br><span class="line"><span class="attr">cache:</span></span><br><span class="line">  <span class="attr">directories:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">node_modules</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在构建之前安装hexo环境和主题，这里的主题就是原来修改过的主题，我将其托管到另一个github仓库，直接clone就行，否则每次都是新的主题，要重新设置。</span></span><br><span class="line"><span class="attr">before_install:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">-g</span> <span class="string">hexo-cli</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#安装git插件和搜索功能插件</span></span><br><span class="line"><span class="attr">install:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-deployer-git</span> <span class="string">--save</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-generator-searchdb</span> <span class="string">--save</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-asset-image</span> <span class="string">--save</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行清缓存，生成网页操作</span></span><br><span class="line"><span class="comment"># 将 5.2 中的index.js 拷贝到imagedeal中</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">rm</span> <span class="string">-rf</span> <span class="string">./node_modules/hexo-asset-image/index.js</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">cp</span> <span class="string">./imagedeal/index.js</span> <span class="string">./node_modules/hexo-asset-image</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署</span></span><br><span class="line"><span class="attr">after_script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.name</span> <span class="string">&quot;yangqinglei26&quot;</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">git</span> <span class="string">config</span> <span class="string">user.email</span> <span class="string">&quot;dandetionyang@163.com&quot;</span></span><br><span class="line">  <span class="comment"># 替换同目录下的_config.yml文件中gh_token字符串为刚才在6.2.3中travis配置的变量，注意此处sed命令用了双引号。单引号无效！</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">sed</span> <span class="string">-i</span> <span class="string">&quot;s/gh_token/$&#123;GH_TOKEN&#125;/g&quot;</span> <span class="string">./_config.yml</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">deploy</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601165436990.png" alt="image-20210601165436990"></p>
+<h4 id="6-3-2-修改-config-yml"><a href="#6-3-2-修改-config-yml" class="headerlink" title="6.3.2. 修改 _config.yml"></a>6.3.2. 修改 _config.yml</h4><p><img src="/2021/05/31/java/hexo/image-20210601165917656.png" alt="image-20210601165917656"></p>
+<h3 id="6-4-提交到github，并测试"><a href="#6-4-提交到github，并测试" class="headerlink" title="6.4. 提交到github，并测试"></a>6.4. 提交到github，并测试</h3><h4 id="6-4-1-删除-themes-ayer-下多余的文件-不然主题配置会被覆盖"><a href="#6-4-1-删除-themes-ayer-下多余的文件-不然主题配置会被覆盖" class="headerlink" title="6.4.1. 删除 themes\ayer 下多余的文件,不然主题配置会被覆盖"></a>6.4.1. 删除 themes\ayer 下多余的文件,不然主题配置会被覆盖</h4><p><img src="/2021/05/31/java/hexo/image-20210601182218682.png" alt="image-20210601182218682"></p>
+<h4 id="6-4-2-提交并测试"><a href="#6-4-2-提交并测试" class="headerlink" title="6.4.2.  提交并测试"></a>6.4.2.  提交并测试</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 清空分支下所有文件</span></span><br><span class="line">git init </span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;初始化仓库&quot;</span></span><br><span class="line">git remote add origin https://github.com/yangqinglei26/yangtest.git</span><br><span class="line">git push -u origin master:main</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601171658374.png" alt="image-20210601171658374"></p>
+<h2 id="7-常用命令"><a href="#7-常用命令" class="headerlink" title="7. 常用命令"></a>7. 常用命令</h2><h2 id="7-1-新建相关"><a href="#7-1-新建相关" class="headerlink" title="7.1. 新建相关"></a>7.1. 新建相关</h2><blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/writing">hexo new</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page -p 生活/买车 <span class="string">&quot;买车&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601184756867.png" alt="image-20210601184756867"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page manage</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601184846170.png" alt="image-20210601184846170"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page -p <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601184937111.png" alt="image-20210601184937111"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认使用 _config.yml 中的 default_layout 参数代替</span></span><br><span class="line">hexo new -p python/python <span class="string">&quot;python&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601185341576.png" alt="image-20210601185341576"></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new <span class="string">&quot;python&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/hexo/image-20210601185821903.png" alt="image-20210601185821903"></p>
+<blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/front-matter">Front-matter</a></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+<th align="left">默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>layout</code></td>
+<td align="left">布局</td>
+<td align="left"><a href="https://hexo.io/zh-cn/docs/configuration#%E6%96%87%E7%AB%A0"><code>config.default_layout</code></a></td>
+</tr>
+<tr>
+<td align="left"><code>title</code></td>
+<td align="left">标题</td>
+<td align="left">文章的文件名</td>
+</tr>
+<tr>
+<td align="left"><code>date</code></td>
+<td align="left">建立日期</td>
+<td align="left">文件建立日期</td>
+</tr>
+<tr>
+<td align="left"><code>updated</code></td>
+<td align="left">更新日期</td>
+<td align="left">文件更新日期</td>
+</tr>
+<tr>
+<td align="left"><code>comments</code></td>
+<td align="left">开启文章的评论功能</td>
+<td align="left">true</td>
+</tr>
+<tr>
+<td align="left"><code>tags</code></td>
+<td align="left">标签（不适用于分页）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>categories</code></td>
+<td align="left">分类（不适用于分页）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>permalink</code></td>
+<td align="left">覆盖文章网址</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>excerpt</code></td>
+<td align="left">Page excerpt in plain text. Use <a href="https://hexo.io/docs/tag-plugins#Post-Excerpt">this plugin</a> to format the text</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>disableNunjucks</code></td>
+<td align="left">Disable rendering of Nunjucks tag <code>&#123;&#123; &#125;&#125;</code>/<code>&#123;% %&#125;</code> and <a href="https://hexo.io/docs/tag-plugins">tag plugins</a> when enabled</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>lang</code></td>
+<td align="left">Set the language to override <a href="https://hexo.io/docs/internationalization#Path">auto-detection</a></td>
+<td align="left">Inherited from <code>_config.yml</code></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea相关使用</title>
+    <url>/2021/09/13/java/idea/</url>
+    <content><![CDATA[<h2 id="配置注释"><a href="#配置注释" class="headerlink" title="配置注释"></a>配置注释</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $&#123;DATE&#125;</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">- 类注释</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $DATE$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">- 方法注释</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@author</span> yql</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@date</span> $DATE$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@desc</span></span></span><br><span class="line"><span class="comment">  $params$</span></span><br><span class="line"><span class="comment">  * <span class="doctag">@return</span> $return$</span></span><br><span class="line"><span class="comment">  */</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">groovyScript(<span class="string">&quot;def result=&#x27;&#x27;; def params=\&quot;$&#123;_1&#125;\&quot;.replaceAll(&#x27;[\\\\[|\\\\]|\\\\s]&#x27;, &#x27;&#x27;).split(&#x27;,&#x27;).toList(); for(i = 0; i &lt; params.size(); i++) &#123;result+=&#x27;* @param &#x27; + params[i] + ((i &lt; params.size() - 1) ? &#x27;\\r\\n&#x27; : &#x27;&#x27;)&#125;; return result&quot;</span>, methodParameters())</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">groovyScript(<span class="string">&quot;def result=&#x27;&#x27;; def params=\&quot;$&#123;_1&#125;\&quot;.replaceAll(&#x27;[\\\\[|\\\\]|\\\\s]&#x27;, &#x27;&#x27;).split(&#x27;&lt;&#x27;).toList(); for(i = 0; i &lt; params.size(); i++) &#123;if(i!=0)&#123;result+=&#x27;&lt;&#x27;;&#125;;  def p1=params[i].split(&#x27;,&#x27;).toList();  for(i2 = 0; i2 &lt; p1.size(); i2++) &#123; def p2=p1[i2].split(&#x27;\\\\.&#x27;).toList();  result+=p2[p2.size()-1]; if(i2!=p1.size()-1)&#123;result+=&#x27;,&#x27;&#125;  &#125; ;  &#125;;  return result&quot;</span>, methodReturnType())</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>netty</title>
+    <url>/2021/05/29/java/netty/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.cnblogs.com/crazymakercircle/p/14499211.html">TCP/IP协议</a> <a href="https://my.oschina.net/u/1859679/blog/1835423">TCP相关</a> <a href="https://blog.csdn.net/pashanhu6402/article/details/96428887">socket原理</a></p>
+<p><a href="https://www.cnblogs.com/duanxz/p/4464178.html">单服务器最大tcp连接数及调优汇总</a> <a href="https://blog.csdn.net/xielinrui123/article/details/88417225">分析单机最大长连接数</a></p>
+<p><a href="https://blog.csdn.net/baixiaoshi/article/details/48708347?utm_source=copy">IO多路复用机制详解</a> <a href="https://www.cnblogs.com/crazymakercircle/p/10225159.html">io相关</a></p>
+<p><a href="https://my.oschina.net/u/1859679/blog/1844109">Reactor详解</a> <a href="https://www.cnblogs.com/crazymakercircle/p/9833847.html">Reactor模式</a> <a href="https://www.jianshu.com/p/2965fca6bb8f">理解高性能网络模型</a></p>
+<p><a href="https://www.cnblogs.com/lighten/tag/Netty/">netty相关</a></p>
+<p><a href="https://www.cnblogs.com/crazymakercircle/p/13903625.html">面试相关</a></p>
+</blockquote>
+<h2 id="1-线程模型"><a href="#1-线程模型" class="headerlink" title="1. 线程模型"></a>1. 线程模型</h2><h2 id="2-核心组件"><a href="#2-核心组件" class="headerlink" title="2. 核心组件"></a>2. 核心组件</h2><h2 id="3-零拷贝"><a href="#3-零拷贝" class="headerlink" title="3. 零拷贝"></a>3. 零拷贝</h2><blockquote>
+<p><a href="https://www.jianshu.com/p/e488c8ee5b57">彻底搞懂Netty高性能之零拷贝</a></p>
+</blockquote>
+<ul>
+<li>Netty的接收和发送ByteBuffer使用直接内存进行Socket读写，不需要进行字节缓冲区的二次拷贝。如果使用JVM的堆内存进Socket读写，JVM会将堆内存Buffer拷贝一份到直接内存中，然后才写入Socket中。相比于使用直接内存，消息在发送过程中多了一次缓冲区的内存拷贝。</li>
+<li>Netty的文件传输调用FileRegion包装的transferTo方法，可以直接将文件缓冲区的数据发送到目标Channel，避免通过循环write方式导致的内存拷贝问题。</li>
+<li>Netty提供CompositeByteBuf类, 可以将多个ByteBuf合并为一个逻辑上的ByteBuf, 避免了各个ByteBuf之间的拷贝。</li>
+<li>通过wrap操作, 我们可以将byte[]数组、ByteBuf、ByteBuffer等包装成一个Netty ByteBuf对象, 进而避免拷贝操作。</li>
+<li>ByteBuf支持slice操作，可以将ByteBuf分解为多个共享同一个存储区域的ByteBuf, 避免内存的拷贝。</li>
+</ul>
+<h2 id="4-TCP粘包-拆包"><a href="#4-TCP粘包-拆包" class="headerlink" title="4. TCP粘包/拆包"></a>4. TCP粘包/拆包</h2><blockquote>
+<p><a href="https://www.cnblogs.com/coding-diary/p/11650686.html">[Netty中粘包和拆包的解决方案]</a></p>
+<p><a href="https://blog.csdn.net/lanzhupi/article/details/88929432">Netty解决粘包和拆包问题的四种方案</a></p>
+</blockquote>
+<h2 id="5-编码和解码"><a href="#5-编码和解码" class="headerlink" title="5. 编码和解码"></a>5. 编码和解码</h2><h2 id="6-多协议"><a href="#6-多协议" class="headerlink" title="6. 多协议"></a>6. 多协议</h2><h2 id="7-心跳"><a href="#7-心跳" class="headerlink" title="7. 心跳"></a>7. 心跳</h2><blockquote>
+<p><a href="https://www.jianshu.com/p/1a28e48edd92">Netty实现心跳机制与断线重连</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>消息队列</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>消息队列</tag>
+        <tag>rabbitmq</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx</title>
+    <url>/2022/07/07/java/nginx/</url>
+    <content><![CDATA[<h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><p><a href="https://zhuanlan.zhihu.com/p/369926646">2万字 让你全面认识 Nginx，收藏 ！</a></p>
+<p><a href="https://blog.csdn.net/IT_10/article/details/89365436">超详细的Nginx负载均衡+高可用配置</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/389438482">史上讲解最好的Nginx 教程，从入门到精通</a></p>
+<h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><p><strong>路径映射：</strong></p>
+<ul>
+<li>精确匹配</li>
+<li>前缀匹配</li>
+<li>正则匹配</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">    rewrite /yang/(.*) /<span class="variable">$1</span>;</span></span><br><span class="line">-----------------------------------</span><br><span class="line">location /yang &#123;</span><br><span class="line">    proxy_pass  http://node/;</span><br><span class="line">    #proxy_set_header    Host    $http_host;</span><br><span class="line">    #proxy_set_header    X-Real-IP   $remote_addr;</span><br><span class="line">    #proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    #root   /usr/share/nginx/html;</span><br><span class="line">    #index  index.html index.htm;ß</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">------------------------------------</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8081;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang/ &#123;</span><br><span class="line">        alias /home/yang/e1/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径		是/home/yang/e1/index3.html</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8082;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang &#123;</span><br><span class="line">        alias /home/yang/e2/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径是/home/yang/e1//index3.html</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 8083;</span><br><span class="line">    server_name localhost;</span><br><span class="line">    location /yang &#123;</span><br><span class="line">        alias /home/yang/e3/;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">upstream node &#123;</span><br><span class="line">    server localhost:8081;</span><br><span class="line">    server localhost:8082;</span><br><span class="line">    server localhost:8083;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>服务器</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>服务器</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql</title>
+    <url>/2021/06/04/java/postgre/</url>
+    <content><![CDATA[<p><a href="http://www.postgres.cn/docs/13/index.html">操作手册</a></p>
+<h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><h2 id="窗口函数"><a href="#窗口函数" class="headerlink" title="窗口函数"></a>窗口函数</h2><h2 id="with"><a href="#with" class="headerlink" title="with"></a>with</h2><p><a href="http://www.postgres.cn/docs/13/queries-with.html">WITH查询</a></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>Mysql</category>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>数据库</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring</title>
+    <url>/2021/06/08/java/spring/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93?id=_7-spring-%e6%a1%86%e6%9e%b6%e4%b8%ad%e7%94%a8%e5%88%b0%e4%ba%86%e5%93%aa%e4%ba%9b%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%ef%bc%9f">spring</a></p>
+</blockquote>
+<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><blockquote>
+<p><a href="https://javadoop.com/post/spring-ioc">Spring IOC 容器源码分析</a></p>
+</blockquote>
+<ul>
+<li><p>bean的注解</p>
+<ul>
+<li>@Component @Controller @Service @Repository</li>
+<li>@Bean 作用于方法</li>
+</ul>
+</li>
+<li><p>bean的作用域</p>
+<ul>
+<li>singleton prototype request session</li>
+</ul>
+</li>
+<li><p>bean的生命周期</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/weixin_43244698/article/details/109338537">SpringBean生命周期详解</a></p>
+<p><a href="https://www.cnblogs.com/zrtqsk/p/3735273.html">Spring Bean的生命周期</a></p>
+</blockquote>
+<ul>
+<li><p>beandefinition —&gt;  BeanFactoryPostProcessor.postProcessBeanFactory() 修改beandefinition —&gt; InstantiationAwareBeanPostProcessorAdapter .postProcessBeforeInstantiation() —&gt; 实例化 —&gt;InstantiationAwareBeanPostProcessorAdapter .postProcessAfterInstantiation() —&gt; InstantiationAwareBeanPostProcessorAdapter .postProcessProperties() 修改property —&gt; 配置property —&gt;</p>
+<p>检查aware接口并设置相关依赖 —&gt; init()  —&gt; destroy()</p>
+</li>
+</ul>
+</li>
+<li><p>单例bean的线程安全</p>
+<ul>
+<li>ThreadLocale</li>
+<li>prototype</li>
+</ul>
+</li>
+</ul>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><blockquote>
+<p><a href="https://www.cnblogs.com/zuidongfeng/p/8735241.html">JDK动态代理</a> <a href="https://blog.csdn.net/ikownyou/article/details/53081426">动态代理与静态代理区别</a></p>
+<p><a href="https://blog.csdn.net/babylovewei/article/details/106528284">AspectJ的使用方法</a>    <a href="https://www.cnblogs.com/chaoesha/p/13037368.html">Spring AOP和AspectJ的区别是什么？</a></p>
+</blockquote>
+<h2 id="spring-mvc"><a href="#spring-mvc" class="headerlink" title="spring mvc"></a>spring mvc</h2><h2 id="spring-事务"><a href="#spring-事务" class="headerlink" title="spring 事务"></a>spring 事务</h2><blockquote>
+<p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93?id=_5-transactional-%e7%9a%84%e4%bd%bf%e7%94%a8%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9%e6%80%bb%e7%bb%93">事务相关</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247486483&idx=2&sn=77be488e206186803531ea5d7164ec53&chksm=cea243d8f9d5cacecaa5c5daae4cde4c697b9b5b21f96dfc6cce428cfcb62b88b3970c26b9c2&token=816772476&lang=zh_CN#rd">一口气说出 6种 @Transactional 注解失效场景</a></p>
+</blockquote>
+<p><strong><code>@Transactional</code> 的常用配置参数总结（只列巨额 5 个我平时比较常用的）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>propagation</td>
+<td>事务的传播行为，默认值为 REQUIRED，可选的值在上面介绍过</td>
+</tr>
+<tr>
+<td>isolation</td>
+<td>事务的隔离级别，默认值采用 DEFAULT，可选的值在上面介绍过</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>事务的超时时间，默认值为-1（不会超时）。如果超过该时间限制但事务还没有完成，则自动回滚事务。</td>
+</tr>
+<tr>
+<td>readOnly</td>
+<td>指定事务是否为只读事务，默认值为 false。</td>
+</tr>
+<tr>
+<td>rollbackFor</td>
+<td>用于指定能够触发事务回滚的异常类型，并且可以指定多个异常类型。</td>
+</tr>
+</tbody></table>
+<p><strong>@Transactional的使用注意事项总结</strong></p>
+<ol>
+<li><code>@Transactional</code> 注解只有作用到 public 方法上事务才生效，不推荐在接口上使用；</li>
+<li>避免同一个类中调用 <code>@Transactional</code> 注解的方法，这样会导致事务失效；</li>
+<li>正确的设置 <code>@Transactional</code> 的 rollbackFor 和 propagation 属性，否则事务可能会回滚失败</li>
+</ol>
+<h2 id="spring-设计模式"><a href="#spring-设计模式" class="headerlink" title="spring 设计模式"></a>spring 设计模式</h2><blockquote>
+<p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/framework/spring/Spring-Design-Patterns?id=%e8%a3%85%e9%a5%b0%e8%80%85%e6%a8%a1%e5%bc%8f">设计模式</a></p>
+</blockquote>
+<ul>
+<li><strong>工厂设计模式</strong> : Spring使用工厂模式通过 <code>BeanFactory</code>、<code>ApplicationContext</code> 创建 bean 对象。</li>
+<li><strong>代理设计模式</strong> : Spring AOP 功能的实现。</li>
+<li><strong>单例设计模式</strong> : Spring 中的 Bean 默认都是单例的。</li>
+<li><strong>模板方法模式</strong> : Spring 中 <code>jdbcTemplate</code>、<code>hibernateTemplate</code> 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。</li>
+<li><strong>包装器设计模式</strong> : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</li>
+<li><strong>观察者模式:</strong> Spring 事件驱动模型就是观察者模式很经典的一个应用。</li>
+<li><strong>适配器模式</strong> :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配<code>Controller</code>。</li>
+</ul>
+<h2 id="循环依赖"><a href="#循环依赖" class="headerlink" title="循环依赖"></a>循环依赖</h2><blockquote>
+<p><a href="https://www.jianshu.com/p/6c359768b1dc">循环依赖的解决</a> <a href="https://www.zhihu.com/question/438247718/answer/1730527725">Spring 是如何解决循环依赖的</a></p>
+<p><a href="https://mp.weixin.qq.com/s/kS0K5P4FdF3v-fiIjGIvvQ">核心</a></p>
+</blockquote>
+<p><strong>循环依赖问题解决方法很多，主要有：</strong></p>
+<ol>
+<li>使用<code>@Lazy</code>注解，延迟加载</li>
+<li>使用<code>@DependsOn</code>注解，指定加载先后关系</li>
+<li>修改文件名称，改变循环依赖类的加载顺序</li>
+</ol>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>spring</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringBoot</title>
+    <url>/2021/06/09/java/springboot/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://github.com/CodingDocs/springboot-guide">基础</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>spring</category>
+        <category>springboot</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>spring</tag>
+        <tag>springboot</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zookeeper</title>
+    <url>/2021/06/30/java/zookeeper/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-intro">基础</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-plus">进阶</a> <a href="https://snailclimb.gitee.io/javaguide/#/docs/system-design/distributed-system/zookeeper/zookeeper-in-action">使用</a></p>
+<p><a href="https://blog.csdn.net/u011320740/article/details/78742625">基于zookeeper实现统一配置管理</a></p>
+<p><a href="https://blog.csdn.net/jerome_s/article/details/52335042">ZooKeeper 实现命名服务</a></p>
+<p><a href="https://blog.csdn.net/u010028869/article/details/84034261">基于ZooKeeper Curator实现分布式锁</a></p>
+<p><a href="https://mp.weixin.qq.com/s/gphDLJMO3QcRoN3zkco4EA">基础</a> <a href="https://mp.weixin.qq.com/s/ZqQHWLfVD1Rz1agmH3LWrg">分布式锁之Zookeeper</a> <a href="https://mp.weixin.qq.com/s/k0zAExTvMsrugCaNJxs7hQ">ZAB协议</a></p>
+<p><a href="https://mp.weixin.qq.com/s/YawG0GqznDHaiHXZuTsCjA">面试相关</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>zookeeper</category>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>zookeeper</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式相关</title>
+    <url>/2021/06/29/java/%E5%88%86%E5%B8%83%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p><a href="https://www.processon.com/view/6049e3501e08532c0f7ab94a#map">分布式相关</a></p>
+<p><a href="https://www.cnblogs.com/liuqingzheng/p/11080501.html">分布式锁1</a> <a href="https://blog.csdn.net/wuzhiwei549/article/details/80692278">分布式锁2</a> <a href="https://www.cnblogs.com/seesun2012/p/9214653.html">分布式锁3</a> <a href="https://www.processon.com/view/5f7fc48b1e085307a07da543#map">分布式锁 导航</a></p>
+<p><a href="https://www.cnblogs.com/liuqingzheng/p/11074623.html">分布式id</a> <a href="https://www.processon.com/view/6049e3501e08532c0f7ab94a#map">分布式id导航</a></p>
+<p><a href="https://tech.meituan.com/2019/03/07/open-source-project-leaf.html">Leaf：美团分布式ID生成服务开源</a></p>
+<p><a href="http://www.tianshouzhi.com/api/tutorials/distributed_transaction/388">柔性事务 ：TCC两阶段补偿型</a></p>
+<p><a href="https://www.processon.com/view/6037c30de401fd0290ffeaa9#map">分布式事务</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>分布式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>知识架构图</title>
+    <url>/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/</url>
+    <content><![CDATA[<ul>
+<li>后台知识架构图</li>
+</ul>
+<p><img src="/2021/09/17/java/%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20210702151710.png" alt="微信图片_20210702151710"></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络相关</title>
+    <url>/2021/06/30/java/%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3/</url>
+    <content><![CDATA[<ul>
+<li><p><a href="https://blog.csdn.net/pashanhu6402/article/details/96428887">socket原理</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/duanxz/p/4464178.html">单服务器最大tcp连接数及调优汇总</a> <a href="https://blog.csdn.net/xielinrui123/article/details/88417225">分析单机最大长连接数</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+        <category>网络相关</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>网络相关</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>买车</title>
+    <url>/2021/06/01/life/%E4%B9%B0%E8%BD%A6/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>买车</tag>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>联盟</title>
+    <url>/2021/06/02/manage/%E8%81%94%E7%9B%9F/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>管理</category>
+      </categories>
+      <tags>
+        <tag>管理</tag>
+      </tags>
+  </entry>
+</search>

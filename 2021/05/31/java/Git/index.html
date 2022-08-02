@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+  
+
+    <head>
+      <meta charset="utf-8" />
+       
+      <meta name="keywords" content="java,spring" />
+       
+      <meta name="description" content="赢在格局，输在计较" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>Git |  fordreams1314个人博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css"
+      />
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+       
+ 
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+      <!-- mermaid -->
+      
+    <link rel="alternate" href="/atom.xml" title="fordreams1314个人博客" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-java/Git"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Git
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/05/31/java/Git/" class="article-date">
+  <time datetime="2021-05-31T02:24:06.000Z" itemprop="datePublished">2021-05-31</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a> / <a class="article-category-link" href="/categories/java/git/">git</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">4 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-Git是什么"><a href="#1-Git是什么" class="headerlink" title="1. Git是什么"></a>1. Git是什么</h2><ol>
+<li> svn是集中化的版本控制系统，git是分布式版本控制系统</li>
+<li> git直接记录快照，而非差异比较</li>
+<li> 近乎所有的操作都是本地执行</li>
+</ol>
+<h2 id="2-基本操作"><a href="#2-基本操作" class="headerlink" title="2. 基本操作"></a>2. 基本操作</h2><blockquote>
+<p>Git基本操作:  <a target="_blank" rel="noopener" href="https://www.runoob.com/git/git-basic-operations.html">https://www.runoob.com/git/git-basic-operations.html</a></p>
+</blockquote>
+<h3 id="2-1-使用当前目录作为Git仓库"><a href="#2-1-使用当前目录作为Git仓库" class="headerlink" title="2.1. 使用当前目录作为Git仓库"></a>2.1. 使用当前目录作为Git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">进入该目录，右键进入git命令行模式</span><br><span class="line"><span class="comment">#添加版本库</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment">#将本地文件添加到暂存区</span></span><br><span class="line">git add .  </span><br><span class="line"><span class="comment"># 将文件提交到版本库</span></span><br><span class="line">git commit -m <span class="string">&quot;注释&quot;</span>  </span><br><span class="line"><span class="comment">#添加一个远程 Git 仓库，同时指定一个可以引用的简写origin</span></span><br><span class="line">git remote add origin https://gitee.com/yangqinglei26/study-notes.git  </span><br><span class="line"><span class="comment">#将本地版本库推送到远程版本库进行合并</span></span><br><span class="line">git push -u origin master  </span><br><span class="line"><span class="comment"># 显示远程仓库</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-记录每次更新到仓库"><a href="#2-2-记录每次更新到仓库" class="headerlink" title="2.2. 记录每次更新到仓库"></a>2.2. 记录每次更新到仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看文件状态</span></span><br><span class="line">git status  </span><br><span class="line"><span class="comment">#文件状态从untracked变为staged，文件被添加到暂存区</span></span><br><span class="line">git add  </span><br><span class="line"><span class="comment">#查看暂存前后的变化</span></span><br><span class="line">git diff  </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-忽略文件"><a href="#2-3-忽略文件" class="headerlink" title="2.3. 忽略文件"></a>2.3. 忽略文件</h3><ul>
+<li><p>文件 .gitignore 的格式规范如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所有空行或者以 # 开头的行都会被 Git 忽略。</span><br><span class="line">可以使用标准的 glob 模式匹配，它会递归地应用在整个工作区中。所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。</span><br><span class="line">匹配模式可以以（/）开头防止递归。</span><br><span class="line">匹配模式可以以（/）结尾指定目录。</span><br><span class="line">要忽略指定模式以外的文件或目录，可以在模式前加上叹号（!）取反。</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-分支管理"><a href="#3-分支管理" class="headerlink" title="3. 分支管理"></a>3. 分支管理</h2><blockquote>
+<p>Git分支管理策略:  <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2012/07/git.html">https://www.ruanyifeng.com/blog/2012/07/git.html</a></p>
+</blockquote>
+<h3 id="3-1-创建合并分支"><a href="#3-1-创建合并分支" class="headerlink" title="3.1. 创建合并分支"></a>3.1. 创建合并分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看当前分支</span></span><br><span class="line">git branch </span><br><span class="line"><span class="comment">#创建分支</span></span><br><span class="line">git branch dev</span><br><span class="line"><span class="comment">#切换分支</span></span><br><span class="line">git checkout dev</span><br><span class="line"><span class="comment">#创建并切换到一个分支里面</span></span><br><span class="line">git checkout -b dev</span><br><span class="line"><span class="comment">#查看记录</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line"><span class="comment">#合并记录,出现fast-forward就是快速合并</span></span><br><span class="line">git merge dev</span><br><span class="line"><span class="comment">#执行正常合并，在Master分支上生成一个新节点</span></span><br><span class="line">git merge --no-ff dev</span><br><span class="line"><span class="comment">#合并之后，就可以删除dev分支</span></span><br><span class="line">git checkout -d dev</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-解决冲突"><a href="#3-2-解决冲突" class="headerlink" title="3.2. 解决冲突"></a>3.2. 解决冲突</h3><ul>
+<li><p>在不同分支上，都编辑了同一个文件，这时候合并，会出现冲突。<strong>解决方法：</strong>手动进行合并，在code文件中。然后在进行add和commit操作</p>
+</li>
+<li><p>软件开发中，遇到bug就像是家常便饭。当遇到bug的时候，每一个bug都要用过临时的分支来修复，修复后在合并分支，然后将临时分支删除。<br>当你正在做某项任务的时候，临时有个紧急的任务，修复bug，但是你的代码没有写完，不能提交，可以通过下面的命令进行存储，等你修复完成之后，可以继续做。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#存储工作现场</span></span><br><span class="line">git stash</span><br><span class="line"><span class="comment">#查看存储工作现场</span></span><br><span class="line">git stash list</span><br><span class="line"><span class="comment">#恢复存储工作现场</span></span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="4-查看提交历史"><a href="#4-查看提交历史" class="headerlink" title="4. 查看提交历史"></a>4. 查看提交历史</h2><h2 id="5-标签管理"><a href="#5-标签管理" class="headerlink" title="5. 标签管理"></a>5. 标签管理</h2><h2 id="6-服务器搭建"><a href="#6-服务器搭建" class="headerlink" title="6. 服务器搭建"></a>6. 服务器搭建</h2><h2 id="7-扩展"><a href="#7-扩展" class="headerlink" title="7. 扩展"></a>7. 扩展</h2><h3 id="7-1-SSH配置"><a href="#7-1-SSH配置" class="headerlink" title="7.1. SSH配置"></a>7.1. SSH配置</h3><h4 id="7-1-1-检测SSH配置情况"><a href="#7-1-1-检测SSH配置情况" class="headerlink" title="7.1.1. 检测SSH配置情况"></a>7.1.1. 检测SSH配置情况</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入ssh目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"><span class="comment"># 查看是否有id_rsa  id_rsa.pub </span></span><br><span class="line">ls</span><br><span class="line"><span class="comment"># 如果没有id_rsa  id_rsa.pub ，进入第2步</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531090521299.png" alt="image-20210531090521299"></p>
+<h4 id="7-1-2-配置SSH"><a href="#7-1-2-配置SSH" class="headerlink" title="7.1.2. 配置SSH"></a>7.1.2. 配置SSH</h4><h5 id="7-1-2-1-查询是否配置了全局参数"><a href="#7-1-2-1-查询是否配置了全局参数" class="headerlink" title="7.1.2.1. 查询是否配置了全局参数"></a>7.1.2.1. 查询是否配置了全局参数</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global  --list </span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531085905271.png" alt="image-20210531085905271"></p>
+<ul>
+<li>如果未配置，执行以下命令：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># git config --global  user.name &quot;这里换上你的用户名&quot;</span></span><br><span class="line">git config --global  user.name <span class="string">&quot;yangqinglei26&quot;</span></span><br><span class="line"><span class="comment"># git config --global user.email &quot;这里换上你的邮箱&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;dandetionyang@163.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="7-1-2-2-生成公钥"><a href="#7-1-2-2-生成公钥" class="headerlink" title="7.1.2.2. 生成公钥"></a>7.1.2.2. 生成公钥</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -o</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>执行命令后需要进行3次或4次确认：</p>
+<p>确认秘钥的保存路径（如果不需要改路径则直接回车）；<br>如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖（如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖）；<br>创建密码（如果不需要密码则直接回车）；<br>确认密码；<br>执行过程如下图：</p>
+</blockquote>
+<p><img src="/2021/05/31/java/Git/image-20210531092848479.png" alt="image-20210531092848479"></p>
+<h5 id="7-1-2-3-查看公钥"><a href="#7-1-2-3-查看公钥" class="headerlink" title="7.1.2.3. 查看公钥"></a>7.1.2.3. 查看公钥</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531092432406.png" alt="image-20210531092432406"></p>
+<h5 id="7-1-2-4-复制公钥到github"><a href="#7-1-2-4-复制公钥到github" class="headerlink" title="7.1.2.4. 复制公钥到github"></a>7.1.2.4. 复制公钥到github</h5><p><img src="/2021/05/31/java/Git/image-20210531091935818.png"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531092244164.png" alt="image-20210531092244164"></p>
+<blockquote>
+<p>参考资料：<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E7%94%9F%E6%88%90-SSH-%E5%85%AC%E9%92%A5">Git官方文档</a></p>
+</blockquote>
+<h2 id="8-GitTalk使用"><a href="#8-GitTalk使用" class="headerlink" title="8. GitTalk使用"></a>8. GitTalk使用</h2><blockquote>
+<p>帮助手册：<a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">https://github.com/gitalk/gitalk/blob/master/readme-cn.md</a></p>
+</blockquote>
+<h3 id="8-1-我们选取其中一种方式做说明"><a href="#8-1-我们选取其中一种方式做说明" class="headerlink" title="8.1. 我们选取其中一种方式做说明"></a>8.1. 我们选取其中一种方式做说明</h3><p><img src="/2021/05/31/java/Git/image-20210531093501749.png" alt="image-20210531093501749"></p>
+<h4 id="8-1-1-获取owner、repo"><a href="#8-1-1-获取owner、repo" class="headerlink" title="8.1.1. 获取owner、repo"></a>8.1.1. 获取owner、repo</h4><blockquote>
+<p>参考资料： <a target="_blank" rel="noopener" href="https://docs.github.com/en/rest/reference/issues">github 接口文档</a></p>
+</blockquote>
+<p>gittalk会根据输入的参数去调用github接口，查询对应的issue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://api.github.com/repos/&#123;owner&#125;/&#123;repo&#125;/issues</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/05/31/java/Git/image-20210531150941976.png" alt="image-20210531150941976"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531152732039.png" alt="image-20210531152732039"></p>
+<h4 id="8-1-2-生成clientID、clientSecret"><a href="#8-1-2-生成clientID、clientSecret" class="headerlink" title="8.1.2. 生成clientID、clientSecret"></a>8.1.2. 生成clientID、clientSecret</h4><p><img src="/2021/05/31/java/Git/image-20210531144238169.png" alt="image-20210531144238169"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531144356321.png" alt="image-20210531144356321"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531144742784.png" alt="image-20210531144742784"></p>
+<p><img src="/2021/05/31/java/Git/image-20210531145405306.png" alt="image-20210531145405306"></p>
+<h4 id="8-1-3-参考"><a href="#8-1-3-参考" class="headerlink" title="8.1.3. 参考"></a>8.1.3. 参考</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">clientID:</span> <span class="string">129f2c758bba8433d4c8</span></span><br><span class="line"><span class="attr">clientSecret:</span> <span class="string">20a29f0beeec62e28c7b829941fac54793a99f3c</span></span><br><span class="line"><span class="attr">repo:</span> <span class="string">yangqinglei26</span></span><br><span class="line"><span class="attr">owner:</span> <span class="string">yangtest</span></span><br><span class="line"><span class="attr">admin:</span> [<span class="string">yangqinglei26</span>]</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/05/31/java/hexo/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            hexo使用
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2021/05/29/java/netty/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">netty</div>
+      </a>
+    
+  </nav>
+
+   
+ 
+   
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '58e345e66c3895205e5e',
+    clientSecret: 'ad9d1739ef39205c50826acca580c9351244bf9c',
+    repo: 'yangqinglei26.github.io',
+    owner: 'yangqinglei26',
+    admin: ['yangqinglei26'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2022
+        <i class="ri-heart-fill heart_icon"></i> fordreams1314
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/face.jpg" alt="fordreams1314个人博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/java">JAVA</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/%E7%94%9F%E6%B4%BB">生活</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories/%E7%AE%A1%E7%90%86">管理</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+  </div>
+</body>
+
+</html>
