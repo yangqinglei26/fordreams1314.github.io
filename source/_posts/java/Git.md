@@ -17,6 +17,10 @@ category:
 ## 2. 基本操作
 
 > Git基本操作:  https://www.runoob.com/git/git-basic-operations.html
+>
+> https://zhuanlan.zhihu.com/p/30044692
+>
+> Gitflow: https://blog.csdn.net/sunyctf/article/details/130587970
 
 ### 2.1. 使用当前目录作为Git仓库
 

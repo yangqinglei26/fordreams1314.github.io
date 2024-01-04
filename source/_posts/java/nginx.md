@@ -19,6 +19,8 @@ category:
 
 [史上讲解最好的Nginx 教程，从入门到精通](https://zhuanlan.zhihu.com/p/389438482)
 
+[Docker 安装 Nginx 容器 (完整详细版)](https://blog.csdn.net/BThinker/article/details/123507820)
+
 ### location
 
 **路径映射：**
@@ -52,7 +54,7 @@ server {
     listen 8082;
     server_name localhost;
     location /yang {
-        alias /home/yang/e2/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径是/home/yang/e1//index3.html
+        alias /home/yang/e2/;# 访问http://101.200.208.190/yang/index3.html，实际在服务器找的路径是/home/yang/e2//index3.html
         index  index.html index.htm;
     }
 }
