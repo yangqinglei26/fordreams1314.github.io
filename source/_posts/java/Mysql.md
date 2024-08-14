@@ -32,6 +32,10 @@ category:
 
 ## 表
 
+### 删除
+
+[mysql删除重复数据保留id最小（最大）的数据](https://blog.csdn.net/u013967628/article/details/88076520)
+
 ### 三范式
 
 ### 建表规约
@@ -47,6 +51,12 @@ category:
 ## 索引
 
 ### 索引分类
+
+[B+树原理揭秘与索引优缺点分析](https://segmentfault.com/a/1190000044668913)
+
+[MySQL索引-B+树（看完你就明白了）](https://www.cnblogs.com/cangqinglang/p/15042752.html)
+
+[MySQL索引原理及BTree（B-/+Tree）结构详解](https://blog.csdn.net/u013967628/article/details/84305511)
 
 - [覆盖索引](https://www.cnblogs.com/wang-meng/p/ae6d1c4a7b553e9a5c8f46b67fb3e3aa.html)
 - [最左匹配](https://cloud.tencent.com/developer/article/1774781)
@@ -70,6 +80,12 @@ category:
 [执行过程](https://www.processon.com/view/link/6045cdc46376897969e3e86c)
 
 [Double Write](https://blog.csdn.net/jc_benben/article/details/78967380)
+
+### 锁
+
+​		行锁和表锁各有其适用场景。行锁适用于高并发环境下的数据访问和事务处理，可以最大限度地减少锁定的资源范围，提高系统的并发性能。而表锁则适用于非事务型表的写操作、需要明确控制并发访问的场景以及批量数据导入和导出等特定情况。在实际应用中，应根据具体的业务需求和性能要求来选择合适的锁机制。
+
+1. [对mysql乐观锁、悲观锁、共享锁、排它锁、行锁、表锁概念的理解](https://blog.csdn.net/u013967628/article/details/80651044)
 
 ## 日志
 

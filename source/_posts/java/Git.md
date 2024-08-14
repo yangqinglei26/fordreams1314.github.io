@@ -21,6 +21,10 @@ category:
 > https://zhuanlan.zhihu.com/p/30044692
 >
 > Gitflow: https://blog.csdn.net/sunyctf/article/details/130587970
+>
+> Submodule: https://juejin.cn/post/6948251963133788196
+>
+> Subtree: https://zhuanlan.zhihu.com/p/614299771
 
 ### 2.1. 使用当前目录作为Git仓库
 

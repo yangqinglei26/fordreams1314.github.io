@@ -11,14 +11,14 @@ category:
 
 [官方文档](https://hexo.io/docs/)
 
-## 1. 依赖环境（windows）
+## 依赖环境（windows）
 
 - 安装git
 - 安装node
 
-## 2. 安装
+## 安装
 
-### 2.1. 安装客户端并初始化工作目录
+### 安装客户端并初始化工作目录
 
 ```bash
 # 全局安装hexo客户端
@@ -30,7 +30,7 @@ hexo init
 
 ![初始化目录结构](hexo/image-20210531175459327.png)
 
-### 2.2. 安装服务并启动
+### 安装服务并启动
 
 ```bash
 # 进入工作目录，安装 hexo-server 服务依赖
@@ -46,22 +46,22 @@ hexo server
 
 ![image-20210531180601339](hexo/image-20210531180601339.png)
 
-## 3. 发布到Github
+## 发布到Github
 
-### 3.1. 配置SSH
+### 配置SSH
 
 > 参考资料：[Git](../Git/#7-1-SSH%E9%85%8D%E7%BD%AE)
 
-### 3.2. 将文件发布到github
+### 将文件发布到github
 
-#### 3.2.1. 安装部署依赖
+#### 安装部署依赖
 
 ```bash
 # 进入工作目录
 npm install hexo-deployer-git --save
 ```
 
-#### 3.2.2. 修改配置
+#### 修改配置
 
 - 修改工作目录下的 _config.yml：
 
@@ -79,7 +79,7 @@ deploy:
 
 
 
-#### 3.2.3. 测试是否成功
+#### 测试是否成功
 
 ```bash
 # 清空缓存和publc目录
@@ -102,7 +102,7 @@ hexo deploy
 
 ![image-20210531190037923](hexo/image-20210531190037923.png)
 
-### 3.3. 设置GitHub Pages
+### 设置GitHub Pages
 
 ![image-20210531190112620](hexo/image-20210531190112620.png)
 
@@ -126,13 +126,13 @@ hexo deploy
 
 ![image-20210531191535782](hexo/image-20210531191535782.png)
 
-## 4. 切换主题
+## 切换主题
 
 > [主题](https://hexo.io/themes/)
 >
 > [ayer主题使用](https://shen-yu.gitee.io/2019/ayer/)   （说明： 由于我们会对主题进行二次开发，所以建议使用文中第2种方法进行安装）
 
-### 4.1. 安装主题
+### 安装主题
 
 ```bash
 cd <folder>
@@ -147,7 +147,7 @@ git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer
 
 ![image-20210601093647464](hexo/image-20210601093647464.png)
 
-### 4.2. 安装插件
+### 安装插件
 
 ```bash
 # 搜索插件
@@ -168,7 +168,7 @@ search:
 
 ![image-20210601094943119](hexo/image-20210601094943119.png)
 
-### 4.3. 生成分类和标签页
+### 生成分类和标签页
 
 ```bash
 # 生成分类页
@@ -196,7 +196,7 @@ layout: "tags"
 
 ![](hexo/image-20210601092125011.png)
 
-### 4.4. 配置gittalk
+### 配置gittalk
 
 > [参考](../Git/#8-GitTalk%E4%BD%BF%E7%94%A8)
 
@@ -204,7 +204,7 @@ layout: "tags"
 
 ![image-20210601095505077](hexo/image-20210601095505077.png)
 
-### 4.4. 修改主题配置文件
+### 修改主题配置文件
 
 ![image-20210601091235457](hexo/image-20210601091235457.png)
 
@@ -463,7 +463,7 @@ minivaline:
 
 ```
 
-### 4.5. 部署并测试
+### 部署并测试
 
 ```bash
 # 清空缓存 
@@ -474,16 +474,16 @@ hexo g -d
 
 - 访问 https://yangqinglei26.github.io/yangtest
 
-## 5. 解决图片展示问题
+## 解决图片展示问题
 
-### 5.1. 安装图片处理插件
+### 安装图片处理插件
 
 ```bash
 cd <工作目录>
 npm install hexo-asset-image --save
 ```
 
-### 5.2. 修改插件文件 `/node_modules/hexo-asset-image/index.js`
+### 修改插件文件 `/node_modules/hexo-asset-image/index.js`
 
 ```javascript
 'use strict';
@@ -549,51 +549,55 @@ hexo.extend.filter.register('after_post_render', function(data){
 });
 ```
 
-### 5.3. 修改工作目录下 _config.yml 
+### 修改工作目录下 _config.yml 
 
 ```bash
 post_asset_folder: true
 ```
 
-### 5.4. 修改typora偏好配置
+### 修改typora偏好配置
 
 ![image-20210917091646220](hexo/image-20210917091646220.png)
 
 > 参考资料：[Ericam](https://blog.csdn.net/xjm850552586/article/details/84101345)
 
-## 6. 集成Travis CI
+### Typora 主题配置
 
-### 6.1. 配置 personal access token
+1. [主题配置](https://blog.csdn.net/qq_14999375/article/details/108822007)
 
-#### 6.1.1. 生成 access token
+## 集成Travis CI
+
+### 配置 personal access token
+
+#### 生成 access token
 
 ![image-20210601151405917](hexo/image-20210601151405917.png)
 
-#### 6.1.2. 拷贝access token到记事本，保存以备用
+#### 拷贝access token到记事本，保存以备用
 
 ![image-20210601151458900](hexo/image-20210601151458900.png)
 
-### 6.2. 配置 Travis CI
+### 配置 Travis CI
 
-#### 6.2.1. 将 [Travis CI](https://github.com/marketplace/travis-ci) 添加到你的 GitHub 账户中
+#### 将 [Travis CI](https://github.com/marketplace/travis-ci) 添加到你的 GitHub 账户中
 
 ![image-20210601151802979](hexo/image-20210601151802979.png)
 
-#### 6.2.2. 前往 GitHub 的 [Applications settings](https://github.com/settings/installations)，配置 Travis CI 权限，使其能够访问你的 repository
+#### 前往 GitHub 的 [Applications settings](https://github.com/settings/installations)，配置 Travis CI 权限，使其能够访问你的 repository
 
 ![image-20210601151947991](hexo/image-20210601151947991.png)
 
 ![image-20210601152038736](hexo/image-20210601152038736.png)
 
-#### 6.2.3. 将Github生成的 personal access token添加到travis中
+#### 将Github生成的 personal access token添加到travis中
 
 ![image-20210601163143344](hexo/image-20210601163143344.png)
 
 ![image-20210601163328326](hexo/image-20210601163328326.png)
 
-### 6.3. 配置 .travis.yml
+### 配置 .travis.yml
 
-#### 6.3.1. 工作目录下新建 .travis.yml
+#### 工作目录下新建 .travis.yml
 
 ```yaml
 # 指定构建环境是Node.js，当前版本是稳定版
@@ -641,17 +645,17 @@ after_script:
 
 ![image-20210601165436990](hexo/image-20210601165436990.png)
 
-#### 6.3.2. 修改 _config.yml
+#### 修改 _config.yml
 
 ![image-20210601165917656](hexo/image-20210601165917656.png)
 
-### 6.4. 提交到github，并测试
+### 提交到github，并测试
 
-#### 6.4.1. 删除 themes\ayer 下多余的文件,不然主题配置会被覆盖
+#### 删除 themes\ayer 下多余的文件,不然主题配置会被覆盖
 
 ![image-20210601182218682](hexo/image-20210601182218682.png)
 
-#### 6.4.2.  提交并测试
+####  提交并测试
 
 ```bash
 # 清空分支下所有文件
@@ -664,9 +668,9 @@ git push -u origin master:main
 
 ![image-20210601171658374](hexo/image-20210601171658374.png)
 
-## 7. 常用命令
+## 常用命令
 
-## 7.1. 新建相关
+## 新建相关
 
 > [hexo new](https://hexo.io/zh-cn/docs/writing)
 

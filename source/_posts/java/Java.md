@@ -12,9 +12,9 @@ category:
   - juc
 ---
 
-## 1. IO和NIO
+## IO和NIO
 
-## 2. 多线程
+## 多线程
 
 > [Java Thread 的使用](https://www.cnblogs.com/renhui/p/6066852.html)
 >
@@ -26,9 +26,9 @@ category:
 
 ![线程状态图](Java/624959-66b49045b1bd7cd6.webp)
 
-### 2.1. 创建线程
+### 创建线程
 
-#### 2.1.1. 实现Runnable接口
+#### 实现Runnable接口
 
 > 推进使用：方便同一个对象被多个线程使用
 
@@ -36,9 +36,9 @@ category:
 new Thread(Runnable 实现).start()
 ```
 
-#### 2.1.2. 继承Thread
+#### 继承Thread
 
-#### 2.1.3. 实现Callable接口
+#### 实现Callable接口
 
 ```
 实现Callable接口，需要返回值类型
@@ -50,15 +50,15 @@ new Thread(Runnable 实现).start()
 关闭服务：ser.shutdownNow()
 ```
 
-### 2.2. 停止线程
+### 停止线程
 
-#### 2.2.1. 设置一个标志位
+####  设置一个标志位
 
 ```java
 publ
 ```
 
-### 2.3. 礼让线程
+### 礼让线程
 
 > yield()
 
@@ -66,26 +66,26 @@ publ
 - 将线程从运行状态转为就绪状态
 - 让cpu重新调度，礼让不一定成功！看cpu心情
 
-### 2.4. 强制执行线程
+### 强制执行线程
 
 > join()
 
-### 2.5. 线程优先级
+###  线程优先级
 
 > priority(1-10)
 
 - 先设置优先级，再start()
 
-### 2.6. 守护线程
+### 守护线程
 
-### 2.7. 线程同步
+###  线程同步
 
 - 队列+锁
 
 - synchronized 
 - lock
 
-### 2.8. 线程通信
+### 线程通信
 
 - 生产者和消费者问题
 - synchronized 
@@ -93,21 +93,21 @@ publ
 
 - wait()、notifyall()
 
-#### 2.8.1. 管程法
+#### 管程法
 
 - 缓冲池
 
-#### 2.8.2. 信号灯法
+#### 信号灯法
 
 - 标志位
 
-### 2.9. 线程池
+### 线程池
 
 
 
-## 3. 注解和反射
+## 注解和反射
 
-## 4. JUC
+## JUC
 
 > [参考资料1](https://www.processon.com/view/5ff905961e0853437c6d010c?fromnew=1#map) 
 >
@@ -121,7 +121,7 @@ publ
 
 ![sike-juc](Java/sike-juc.png)
 
-### 4.1. wait和sleep的区别
+### wait和sleep的区别
 
 - 来自不同的类
 
@@ -135,9 +135,9 @@ wait 会释放锁，sleep 不会释放
 
 wait 在 synchronized 中使用
 
-### 4.2. Lock锁
+### Lock锁
 
-#### 4.2.1. ReentrantLock
+#### ReentrantLock
 
 - 默认非公平锁
 - 必须成对出现
@@ -235,7 +235,7 @@ thread2:退出写入
 
 
 
-#### 4.2.2. synchronized 和 lock 的区别
+#### synchronized 和 lock 的区别
 
 > [深入分析synchronized的实现原理](https://www.topjava.cn/article/1391297775492272128)
 >
@@ -250,11 +250,11 @@ thread2:退出写入
 | 5    | 非公平锁，不可以中断           | 可以自定义           |
 | 6    | 适合锁少量的同步代码           | 适合锁大量的同步代码 |
 
-#### 4.2.3. Condition
+#### Condition
 
 > await() 、signal()
 
-#### 4.2.4. 八锁现象
+#### 八锁现象
 
 synchronized 锁的对象
 
@@ -265,11 +265,11 @@ synchronized 锁的对象
 - 方法的调用者
 - class类模板（static）
 
-### 4.3. 集合相关
+### 集合相关
 
 ![image-20210720010303960](Java/image-20210720010303960.png)
 
-#### 4.3.1. ArrayList
+#### ArrayList
 
 并发下 ArrayList 会抛出 ConcurrentModificationExecptin ，解决办法：
 
@@ -315,7 +315,7 @@ public boolean add(E e) {
 }
 ```
 
-#### 4.3.2.  HashSet
+####  HashSet
 
 - 底层
 
@@ -335,14 +335,14 @@ public boolean add(E e) {
 1.  Collections.synchronizedSet(new HashSet ())
 2.  new CopyOnWriteArraySet()
 
-#### 4.3.3. HashMap
+#### HashMap
 
 并发下 HashMap 会抛出 ConcurrentModificationExecptin ，解决办法：
 
 1.  Collections.synchronizedMap(new HashMap ())
 2.  new  ConcurrentHashMap()
 
-### 4.4. Callable
+### Callable
 
 - 调用
 
@@ -390,7 +390,7 @@ A1 do working
 main
 ```
 
-### 4.5. CountDownLatch（倒计时弹簧锁）
+### CountDownLatch（倒计时弹簧锁）
 
 ```java
 public class CountDownLatchTest {
@@ -445,7 +445,7 @@ cousumer7:结束等待
 
 
 
-### 4.6. CyclicBarrier(循环阻塞)
+### CyclicBarrier(循环阻塞)
 
 ```java
 public class CyclicBarrierTest {
@@ -501,7 +501,7 @@ cousumer7:结束等待
 
 
 
-### 4.7. Semaphore(信号量)
+### Semaphore(信号量)
 
 ```java
 public class SemaphoreTest {
@@ -556,7 +556,7 @@ cousumer9:执行结束
 
 - 只有获取到Semaphore才会开始工作
 
-### 4.8. ReadWriteLock
+### ReadWriteLock
 
 ```java
 public class ReadWriteLockTest {
@@ -654,11 +654,11 @@ thread1:退出读取
 
 - 所有写线程结束，才会进入读线程。读线程读取时，并没有锁定代码块。
 
-### 4.9. BlockingQueue
+### BlockingQueue
 
 ![image-20210604192750304](Java/image-20210604192750304.png)
 
-#### 4.9.1. ArrayBlockingQueue
+#### ArrayBlockingQueue
 
 |      | 抛出异常   | 特殊值   | 阻塞     | 超时                 |
 | ---- | ---------- | -------- | -------- | -------------------- |
@@ -666,15 +666,15 @@ thread1:退出读取
 | 移除 | remove() | poll() | take()   | poll(time, unit)     |
 | 检查 | element()  | peek() | 不可用   | 不可用               |
 
-#### 4.9.2. SynchronousQueue
+#### SynchronousQueue
 
 
 
-### 4.10. Executors
+### Executors
 
-#### 4.10.1. 三种创建方式（不采用）
+#### 三种创建方式（不采用）
 
-#### 4.10.2. ThreadPoolExecutor 七大参数
+#### ThreadPoolExecutor 七大参数
 
 ![image-20210717170314604](Java/image-20210717170314604.png)
 
@@ -722,19 +722,19 @@ thread1:退出读取
 - cpu密集型
 - IO密集型
 
-### 4.11. 四大函数式接口
+### 四大函数式接口
 
-### 4.12. Stream 流式计算
+### Stream 流式计算
 
-### 4.13. ForkJoin
+### ForkJoin
 
 > [ForkJoin](https://www.liaoxuefeng.com/wiki/1252599548343744/1306581226487842)
 
-### 4.14. 异步回调
+### 异步回调
 
 ![image-20210717171601990](Java/image-20210717171601990.png)
 
-### 4.15. JMM
+### JMM
 
 ![img](Java/d866f75118d947c2b3c4bc4a340c3d38~tplv-k3u1fbpfcp-watermark.image)
 
@@ -743,7 +743,7 @@ thread1:退出读取
 - 保证特定操作的顺序
 - 保证某些变量的内存可见性（利用该特性实现volatile的内存可见性）
 
-### 4.16. volatile
+### volatile
 
 > [JMM角度详解Volatile](https://blog.csdn.net/qq_38862628/article/details/112169326)
 >
@@ -758,7 +758,7 @@ volatile 是java虚拟机提供的轻量级的同步机制
 
 3. 禁止指令重排
 
-### 4.17. 单例模式
+### 单例模式
 
 - DCL懒汉式
 
@@ -768,29 +768,29 @@ volatile 是java虚拟机提供的轻量级的同步机制
 
 - 枚举
 
-### 4.18. CAS
+### CAS
 
 - ABA 问题
 - AtomicInteger  
 - AtomicStampedReference
 
-### 4.19. 各种锁
+### 各种锁
 
 > [不可不说的Java“锁”事](https://tech.meituan.com/2018/11/15/java-lock.html)
 
-#### 4.19.1. 公平锁、非公平锁
+#### 公平锁、非公平锁
 
-#### 4.19.2. 可重入锁
+#### 可重入锁
 
-#### 4.19.3. 自旋锁
+#### 自旋锁
 
-#### 4.19.4. 死锁
+#### 死锁
 
 - 死锁排查
 
 程序员面试宝典4.27版
 
-## 5. JVM
+## JVM
 
 > [知识架构图](https://www.processon.com/view/5ed19b151e085306e3638b04#map) 
 >
@@ -832,18 +832,18 @@ javap -verbose LiteralTest.class
 
 
 
-## 6. Java8
+## Java8
 
 > [java8特性](https://www.cnblogs.com/liuxiaozhi23/p/10880147.html)
 
-### 6.1. 函数式接口
+### 函数式接口
 
 > [函数式接口](https://www.runoob.com/java/java8-functional-interfaces.html)
 
 - 定义：任何接口，如果只包含唯一一个抽象方法，那么它就是函数式接口 
 - 可以用lamada表达式代替匿名内部类来实现
 
-#### 6.1.1 Predicates
+#### Predicates
 
 ```java
 @FunctionalInterface
@@ -854,7 +854,7 @@ public interface Predicate<T> {
 
 
 
-#### 6.1.2 Functions
+#### Functions
 
 ```java
 @FunctionalInterface
@@ -865,7 +865,7 @@ public interface Function<T, R> {
 
 
 
-#### 6.1.3 Suppliers
+#### Suppliers
 
 ```java
 @FunctionalInterface
@@ -876,7 +876,7 @@ public interface Supplier<T> {
 
 
 
-#### 6.1.4 Consumers
+#### Consumers
 
 ```java
 @FunctionalInterface
@@ -887,27 +887,27 @@ public interface Consumer<T> {
 
 
 
-### 6.2. Lamada表达式
+### Lamada表达式
 
 > [Lambda 表达式](https://www.runoob.com/java/java8-lambda-expressions.html)
 
-### 6.3. 方法引用
+### 方法引用
 
 > [方法引用](https://www.runoob.com/java/java8-method-references.html)
 
-### 6.4. Stream
+### Stream
 
 > [Stream](https://www.runoob.com/java/java8-streams.html)
 
-### 6.5. 默认方法
+### 默认方法
 
 > [默认方法](https://www.runoob.com/java/java8-default-methods.html)
 
-### 6.6. Optional 类
+### Optional 类
 
 > [Optional 类](https://www.runoob.com/java/java8-optional-class.html)
 
-### 6.7. 日期时间
+### 日期时间
 
 > [新的日期时间 API](https://www.runoob.com/java/java8-datetime-api.html)
 
